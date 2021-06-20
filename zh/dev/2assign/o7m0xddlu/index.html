@@ -1,0 +1,963 @@
+<!doctype html><html lang=zh dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>[仿知乎web端]Python+MSSQL实现并部署到云服务器 – lunarwhite</title><script defer src=/personal-blog/js/fuse.min.c4bee9a8d44273d6154fe86006923d4131eb2e8069d8897687137c6f37f553e3.js></script><script src=/personal-blog/js/enquire.min.aa37bdcb743826eecdae5c5d177fc7d6552340f1b4378ffaa9c82b2c6111400b.js></script><script defer src=/personal-blog/js/lazysizes.min.5e11d056075a05065b9c0bfec44084a113fc2976c2952ec804dedb61c7662db9.js></script><script defer src=/personal-blog/js/helper/getParents.min.ccd45f158c1b17849307ba913a72beac239c410f2b6e648496a79842da84e55b.js></script><script defer src=/personal-blog/js/helper/fadeinout.min.9fb19682560d5fa5596fffec85da605067c4acc86aad05add4d8fff9d362a446.js></script><script>"use strict";window.onload=function(){var q=JSON.parse('"ltr"'),Y=JSON.parse('"http://lunarwhite.github.io/personal-blog"'),af=JSON.parse('"http://lunarwhite.github.io/personal-blog/zh/dev/2assign/o7m0xddlu/"'),M=document.getElementById("toggle-sidebar"),P=document.getElementById("toggle-menu"),z=document.querySelector('.toc__body'),y=document.querySelector('.toc__label'),j=document.getElementById('list-main'),B=document.getElementById('list-side'),w=document.getElementById('single-menu'),l=document.querySelectorAll('.slider__icon'),S,G,ae,E,x,r,X,m,t,$,W,L,C,i,K,A,U,p,D,Z,h,H,I,J,o,k,n,N,O,ac,u,_,b,c,f,s,ad,v,g,T,e,ag,ah,a,aj,V;M?M.addEventListener('change',function(a){a.target.checked?(z&&fadeIn(z,200),y&&fadeIn(y,200),j&&B&&(j.className='m',B.className='r'),l&&l.forEach(function(a){a.classList.contains('hide')?a.classList.remove('hide'):a.classList.add('hide')})):(z&&fadeOut(z,200),y&&fadeOut(y,200),j&&B&&(j.className='mr',B.className='hide'),l&&l.forEach(function(a){a.classList.contains('hide')?a.classList.remove('hide'):a.classList.add('hide')}))}):null,P?P.addEventListener('change',function(a){a.target.checked?(j&&w&&(j.className='m',w.className='l'),l&&l.forEach(function(a){a.classList.contains('hide')?a.classList.remove('hide'):a.classList.add('hide')})):(j&&w&&(j.className='lm',w.className='hide'),l&&l.forEach(function(a){a.classList.contains('hide')?a.classList.remove('hide'):a.classList.add('hide')}))}):null,S=document.getElementById('navCollapseBtn'),S?S.addEventListener('click',function(c){var a=document.querySelector('.navbar__collapse'),b;a&&(b=a.getAttribute('data-open'),b==='true'?(a.setAttribute('data-open','false'),a.style.maxHeight=0):(a.setAttribute('data-open','true'),a.style.maxHeight=a.scrollHeight+"px"))}):null,G=document.querySelectorAll('.expand__button');for(let a=0;a<G.length;a++)G[a].addEventListener("click",function(){var a=this.nextElementSibling;a.style.maxHeight?(a.style.maxHeight=null,this.querySelector('svg').classList.add('expand-icon__right'),this.querySelector('svg').classList.remove('expand-icon__down')):(a.style.maxHeight=a.scrollHeight+"px",this.querySelector('svg').classList.remove('expand-icon__right'),this.querySelector('svg').classList.add('expand-icon__down'))});document.querySelectorAll('.tab')?document.querySelectorAll('.tab').forEach(function(a,d){var e=a.getAttribute('id'),f=a,b=a.querySelectorAll('.tab__link'),c=a.querySelectorAll('.tab__content'),g=[];b&&b.length>0?b.forEach(function(b,d,a){b.onclick=function(e){for(var b=0;b<a.length;b++)d===parseInt(b,10)?a[b].classList.contains('active')||(a[b].classList.add('active'),c[b].style.display='block'):(a[b].classList.remove('active'),c[b].style.display='none')}}):null}):null,document.querySelectorAll('.codetab')?document.querySelectorAll('.codetab').forEach(function(a,d){var e=a.getAttribute('id'),f=a,b=a.querySelectorAll('.codetab__link'),c=a.querySelectorAll('.codetab__content'),g=[];b&&b.length>0?b.forEach(function(b,d,a){b.onclick=function(e){for(var b=0;b<a.length;b++)d===parseInt(b,10)?a[b].classList.contains('active')||(a[b].classList.add('active'),c[b].style.display='block'):(a[b].classList.remove('active'),c[b].style.display='none')}}):null}):null,ae=JSON.parse("true"),E=document.getElementById('root'),x=document.getElementById('toggleToLight'),r=document.getElementById('toggleToDark'),ae||(E.className='theme__light',localStorage.setItem('theme','light')),r&&(r.onclick=function(a){E.className='theme__dark',localStorage.setItem('theme','dark'),x.className='navbar__icons--icon',r.className='hide'}),x&&(x.onclick=function(a){E.className='theme__light',localStorage.setItem('theme','light'),x.className='hide',r.className='navbar__icons--icon'}),document.querySelectorAll('.menu__list').forEach(function(a){a.classList.contains('active')&&(a.style.maxHeight=a.scrollHeight+"px")}),document.querySelectorAll('.menu__title--collapse').forEach(function(a){a.addEventListener('click',function(e){var b=this.nextElementSibling,c=this.querySelector('.menu__title--icon'),d;if(!b)return null;for(d=a.parentNode;d.classList.contains('menu__list')&&d.classList.contains('active');)d.style.maxHeight=100*d.children.length+"px",d=d.parentNode;b.style.maxHeight?(b.style.maxHeight=null,b.classList.remove('active'),c.classList.add('right'),q==='rtl'?c.classList.remove('downrtl'):c.classList.remove('down')):(b.style.maxHeight=b.scrollHeight+"px",b.classList.add('active'),c.classList.remove('right'),q==='rtl'?c.classList.add('downrtl'):c.classList.add('down'))})}),X=document.getElementById('mobileLogo'),m=document.getElementById("myModal"),t=document.getElementById('myDrawer'),$=document.querySelector('.drawer__close'),W=function(){m.style.opacity=1,q==='rtl'?(m.style.right=0,t.style.right=0):(m.style.left=0,t.style.left=0)},L=function(){m.style.opacity=0,q==='rtl'?t.style.right='-100%':t.style.left='-100%',setTimeout(function(){q==='rtl'?m.style.right='-100%':m.style.left='-100%'},250)},X.onclick=function(){W(),localStorage.setItem('isDrawerOpen','true')},m.onclick=function(){L(),localStorage.setItem('isDrawerOpen','false')},$.onclick=function(){L(),localStorage.setItem('isDrawerOpen','false')},C=window.pageYOffset||document.documentElement.scrollTop,i=document.querySelector('.toc'),K=i?i.querySelector('#TableOfContents'):null,A=document.querySelector('.single__contents'),U=document.querySelectorAll('div[data-bgimg]'),p=JSON.parse('["h2","h3","h4"]'),p?p=p.toString():p="h1, h2, h3, h4, h5, h6",D=JSON.parse("null"),Z=JSON.parse("false");function F(a){Z&&D&&Object.keys(D).length&&(D.height<=a?U.forEach(function(a){a.setAttribute('data-bgimg','false')}):U.forEach(function(a){a.setAttribute('data-bgimg','true')}))}F(C),window.onscroll=function(){var a=window.pageYOffset||document.documentElement.scrollTop;a>C?(A?A.querySelectorAll(p.toString()).forEach(function(a){if(document.documentElement.scrollTop>=a.offsetTop)if(K){var b=a.getAttribute('id');i.querySelectorAll('a').forEach(function(a){a.classList.remove('active')}),i.querySelector('a[href="#'+b+'"]')?i.querySelector('a[href="#'+b+'"]').classList.add('active'):null}}):null,F(a)):(A?A.querySelectorAll(p.toString()).forEach(function(a){if(document.documentElement.scrollTop>=a.offsetTop)if(K){var b=a.getAttribute('id');i.querySelectorAll('a').forEach(function(a){a.classList.remove('active')}),i.querySelector('a[href="#'+b+'"]')?i.querySelector('a[href="#'+b+'"]').classList.add('active'):null}}):null,F(a)),C=a<=0?0:a},h=document.querySelector('#search-mobile'),H=document.querySelector('.mobile-search'),I=document.querySelector('#mobileSearchBtn'),J=document.querySelector('#search-mobile-close'),o=document.querySelector('#search-mobile-container'),k=document.querySelector('#search-mobile-results'),n=document.querySelector('html'),H&&(H.style.display='none'),I?I.addEventListener('click',function(){o&&(o.style.display='block'),h&&h.focus(),n&&(n.style.overflowY='hidden')}):null,J?J.addEventListener('click',function(){if(o&&(o.style.display='none'),h&&(h.value=''),k)while(k.firstChild)k.removeChild(k.firstChild);n&&(n.style.overflowY='visible')}):null,h?h.addEventListener('keydown',function(a){if(a.key==='Escape'){if(o&&(o.style.display='none'),h&&(h.value=''),k)while(k.firstChild)k.removeChild(k.firstChild);n&&(n.style.overflowY='visible')}}):null,N=localStorage.getItem('theme'),O=document.getElementById('root'),ac=document.querySelectorAll('.select-theme'),u=document.querySelectorAll('.select-theme__item'),N&&(u?u.forEach(function(a){a.text.trim()===N?a.classList.add('is-active'):a.classList.remove('is-active')}):null),u?u.forEach(function(a,b){a.addEventListener('click',function(c){var a=c.target.text.trim(),b;localStorage.setItem('theme',a),O.removeAttribute('class'),O.classList.add(`theme__${a}`),ac.forEach(function(b){b.querySelectorAll('a').forEach(function(b){b.classList&&(b.text.trim()===a?b.classList.contains('is-active')||b.classList.add('is-active'):b.classList.contains('is-active')&&b.classList.remove('is-active'))})}),window.mermaid&&(a==="dark"||a==="hacker"?(mermaid.initialize({theme:'dark'}),location.reload()):(mermaid.initialize({theme:'default'}),location.reload())),b=document.querySelector('iframe'),b&&b.contentWindow.postMessage({type:'set-theme',theme:a==="dark"||a==="hacker"?'photon-dark':a==='kimbie'?'github-dark-orange':'github-light'},'https://utteranc.es')})}):null,_=JSON.parse('"/zh"'),b=null,c=null,f=null,s=JSON.parse("true"),ad=JSON.parse("true"),v=null,ad&&function(){var a=new XMLHttpRequest;a.open('GET',Y+_+"/index.json"),a.setRequestHeader('Content-Type','application/json; charset=utf-8'),a.onload=function(){a.status===200?v=new Fuse(JSON.parse(a.response.toString('utf-8')),{keys:['title','description','content'],includeMatches:s,shouldSort:!0,threshold:.4,location:0,distance:100,maxPatternLength:32,minMatchCharLength:1}):console.error(`[${a.status}]Error:`,a.statusText)},a.send()}();function ai(e,a){var b=document.createElement('li'),c,d;b.className='search-result__item',c=document.createElement('a'),c.innerHTML=a.title,c.setAttribute('class','search-result__item--title'),c.setAttribute('href',a.permalink),d=document.createElement('div'),d.setAttribute('class','search-result__item--desc'),a.description?d.innerHTML=a.description:a.content&&(d.innerHTML=a.content.substring(0,80)),b.appendChild(c),b.appendChild(d),e.appendChild(b)}function ak(g,a){var f=document.createElement('li'),b,e,c;if(f.className='search-result__item',b=null,e=document.createElement('a'),e.innerHTML=a.item.title,e.setAttribute('class','search-result__item--title'),e.setAttribute('href',a.item.uri),a.matches&&a.matches.length){for(c=0;c<a.matches.length;c++)'title'===a.matches[c].key&&(e=document.createElement('a'),e.innerHTML=d(a.matches[c].value,a.matches[c].indices),e.setAttribute('class','search-result__item--title'),e.setAttribute('href',a.item.uri)),'description'===a.matches[c].key?(b=document.createElement('div'),b.setAttribute('class','search-result__item--desc'),b.innerHTML=d(a.item.description,a.matches[c].indices)):'content'===a.matches[c].key?b||(b=document.createElement('div'),b.setAttribute('class','search-result__item--desc'),b.innerHTML=d(a.item.content.substring(0,80),a.matches[c].indices)):a.item.description?(b=document.createElement('div'),b.setAttribute('class','search-result__item--desc'),b.innerHTML=a.item.description):(b=document.createElement('div'),b.setAttribute('class','search-result__item--desc'),b.innerHTML=a.item.content.substring(0,80));f.appendChild(e),b&&f.appendChild(b),f&&g.appendChild(f)}}function R(f,e){var a,d;for(b=document.getElementById('search-results'),c=document.getElementById('search-menu'),b.setAttribute('class','dd is-active'),a=document.createElement('ul'),a.setAttribute('class','dd-content search-content'),e.length?e.forEach(function(b){var e=document.createElement('li'),c=document.createElement('a'),f,d;c.setAttribute('href',b.uri),c.setAttribute('class','dd-item'),c.appendChild(e),f=document.createElement('div'),f.innerHTML=b.title,f.setAttribute('class','search-result__item--title'),d=document.createElement('div'),d.setAttribute('class','search-result__item--desc'),b.description?d.innerHTML=b.description:b.content&&(d.innerHTML=b.content.substring(0,80)),e.appendChild(f),e.appendChild(d),a.appendChild(c)}):(d=document.createElement('li'),d.setAttribute('class','dd-item'),d.innerText='No results found',a.appendChild(d));c.hasChildNodes();)c.removeChild(c.lastChild);c.appendChild(a)}function Q(g,f){var a,e;for(b=document.getElementById('search-results'),c=document.getElementById('search-menu'),b.setAttribute('class','dd is-active'),a=document.createElement('ul'),a.setAttribute('class','dd-content search-content'),f.length?f.forEach(function(b){var h=document.createElement('li'),f=document.createElement('a'),c=null,g,e;if(f.setAttribute('href',b.item.uri),f.setAttribute('class','dd-item'),f.appendChild(h),g=document.createElement('div'),g.innerHTML=b.item.title,g.setAttribute('class','search-result__item--title'),b.matches&&b.matches.length){for(e=0;e<b.matches.length;e++)'title'===b.matches[e].key&&(g.innerHTML=d(b.matches[e].value,b.matches[e].indices)),'description'===b.matches[e].key?(c=document.createElement('div'),c.setAttribute('class','search-result__item--desc'),c.innerHTML=d(b.item.description,b.matches[e].indices)):'content'===b.matches[e].key?c||(c=document.createElement('div'),c.setAttribute('class','search-result__item--desc'),c.innerHTML=d(b.item.content.substring(0,80),b.matches[e].indices)):b.item.description?(c=document.createElement('div'),c.setAttribute('class','search-result__item--desc'),c.innerHTML=b.item.description):(c=document.createElement('div'),c.setAttribute('class','search-result__item--desc'),c.innerHTML=b.item.content.substring(0,80));h.appendChild(g),c&&h.appendChild(c),a.appendChild(f)}}):(e=document.createElement('li'),e.setAttribute('class','dd-item'),e.innerText='No results found',a.appendChild(e));c.hasChildNodes();)c.removeChild(c.lastChild);c.appendChild(a)}function aa(f,d){var a,e;b=document.getElementById('search-mobile-results'),a=document.createElement('div'),a.setAttribute('class','mobile-search__content'),d.length>0?d.forEach(function(b){var c=document.createElement('a');c.setAttribute('href',b.uri),c.innerHTML='<div class="mobile-search__item"><div class="mobile-search__item--title">📄 '+b.title+'</div><div class="mobile-search__item--desc">'+(b.description?b.description:b.content)+'</div></div>',a.appendChild(c)}):(e=document.createElement('span'),a.appendChild(e));let c=document.getElementById('search-mobile-results');while(c.firstChild)c.removeChild(c.firstChild);b.appendChild(a)}function ab(g,e){var a,f;b=document.getElementById('search-mobile-results'),a=document.createElement('div'),a.setAttribute('class','mobile-search__content'),e.length?e.forEach(function(b){var f=document.createElement('li'),h=document.createElement('a'),c=null,g,e;if(h.setAttribute('href',b.item.uri),h.appendChild(f),f.setAttribute('class','mobile-search__item'),g=document.createElement('div'),g.innerHTML=b.item.title,g.setAttribute('class','mobile-search__item--title'),b.matches&&b.matches.length){for(e=0;e<b.matches.length;e++)'title'===b.matches[e].key&&(g.innerHTML=d(b.matches[e].value,b.matches[e].indices)),'description'===b.matches[e].key?(c=document.createElement('div'),c.setAttribute('class','mobile-search__item--desc'),c.innerHTML=d(b.item.description,b.matches[e].indices)):'content'===b.matches[e].key?c||(c=document.createElement('div'),c.setAttribute('class','mobile-search__item--desc'),c.innerHTML=d(b.item.content.substring(0,150),b.matches[e].indices)):b.item.description?(c=document.createElement('div'),c.setAttribute('class','mobile-search__item--desc'),c.innerHTML=b.item.description):(c=document.createElement('div'),c.setAttribute('class','mobile-search__item--desc'),c.innerHTML=b.item.content.substring(0,150));f.appendChild(g),c&&f.appendChild(c),a.appendChild(h)}}):(f=document.createElement('span'),a.appendChild(f));let c=document.getElementById('search-mobile-results');while(c.firstChild)c.removeChild(c.firstChild);b.appendChild(a)}function d(a,d){if(!d)return a;var b='',c=0;return d.forEach(function(d){if(d[0]===d[1])return null;b+=''+a.substring(c,d[0])+'<span class="search__highlight">'+a.substring(d[0],d[1]+1)+'</span>'+'',c=d[1]+1}),b+=a.substring(c),b}g=document.getElementById('search'),T=document.getElementById('search-mobile'),e=document.getElementById('search-results'),g?g.addEventListener('input',function(a){var b,c;if(!a.target.value|window.innerWidth<770)return e?e.setAttribute('class','dd'):null,null;f=a.target.value,b=v.search(a.target.value),s?Q(f,b):R(f,b),c=e.querySelectorAll('.dd-item'),c?c.forEach(function(a){a.addEventListener('mousedown',function(a){a.target.click()})}):null}):null,g?g.addEventListener('blur',function(){if(window.innerWidth<770)return null;e?e.setAttribute('class','dd'):null}):null,g?g.addEventListener('click',function(a){var b,c;if(window.innerWidth<770)return null;if(!a.target.value)return e?e.setAttribute('class','dd'):null,null;f=a.target.value,b=v.search(a.target.value),s?Q(f,b):R(f,b),c=e.querySelectorAll('.dd-item'),c?c.forEach(function(a){a.addEventListener('mousedown',function(a){a.target.click()})}):null}):null,ag=document.getElementById("search-menu"),ah=document.querySelector('#search-menu .dd-item.is-active'),a=null,aj=null,V=350,g?g.addEventListener('keydown',function(d){var c,e;if(window.innerWidth<770)return null;if(c=document.querySelectorAll('#search-menu .dd-item'),d.key==='ArrowDown'){a===null?(a=0,c[a].classList.remove('is-active')):(c[a].classList.remove('is-active'),a=a===c.length-1?0:a+1),c[a].classList.add('is-active');let b=c[a].offsetTop+c[a].clientHeight-V;b>0?document.querySelector(".search-content").scrollTop+=c[a].getBoundingClientRect().height:a===0&&(document.querySelector(".search-content").scrollTop=0)}else if(d.key==='ArrowUp'){a===null?(a=c.length-1,c[a].classList.remove('is-active')):(c[a].classList.remove('is-active'),a=a===0?c.length-1:a-1),c[a].classList.add('is-active');let b=c[a].offsetTop+c[a].clientHeight-V;b<0?document.querySelector(".search-content").scrollTop-=c[a].getBoundingClientRect().height:document.querySelector(".search-content").scrollTop=b+c[a].getBoundingClientRect().height}else d.key==='Enter'?(e=c[a].getAttribute('href'),e&&(location.href=e)):d.key==='Escape'&&(d.target.value=null,b&&b.classList.remove('is-active'))}):null,T?T.addEventListener('input',function(a){var b,c;if(!a.target.value){let a=document.getElementById('search-mobile-results');while(a.firstChild)a.removeChild(a.firstChild);return null}f=a.target.value,b=v.search(a.target.value),s?ab(f,b):aa(f,b),c=e.querySelectorAll('.dd-item'),c?c.forEach(function(a){a.addEventListener('mousedown',function(a){a.target.click()})}):null}):null}</script><link rel=stylesheet href=/personal-blog/css/main.min.css><meta name=description content><meta name=keywords content><meta name=created content="2021-06-19T11:12:00+0000"><meta name=modified content="2021-06-19T11:12:00+0000"><meta property="og:site_name" content="lunarwhite"><meta property="og:title" content="[仿知乎web端]Python+MSSQL实现并部署到云服务器"><meta property="og:url" content="http://lunarwhite.github.io/personal-blog/zh/dev/2assign/o7m0xddlu/"><meta property="og:type" content="article"><meta name=generator content="Hugo 0.84.0"><meta name=msapplication-TileColor content="#ffffff"><meta name=theme-color content="#ffffff"><link rel=canonical href=http://lunarwhite.github.io/personal-blog/zh/dev/2assign/o7m0xddlu/><link rel=manifest href=/personal-blog/manifest.json><link rel=apple-touch-icon sizes=57x57 href=/personal-blog/favicon/apple-icon-57x57.png><link rel=apple-touch-icon sizes=60x60 href=/personal-blog/favicon/apple-icon-60x60.png><link rel=apple-touch-icon sizes=72x72 href=/personal-blog/favicon/apple-icon-72x72.png><link rel=apple-touch-icon sizes=76x76 href=/personal-blog/favicon/apple-icon-76x76.png><link rel=apple-touch-icon sizes=114x114 href=/personal-blog/favicon/apple-icon-114x114.png><link rel=apple-touch-icon sizes=120x120 href=/personal-blog/favicon/apple-icon-120x120.png><link rel=apple-touch-icon sizes=144x144 href=/personal-blog/favicon/apple-icon-144x144.png><link rel=apple-touch-icon sizes=152x152 href=/personal-blog/favicon/apple-icon-152x152.png><link rel=apple-touch-icon sizes=180x180 href=/personal-blog/favicon/apple-icon-180x180.png><link rel=icon type=image/png sizes=192x192 href=/personal-blog/favicon/android-icon-192x192.png><link rel=icon type=image/png sizes=192x192 href=/personal-blog/favicon/android-icon-512x512.png><link rel=icon type=image/png sizes=32x32 href=/personal-blog/favicon/favicon-32x32.png><link rel=icon type=image/png sizes=96x96 href=/personal-blog/favicon/favicon-96x96.png><link rel=icon type=image/png sizes=16x16 href=/personal-blog/favicon/favicon-16x16.png><meta name=msapplication-TileColor content="#ffffff"><meta name=msapplication-TileImage content="/ms-icon-144x144.png"><script type=application/ld+json>{"@context":"https://schema.org","@type":"WebPage","headline":"[仿知乎web端]Python+MSSQL实现并部署到云服务器","datePublished":"2021-06-19T11:12:00Z","dateModified":"2021-06-19T11:12:00Z","url":"http://lunarwhite.github.io/personal-blog/zh/dev/2assign/o7m0xddlu/","description":"本项目为数据库课程设计的开发文档 设计文档在这里，代码仓库在这里 欢迎交流拍砖~ 1 云服务器 1.1 连接 服务器信息 操作系统：Ubuntu Server 18.04 LTS 配置：标准","mainEntityOfPage":{"@type":"WebPage","@id":"http://lunarwhite.github.io/personal-blog"},"publisher":{"@type":"Organization","name":"lunarwhite","url":"http://lunarwhite.github.io/personal-blog"}}</script></head><body id=root class=theme__light><script>var rootElem=document.getElementById('root'),themeOptions=JSON.parse('["light","dark"]'),localTheme=localStorage.getItem('theme');localTheme&&themeOptions&&themeOptions.length>0&&(themeOptions.includes(localTheme)?rootElem.className=`theme__${localTheme}`:rootElem.className=`theme__${themeOptions[0]}`)</script><div id=container><div id=myDrawer class=drawer><div class=drawer__header><a href=/ class=drawer__header--text>lunarwhite</a><div class=grow></div><div class=drawer__close><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="currentcolor" d="M18.3 5.71c-.39-.39-1.02-.39-1.41.0L12 10.59 7.11 5.7c-.39-.39-1.02-.39-1.41.0s-.39 1.02.0 1.41L10.59 12 5.7 16.89c-.39.39-.39 1.02.0 1.41s1.02.39 1.41.0L12 13.41l4.89 4.89c.39.39 1.02.39 1.41.0s.39-1.02.0-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02.0-1.4z"/></svg></div></div><div class=drawer__body><div class=menu><h6 class=menu__label>[仿知乎web端]Python+MSSQL实现并部署到云服务器</h6><ul><li class=menu__title--collapse data-depth=0 data-permalink=http://lunarwhite.github.io/personal-blog/zh/dev/1tool/><span class=menu__title--collapse-text>开发工具</span>
+<span class="menu__title--icon right"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="currentcolor" d="M9.29 15.88 13.17 12 9.29 8.12c-.39-.39-.39-1.02.0-1.41.39-.39 1.02-.39 1.41.0l4.59 4.59c.39.39.39 1.02.0 1.41L10.7 17.3c-.39.39-1.02.39-1.41.0-.38-.39-.39-1.03.0-1.42z"/></svg></span></li><ul class=menu__list data-data=/1tool/ data-link=http://lunarwhite.github.io/personal-blog/zh/dev/2assign/o7m0xddlu/><li><a href=http://lunarwhite.github.io/personal-blog/zh/dev/1tool/g-lqcqv7_/ class=menu__title data-depth=0>Chrome&Edge</a></li><li><a href=http://lunarwhite.github.io/personal-blog/zh/dev/1tool/wlcpvkjjw/ class=menu__title data-depth=0>探索SwitchyOmega+shadowsocks</a></li><li><a href=http://lunarwhite.github.io/personal-blog/zh/dev/1tool/0t9ocgsja/ class=menu__title data-depth=0>探索GitHub加速解决DNS污染</a></li><li><a href=http://lunarwhite.github.io/personal-blog/zh/dev/1tool/ngsmyra/ class=menu__title data-depth=0>Windows-Terminal</a></li><li><a href=http://lunarwhite.github.io/personal-blog/zh/dev/1tool/erbfbafn/ class=menu__title data-depth=0>Eclipse-Java</a></li><li><a href=http://lunarwhite.github.io/personal-blog/zh/dev/1tool/fbsbnfn/ class=menu__title data-depth=0>MySQL</a></li><li><a href=http://lunarwhite.github.io/personal-blog/zh/dev/1tool/ndgdnfj/ class=menu__title data-depth=0>Conda</a></li><li><a href=http://lunarwhite.github.io/personal-blog/zh/dev/1tool/rhnejmn/ class=menu__title data-depth=0>VSCode</a></li><li><a href=http://lunarwhite.github.io/personal-blog/zh/dev/1tool/enbrnfd/ class=menu__title data-depth=0>Windows-Basic开发向配置</a></li><li><a href=http://lunarwhite.github.io/personal-blog/zh/dev/1tool/sthafnr/ class=menu__title data-depth=0>Linux with Virtual-Machine</a></li><li><a href=http://lunarwhite.github.io/personal-blog/zh/dev/1tool/zerjtjmt/ class=menu__title data-depth=0>scoop包管理工具</a></li></ul><li class="menu__title--collapse active" data-depth=0 data-permalink=http://lunarwhite.github.io/personal-blog/zh/dev/2assign/><span class=menu__title--collapse-text>作业总结</span>
+<span class="menu__title--icon down"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="currentcolor" d="M9.29 15.88 13.17 12 9.29 8.12c-.39-.39-.39-1.02.0-1.41.39-.39 1.02-.39 1.41.0l4.59 4.59c.39.39.39 1.02.0 1.41L10.7 17.3c-.39.39-1.02.39-1.41.0-.38-.39-.39-1.03.0-1.42z"/></svg></span></li><ul class="menu__list active" data-data=/2assign/ data-link=http://lunarwhite.github.io/personal-blog/zh/dev/2assign/o7m0xddlu/><li><a href=http://lunarwhite.github.io/personal-blog/zh/dev/2assign/o7m0xddlu/ class="menu__title active" data-depth=0>[仿知乎web端]Python+MSSQL实现并部署到云服务器</a></li><li><a href=http://lunarwhite.github.io/personal-blog/zh/dev/2assign/fvrltijkh/ class=menu__title data-depth=0>[仿知乎web端]后端及数据库设计文档</a></li><li><a href=http://lunarwhite.github.io/personal-blog/zh/dev/2assign/svf9rsz2u/ class=menu__title data-depth=0>[DS]Python+PyQt实现哈夫曼的编码与译码</a></li><li><a href=http://lunarwhite.github.io/personal-blog/zh/dev/2assign/iwd25hbs5/ class=menu__title data-depth=0>[DS]Python实现文件单词检索与统计</a></li></ul><li class=menu__title--collapse data-depth=0 data-permalink=http://lunarwhite.github.io/personal-blog/zh/dev/3tutor/><span class=menu__title--collapse-text>自用教程</span>
+<span class="menu__title--icon right"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="currentcolor" d="M9.29 15.88 13.17 12 9.29 8.12c-.39-.39-.39-1.02.0-1.41.39-.39 1.02-.39 1.41.0l4.59 4.59c.39.39.39 1.02.0 1.41L10.7 17.3c-.39.39-1.02.39-1.41.0-.38-.39-.39-1.03.0-1.42z"/></svg></span></li><ul class=menu__list data-data=/3tutor/ data-link=http://lunarwhite.github.io/personal-blog/zh/dev/2assign/o7m0xddlu/><li><a href=http://lunarwhite.github.io/personal-blog/zh/dev/3tutor/othj2yvr9/ class=menu__title data-depth=0>SQL</a></li></ul></ul></div><script>var menuTitle=document.querySelectorAll('.menu__title'),modal=document.getElementById("myModal"),drawer=document.getElementById('myDrawer'),closeDrawer=function(){setTimeout(function(){modal.style.opacity=0,drawer.style.left='-100%',modal.style.left='-100%'},250)};menuTitle?menuTitle.forEach(function(a){a.onclick=function(){closeDrawer(),localStorage.setItem('isDrawerOpen','false')}}):null</script></div></div><div id=myModal class=modal></div><script>var isDrawerOpen=localStorage.getItem('isDrawerOpen'),modal=document.getElementById("myModal"),drawer=document.getElementById('myDrawer'),languagedir=JSON.parse('"ltr"'),openDrawer=function(){modal.style.opacity=1,languagedir==="rtl"?(modal.style.right=0,drawer.style.right=0):(modal.style.left=0,drawer.style.left=0)};isDrawerOpen&&isDrawerOpen==='true'&&openDrawer()</script><nav class=nav><div class=navbar__wrapper data-bgimg=false><div class=divider><div class="navbar lmr"><div id=siteLogo class=navbar__logo--wrapper><a href=/personal-blog/zh/ title rel=home class=navbar__logo--link><img src=/personal-blog/logo.png alt=Home class=navbar__logo></a>
+<a href=/personal-blog/zh/ title rel=home class=navbar__logo--text-link><h6 class=navbar__logo--text data-bgimg=false>lunarwhite</h6></a></div><div class=navbar__menu--wrapper><div id=tabletLogo class=hide><a href=/personal-blog/zh/ rel=home class=navbar__logo--link><img src=/personal-blog/logo.png alt=Home class=navbar__logo></a></div><div id=mobileLogo class=hide><a href=# class=navbar__logo--link><div class=navbar__icons--icon><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="currentcolor" d="M4 18h16c.55.0 1-.45 1-1s-.45-1-1-1H4c-.55.0-1 .45-1 1s.45 1 1 1zm0-5h16c.55.0 1-.45 1-1s-.45-1-1-1H4c-.55.0-1 .45-1 1s.45 1 1 1zM3 7c0 .55.45 1 1 1h16c.55.0 1-.45 1-1s-.45-1-1-1H4c-.55.0-1 .45-1 1z"/></svg></div></a></div><span id=navMenuMobile class=hide><button id=navCollapseBtn class=navbar__dropdown--title aria-label="Section Menu" data-dir=ltr>
+dev<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentcolor" d="M8.12 9.29 12 13.17l3.88-3.88c.39-.39 1.02-.39 1.41.0s.39 1.02.0 1.41l-4.59 4.59c-.39.39-1.02.39-1.41.0L6.7 10.7c-.39-.39-.39-1.02.0-1.41.39-.38 1.03-.39 1.42.0z"/></svg></button><div class=navbar__collapse data-open=false><ul><li class="navbar__menu--mobile-item active"><a href=/personal-blog/zh/dev class=active>Dev</a></li><li class=navbar__menu--mobile-item><a href=/personal-blog/zh/fun>Fun</a></li><li class=navbar__menu--mobile-item><a href=/personal-blog/zh/archive>Archive</a></li></ul></div></span><ul id=navMenu class=navbar__menu><li class="navbar__menu--item active"><a href=/personal-blog/zh/dev data-bgimg=false>Dev</a></li><li class=navbar__menu--item><a href=/personal-blog/zh/fun data-bgimg=false>Fun</a></li><li class=navbar__menu--item><a href=/personal-blog/zh/archive data-bgimg=false>Archive</a></li></ul></div><div class=grow></div><div id=siteSearch><div class=search data-bgimg=false><span class=icon><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentcolor" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M15.5 14h-.79l-.28-.27c1.2-1.4 1.82-3.31 1.48-5.34-.47-2.78-2.79-5-5.59-5.34-4.23-.52-7.79 3.04-7.27 7.27.34 2.8 2.56 5.12 5.34 5.59 2.03.34 3.94-.28 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49.0s.41-1.08.0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></span><input id=search aria-label="Site Search" class=input type=text autocomplete=off placeholder=Search><div id=search-results class=dropdown><div id=search-menu class=dropdown-menu></div></div></div></div><div id=mobileSearch class=hide><div id=mobileSearchBtn class=mobile-search__btn><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentcolor" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M15.5 14h-.79l-.28-.27c1.2-1.4 1.82-3.31 1.48-5.34-.47-2.78-2.79-5-5.59-5.34-4.23-.52-7.79 3.04-7.27 7.27.34 2.8 2.56 5.12 5.34 5.59 2.03.34 3.94-.28 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49.0s.41-1.08.0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div><div id=search-mobile-container class="mobile-search hide"><div class=mobile-search__top><input id=search-mobile type=text aria-label="Mobile Search" placeholder=Search... class=mobile-search__top--input><div id=search-mobile-close class=mobile-search__top--icon><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path opacity=".87" fill="none" d="M0 0h24v24H0V0z"/><path fill="currentcolor" d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41.0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.59-13L12 10.59 8.41 7 7 8.41 10.59 12 7 15.59 8.41 17 12 13.41 15.59 17 17 15.59 13.41 12 17 8.41z"/></svg></div></div><div id=search-mobile-results class=mobile-search__body></div></div></div><div class=navbar__icons><div class=dropdown><button class="lang__dropdown navbar__icons--icon" aria-label="Select Site Language"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentcolor" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M12.65 15.67c.14-.36.05-.77-.23-1.05l-2.09-2.06.03-.03c1.74-1.94 2.98-4.17 3.71-6.53h1.94c.54.0.99-.45.99-.99v-.02c0-.54-.45-.99-.99-.99H10V3c0-.55-.45-1-1-1s-1 .45-1 1v1H1.99c-.54.0-.99.45-.99.99.0.55.45.99.99.99h10.18C11.5 7.92 10.44 9.75 9 11.35c-.81-.89-1.49-1.86-2.06-2.88-.16-.29-.45-.47-.78-.47-.69.0-1.13.75-.79 1.35.63 1.13 1.4 2.21 2.3 3.21L3.3 16.87c-.4.39-.4 1.03.0 1.42.39.39 1.02.39 1.42.0L9 14l2.02 2.02c.51.51 1.38.32 1.63-.35zM17.5 10c-.6.0-1.14.37-1.35.94l-3.67 9.8c-.24.61.22 1.26.87 1.26.39.0.74-.24.88-.61l.89-2.39h4.75l.9 2.39c.14.36.49.61.88.61.65.0 1.11-.65.88-1.26l-3.67-9.8c-.22-.57-.76-.94-1.36-.94zm-1.62 7 1.62-4.33L19.12 17h-3.24z"/></svg></button><div class="dropdown-content lang__dropdown--content"><a href=http://lunarwhite.github.io/personal-blog/zh/dev/2assign/o7m0xddlu/ data-lang=zh class="lang__dropdown--item active">Chinese</a></div></div><button id=toggleToDark class=navbar__icons--icon aria-label="Toggle to dark mode"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path fill="currentcolor" d="M20 15.31 23.31 12 20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69zM12 18c-3.31.0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/></svg></button>
+<button id=toggleToLight class=navbar__icons--icon aria-label="Toggle to light mode"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path fill="currentcolor" d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-3.31.0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm0-10c-2.21.0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"/></svg></button>
+<script>var theme=localStorage.getItem('theme'),toggleToLightBtn=document.getElementById('toggleToLight'),toggleToDarkBtn=document.getElementById('toggleToDark');theme&&theme==='dark'?(toggleToLightBtn.className='navbar__icons--icon',toggleToDarkBtn.className='hide'):(toggleToLightBtn.className='hide',toggleToDarkBtn.className='navbar__icons--icon')</script><div class=navbar__icons--icon><a href=https://github.com/lunarwhite title="Github repository" aria-label="Github repository" target=_blank rel=noreferrer><svg fill="currentcolor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22"><path d="M10.9 2.1c-4.6.5-8.3 4.2-8.8 8.7-.5 4.7 2.2 8.9 6.3 10.5C8.7 21.4 9 21.2 9 20.8v-1.6s-.4.1-.9.1c-1.4.0-2-1.2-2.1-1.9-.1-.4-.3-.7-.6-1C5.1 16.3 5 16.3 5 16.2 5 16 5.3 16 5.4 16c.6.0 1.1.7 1.3 1 .5.8 1.1 1 1.4 1 .4.0.7-.1.9-.2.1-.7.4-1.4 1-1.8-2.3-.5-4-1.8-4-4 0-1.1.5-2.2 1.2-3C7.1 8.8 7 8.3 7 7.6c0-.4.0-.9.2-1.3.0-.2.2-.3.3-.3h.1C8.1 6.1 9.1 6.4 10 7.3c.6-.2 1.3-.3 2-.3s1.4.1 2 .3c.9-.9 2-1.2 2.5-1.3h.1c.2.0.3.1.4.3.0.4.0.9.0 1.3.0.8-.1 1.2-.2 1.4.7.8 1.2 1.8 1.2 3 0 2.2-1.7 3.5-4 4 .6.5 1 1.4 1 2.3v2.6c0 .3.3.6.7.5 3.7-1.5 6.3-5.1 6.3-9.3.0-6-5.1-10.7-11.1-10z"/></svg></a></div></div></div></div></div></nav><script>var siteLogo=document.getElementById('siteLogo'),tabletLogo=document.getElementById('tabletLogo'),mobileLogo=document.getElementById('mobileLogo'),navMenu=document.getElementById('navMenu'),navMenuMobile=document.getElementById('navMenuMobile'),siteSearch=document.getElementById('siteSearch'),mobileSearch=document.getElementById('mobileSearch');enquire.register("screen and (max-width:1280px)",{match:function(){siteLogo.className='navbar__logo--wrapper',tabletLogo.className='hide',mobileLogo.className='hide',navMenu.className='navbar__menu',navMenuMobile.className='hide',siteSearch.className='',mobileSearch.className='hide'},unmatch:function(){siteLogo.className='navbar__logo--wrapper',tabletLogo.className='hide',mobileLogo.className='hide',navMenu.className='navbar__menu',navMenuMobile.className='hide',siteSearch.className='',mobileSearch.className='hide'}}).register("screen and (max-width:960px)",{match:function(){siteLogo.className='hide',tabletLogo.className='',mobileLogo.className='hide',navMenu.className='navbar__menu',navMenuMobile.className='hide',siteSearch.className='hide',mobileSearch.className='navbar__icons--icon'},unmatch:function(){siteLogo.className='navbar__logo--wrapper',tabletLogo.className='hide',mobileLogo.className='hide',navMenu.className='navbar__menu',navMenuMobile.className='hide',siteSearch.className='',mobileSearch.className='hide'}}).register("screen and (max-width:600px)",{match:function(){siteLogo.className='hide',tabletLogo.className='hide',mobileLogo.className='',navMenu.className='hide',navMenuMobile.className='',siteSearch.className='hide',mobileSearch.className='navbar__icons--icon'},unmatch:function(){siteLogo.className='hide',tabletLogo.className='',mobileLogo.className='hide',navMenu.className='navbar__menu',navMenuMobile.className='hide',siteSearch.className='hide',mobileSearch.className='navbar__icons--icon'}})</script><div class=top><div class="header__wrapper bgcolor__header"><div class=divider><div class=lmr><h2 class=title>[仿知乎web端]Python+MSSQL实现并部署到云服务器</h2></div></div></div><div class="header__wrapper bgcolor__breadcrumb"><div class=divider><div class="lmr flexbox"><nav class=breadcrumb aria-label=breadcrumbs data-is-blog=false><ol><li><a href=http://lunarwhite.github.io/personal-blog/zh/ class=capitalize>lunarwhite</a></li><li><a href=http://lunarwhite.github.io/personal-blog/zh/dev/ class=capitalize>Dev</a></li><li><a href=http://lunarwhite.github.io/personal-blog/zh/dev/2assign/ class=capitalize>作业总结</a></li><li class=is-active><span>[仿知乎web端]Python+MSSQL实现并部署到云服务器</span></li></ol></nav><div class=grow></div><label class="switch switch__rel"><input id=toggle-sidebar aria-label="Toggle Sidebar Visibility" type=checkbox checked>
+<span class=slider><span class=slider__icon><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="currentcolor" d="M5 13h11.17l-4.88 4.88c-.39.39-.39 1.03.0 1.42.39.39 1.02.39 1.41.0l6.59-6.59c.39-.39.39-1.02.0-1.41l-6.58-6.6c-.39-.39-1.02-.39-1.41.0s-.39 1.02.0 1.41L16.17 11H5c-.55.0-1 .45-1 1s.45 1 1 1z"/></svg></span><span class="slider__icon hide"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="currentcolor" d="M19 11H7.83l4.88-4.88c.39-.39.39-1.03.0-1.42s-1.02-.39-1.41.0l-6.59 6.59c-.39.39-.39 1.02.0 1.41l6.59 6.59c.39.39 1.02.39 1.41.0s.39-1.02.0-1.41L7.83 13H19c.55.0 1-.45 1-1s-.45-1-1-1z"/></svg></span></span></label><a href=/personal-blog/zh/zh/dev/2assign/o7m0xddlu.md target=_blank rel=noreferrer><button class=editBtn aria-label="Edit This Page Button">
+EDIT THIS PAGE</button></a></div></div></div></div><div class=mid><div class=divider><nav id=single-menu class=l data-dir=ltr><div class=menu><h6 class=menu__label>[仿知乎web端]Python+MSSQL实现并部署到云服务器</h6><ul><li class=menu__title--collapse data-depth=0 data-permalink=http://lunarwhite.github.io/personal-blog/zh/dev/1tool/><span class=menu__title--collapse-text>开发工具</span>
+<span class="menu__title--icon right"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="currentcolor" d="M9.29 15.88 13.17 12 9.29 8.12c-.39-.39-.39-1.02.0-1.41.39-.39 1.02-.39 1.41.0l4.59 4.59c.39.39.39 1.02.0 1.41L10.7 17.3c-.39.39-1.02.39-1.41.0-.38-.39-.39-1.03.0-1.42z"/></svg></span></li><ul class=menu__list data-data=/1tool/ data-link=http://lunarwhite.github.io/personal-blog/zh/dev/2assign/o7m0xddlu/><li><a href=http://lunarwhite.github.io/personal-blog/zh/dev/1tool/g-lqcqv7_/ class=menu__title data-depth=0>Chrome&Edge</a></li><li><a href=http://lunarwhite.github.io/personal-blog/zh/dev/1tool/wlcpvkjjw/ class=menu__title data-depth=0>探索SwitchyOmega+shadowsocks</a></li><li><a href=http://lunarwhite.github.io/personal-blog/zh/dev/1tool/0t9ocgsja/ class=menu__title data-depth=0>探索GitHub加速解决DNS污染</a></li><li><a href=http://lunarwhite.github.io/personal-blog/zh/dev/1tool/ngsmyra/ class=menu__title data-depth=0>Windows-Terminal</a></li><li><a href=http://lunarwhite.github.io/personal-blog/zh/dev/1tool/erbfbafn/ class=menu__title data-depth=0>Eclipse-Java</a></li><li><a href=http://lunarwhite.github.io/personal-blog/zh/dev/1tool/fbsbnfn/ class=menu__title data-depth=0>MySQL</a></li><li><a href=http://lunarwhite.github.io/personal-blog/zh/dev/1tool/ndgdnfj/ class=menu__title data-depth=0>Conda</a></li><li><a href=http://lunarwhite.github.io/personal-blog/zh/dev/1tool/rhnejmn/ class=menu__title data-depth=0>VSCode</a></li><li><a href=http://lunarwhite.github.io/personal-blog/zh/dev/1tool/enbrnfd/ class=menu__title data-depth=0>Windows-Basic开发向配置</a></li><li><a href=http://lunarwhite.github.io/personal-blog/zh/dev/1tool/sthafnr/ class=menu__title data-depth=0>Linux with Virtual-Machine</a></li><li><a href=http://lunarwhite.github.io/personal-blog/zh/dev/1tool/zerjtjmt/ class=menu__title data-depth=0>scoop包管理工具</a></li></ul><li class="menu__title--collapse active" data-depth=0 data-permalink=http://lunarwhite.github.io/personal-blog/zh/dev/2assign/><span class=menu__title--collapse-text>作业总结</span>
+<span class="menu__title--icon down"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="currentcolor" d="M9.29 15.88 13.17 12 9.29 8.12c-.39-.39-.39-1.02.0-1.41.39-.39 1.02-.39 1.41.0l4.59 4.59c.39.39.39 1.02.0 1.41L10.7 17.3c-.39.39-1.02.39-1.41.0-.38-.39-.39-1.03.0-1.42z"/></svg></span></li><ul class="menu__list active" data-data=/2assign/ data-link=http://lunarwhite.github.io/personal-blog/zh/dev/2assign/o7m0xddlu/><li><a href=http://lunarwhite.github.io/personal-blog/zh/dev/2assign/o7m0xddlu/ class="menu__title active" data-depth=0>[仿知乎web端]Python+MSSQL实现并部署到云服务器</a></li><li><a href=http://lunarwhite.github.io/personal-blog/zh/dev/2assign/fvrltijkh/ class=menu__title data-depth=0>[仿知乎web端]后端及数据库设计文档</a></li><li><a href=http://lunarwhite.github.io/personal-blog/zh/dev/2assign/svf9rsz2u/ class=menu__title data-depth=0>[DS]Python+PyQt实现哈夫曼的编码与译码</a></li><li><a href=http://lunarwhite.github.io/personal-blog/zh/dev/2assign/iwd25hbs5/ class=menu__title data-depth=0>[DS]Python实现文件单词检索与统计</a></li></ul><li class=menu__title--collapse data-depth=0 data-permalink=http://lunarwhite.github.io/personal-blog/zh/dev/3tutor/><span class=menu__title--collapse-text>自用教程</span>
+<span class="menu__title--icon right"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="currentcolor" d="M9.29 15.88 13.17 12 9.29 8.12c-.39-.39-.39-1.02.0-1.41.39-.39 1.02-.39 1.41.0l4.59 4.59c.39.39.39 1.02.0 1.41L10.7 17.3c-.39.39-1.02.39-1.41.0-.38-.39-.39-1.03.0-1.42z"/></svg></span></li><ul class=menu__list data-data=/3tutor/ data-link=http://lunarwhite.github.io/personal-blog/zh/dev/2assign/o7m0xddlu/><li><a href=http://lunarwhite.github.io/personal-blog/zh/dev/3tutor/othj2yvr9/ class=menu__title data-depth=0>SQL</a></li></ul></ul></div></nav><article id=list-main class=m data-dir=ltr><div class=single data-display=block><article class=single__contents data-dir=ltr><blockquote><p>本项目为数据库课程设计的<strong>开发文档</strong></p><p>设计文档<a href=/personal-blog>在这里</a>，代码仓库<a href=https://github.com/lunarwhite/tiny-zhihu-web target=_blank>在这里</a></p><p>欢迎交流拍砖~</p></blockquote><h2 id=1-云服务器>1 云服务器</h2><h3 id=11-连接>1.1 连接</h3><ul><li>服务器信息<ul><li>操作系统：Ubuntu Server 18.04 LTS</li><li>配置：标准型S5/1核/2GB/1Mbps</li><li>系统盘：高效云硬盘/50GB</li></ul></li></ul><h3 id=12-域名>1.2 域名</h3><ul><li><p>备案</p><ul><li>ID证、地址、手机号、Email</li></ul></li><li><p>解析</p><ul><li>管理： <a href=https://console.cloud.tencent.com/cns target=_blank>解析控制台</a></li><li>二级域名：blog / demo / &mldr;</li></ul></li><li><p>端口</p><ul><li>管理：<a href="https://console.cloud.tencent.com/vpc/securitygroup?rid=8&rid=8" target=_blank>配置安全组</a></li></ul></li><li><p>SSL</p><ul><li>支持二级、三级域名，同一主域最多20张免费证书</li><li>有效期一年，到期后需要重新申请并安装</li><li>TrustAsia TLS RSA CA证书（年限：1年）</li><li>管理：<a href=https://console.cloud.tencent.com/certoverview target=_blank>证书管理控制台</a></li><li>域名验证方式：<a href=https://cloud.tencent.com/document/product/400/54500 target=_blank>DNS 验证</a></li></ul></li><li><p>SSL部署</p><ul><li><p>官方文档：<a href=https://cloud.tencent.com/document/product/400/35244 target=_blank>Nginx 服务器 SSL 证书安装部署</a></p></li><li><p>下载证书，解压之后选择Nginx文件夹，重命名为<code>cert</code></p><ul><li><code>.crt</code>文件：是证书文件，crt是pem文件的扩展名</li><li><code>.key</code>文件：证书的私钥文件</li></ul></li><li><p>在Nginx的安装目录下创建<code>cert</code>目录，将本地证书文件和密钥文件上传</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>sudo mkdir /etc/nginx/cert
+sudo chmod <span class=m>777</span> /etc/nginx/cert
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>sudo scp -r 1_lunarwhite.cn_bundle.crt ubuntu@49.233.27.54:/etc/nginx/cert
+sudo scp -r 2_lunarwhite.cn.key ubuntu@49.233.27.54:/etc/nginx/cert
+sudo scp -r 1_blog.lunarwhite.cn_bundle.crt ubuntu@49.233.27.54:/etc/nginx/cert
+sudo scp -r 2_blog.lunarwhite.cn.key ubuntu@49.233.27.54:/etc/nginx/cert
+sudo scp -r 1_demo.lunarwhite.cn_bundle.crt ubuntu@49.233.27.54:/etc/nginx/cert
+sudo scp -r 2_demo.lunarwhite.cn.key ubuntu@49.233.27.54:/etc/nginx/cert
+</code></pre></td></tr></table></div></div></li><li><p>编辑Nginx配置文件</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>sudo vi /etc/nginx/nginx.conf
+</code></pre></td></tr></table></div></div><pre><code class=language-conf data-lang=conf>server {
+    listen 443; 
+    server_name lunarwhite.cn www.lunarwhite.cn; 
+    ssl on;
+    ssl_certificate cert/1_lunarwhite.cn_bundle.crt;
+    ssl_certificate_key cert/2_lunarwhite.cn.key;
+    ssl_session_timeout 5m;
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2; 
+    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE; 
+    ssl_prefer_server_ciphers on;
+
+    location / {
+        root html; 
+        index  index.html index.htm;
+    }
+}
+</code></pre><pre><code class=language-conf data-lang=conf>server {
+    listen 443; 
+    ssl on
+    server_name demo.lunarwhite.cn; 
+    ssl_certificate cert/1_demo.lunarwhite.cn_bundle.crt;
+    ssl_certificate_key cert/2_demo.lunarwhite.cn.key;
+    ssl_session_timeout 5m;
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2; 
+    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE; 
+    ssl_prefer_server_ciphers on;
+
+    location / {
+        include uwsgi_params;
+        uwsgi_pass unix:/home/ubuntu/tiny-zhihu-web/izhihu.sock;
+    }
+}
+
+server {
+    listen 443; 
+    ssl on 
+    server_name blog.lunarwhite.cn; 
+    ssl_certificate cert/1_blog.lunarwhite.cn_bundle.crt;
+    ssl_certificate_key cert/2_blog.lunarwhite.cn.key;
+    ssl_session_timeout 5m;
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2; 
+    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE; 
+    ssl_prefer_server_ciphers on;
+
+    location / {
+        root html; 
+        index  index.html index.htm;
+    }
+}
+</code></pre></li><li><p>重启Nginx</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>sudo nginx -s reload
+</code></pre></td></tr></table></div></div></li></ul></li></ul><h2 id=2-环境准备>2 环境准备</h2><h3 id=20-技术栈>2.0 技术栈</h3><ul><li><p>软件</p><ul><li>MobaXterm（√） # ssh工具</li><li>Ubuntu-Server（√） # 操作系统</li><li>SQL-Server（√） # 数据库</li><li>VSCode+Git（√） # 编辑器</li><li>Python、Flask、uwsgi（√） # 开发语言</li><li>Nginx（√） # web服务器</li></ul></li><li><p>依赖</p><ul><li><p>生成<code>tree</code>文件结构</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>sudo apt install tree
+
+tree -L <span class=m>2</span> &gt;&gt; README.md
+</code></pre></td></tr></table></div></div></li><li><p>为环境创建<code>requirements.txt</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 创建</span>
+pip3 freeze &gt; requirements.txt
+
+<span class=c1># 接受项目副本，需要跑 </span>
+pip3 install -r requirements.txt
+</code></pre></td></tr></table></div></div></li></ul></li></ul><h3 id=21-部署ubuntu-server>2.1 部署Ubuntu-Server</h3><ul><li><p>升级</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>sudo su
+
+sudo apt update
+sudo apt upgrade
+
+sudo apt autoremove
+</code></pre></td></tr></table></div></div></li></ul><h3 id=22-安装部署sql-server>2.2 安装部署SQL-Server</h3><ul><li><p>安装：<a href="https://docs.microsoft.com/zh-cn/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-ver15" target=_blank>快速入门：安装 SQL Server 并在 Ubuntu 上创建数据库</a></p></li><li><p>内存限制：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=nb>cd</span> /opt/mssql/bin/ <span class=c1># 进入目录</span>
+sudo mv sqlservr sqlservr.old <span class=c1># 保存备份文件</span>
+sudo python <span class=c1># 使用python修改内存限制代码</span>
+
+&gt;&gt;&gt;oldfile <span class=o>=</span> open<span class=o>(</span><span class=s2>&#34;/opt/mssql/bin/sqlservr.old&#34;</span>, <span class=s2>&#34;rb&#34;</span><span class=o>)</span>.read<span class=o>()</span>
+&gt;&gt;&gt;newfile <span class=o>=</span> oldfile.replace<span class=o>(</span><span class=s2>&#34;\x00\x94\x35\x77&#34;</span>, <span class=s2>&#34;\x00\x80\x84\x1e&#34;</span><span class=o>)</span>
+&gt;&gt;&gt;open<span class=o>(</span><span class=s2>&#34;/opt/mssql/bin/sqlservr&#34;</span>, <span class=s2>&#34;wb&#34;</span><span class=o>)</span>.write<span class=o>(</span>newfile<span class=o>)</span>
+&gt;&gt;&gt;exit<span class=o>()</span>
+
+chmod <span class=m>777</span> sqlservr
+</code></pre></td></tr></table></div></div></li><li><p>版本：Express (free)</p></li><li><p>密码：<code>&lt;password></code></p></li><li><p>创建：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>sqlcmd -S localhost -U SA -P &lt;password&gt; <span class=c1># 启动</span>
+QUIT <span class=c1># 退出</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-sql data-lang=sql><span class=c1>-- 以下步骤创建一个名为 TestDB 的新数据库
+</span><span class=c1></span><span class=k>CREATE</span><span class=w> </span><span class=k>DATABASE</span><span class=w> </span><span class=n>TestDB</span><span class=w>
+</span><span class=w></span><span class=k>SELECT</span><span class=w> </span><span class=n>Name</span><span class=w> </span><span class=k>from</span><span class=w> </span><span class=n>sys</span><span class=p>.</span><span class=n>Databases</span><span class=w>
+</span><span class=w></span><span class=k>GO</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=c1>-- 接下来创建一个新表 Inventory，然后插入两个新行
+</span><span class=c1></span><span class=n>USE</span><span class=w> </span><span class=n>TestDB</span><span class=w>
+</span><span class=w></span><span class=k>CREATE</span><span class=w> </span><span class=k>TABLE</span><span class=w> </span><span class=n>Inventory</span><span class=w> </span><span class=p>(</span><span class=n>id</span><span class=w> </span><span class=nb>INT</span><span class=p>,</span><span class=w> </span><span class=n>name</span><span class=w> </span><span class=n>NVARCHAR</span><span class=p>(</span><span class=mi>50</span><span class=p>),</span><span class=w> </span><span class=n>quantity</span><span class=w> </span><span class=nb>INT</span><span class=p>)</span><span class=w>
+</span><span class=w></span><span class=k>INSERT</span><span class=w> </span><span class=k>INTO</span><span class=w> </span><span class=n>Inventory</span><span class=w> </span><span class=k>VALUES</span><span class=w> </span><span class=p>(</span><span class=mi>1</span><span class=p>,</span><span class=w> </span><span class=s1>&#39;banana&#39;</span><span class=p>,</span><span class=w> </span><span class=mi>150</span><span class=p>);</span><span class=w> </span><span class=k>INSERT</span><span class=w> </span><span class=k>INTO</span><span class=w> </span><span class=n>Inventory</span><span class=w> </span><span class=k>VALUES</span><span class=w> </span><span class=p>(</span><span class=mi>2</span><span class=p>,</span><span class=w> </span><span class=s1>&#39;orange&#39;</span><span class=p>,</span><span class=w> </span><span class=mi>154</span><span class=p>);</span><span class=w>
+</span><span class=w></span><span class=k>GO</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=c1>-- 运行查询以从 Inventory 表返回数据
+</span><span class=c1></span><span class=k>SELECT</span><span class=w> </span><span class=o>*</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=n>Inventory</span><span class=w> </span><span class=k>WHERE</span><span class=w> </span><span class=n>quantity</span><span class=w> </span><span class=o>&gt;</span><span class=w> </span><span class=mi>152</span><span class=p>;</span><span class=w>
+</span><span class=w></span><span class=k>GO</span><span class=w>
+</span></code></pre></td></tr></table></div></div></li><li><p>从Windows远程连接：<a href="https://docs.microsoft.com/zh-cn/sql/linux/sql-server-linux-manage-ssms?view=sql-server-ver15" target=_blank>使用 Windows 上的 SQL Server Management Studio 管理 Linux 上的 SQL Server</a></p></li><li><p>还原数据库备份文件：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 传输</span>
+scp izhihu.bak ubuntu@49.233.27.54:./
+
+<span class=c1># 移动</span>
+ssh ubuntu@49.233.27.54
+sudo su
+mkdir -p /var/opt/mssql/backup
+mv /home/ubuntu/izhihu.bak /var/opt/mssql/backup/
+chmod <span class=m>777</span> /var/opt/mssql
+chmod <span class=m>777</span> /var/opt/mssql/backup/izhihu.bak
+<span class=nb>exit</span>
+
+<span class=c1># 还原</span>
+sqlcmd -S localhost -U SA -P &lt;password&gt;
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-sql data-lang=sql><span class=c1>-- 还原
+</span><span class=c1></span><span class=n>RESTORE</span><span class=w> </span><span class=k>DATABASE</span><span class=w> </span><span class=n>izhihu</span><span class=w>
+</span><span class=w></span><span class=k>FROM</span><span class=w> </span><span class=n>DISK</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s1>&#39;/var/opt/mssql/backup/izhihu.bak&#39;</span><span class=w>
+</span><span class=w></span><span class=k>WITH</span><span class=w> </span><span class=k>MOVE</span><span class=w> </span><span class=s1>&#39;izhihu&#39;</span><span class=w> </span><span class=k>TO</span><span class=w> </span><span class=s1>&#39;/var/opt/mssql/data/izhihu.mdf&#39;</span><span class=p>,</span><span class=w>
+</span><span class=w></span><span class=k>MOVE</span><span class=w> </span><span class=s1>&#39;izhihu_Log&#39;</span><span class=w> </span><span class=k>TO</span><span class=w> </span><span class=s1>&#39;/var/opt/mssql/data/izhihu_Log.ldf&#39;</span><span class=w>
+</span><span class=w></span><span class=k>GO</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=c1>-- 验证
+</span><span class=c1></span><span class=k>SELECT</span><span class=w> </span><span class=n>Name</span><span class=w> </span><span class=k>FROM</span><span class=w> </span><span class=n>sys</span><span class=p>.</span><span class=n>Databases</span><span class=w>
+</span><span class=w></span><span class=k>GO</span><span class=w>
+</span></code></pre></td></tr></table></div></div></li><li><p>其他设置：开启</p></li></ul><h3 id=23-部署vscodegit>2.3 部署VSCode+Git</h3><ul><li><p>连接</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>ssh ubuntu@49.233.27.54
+</code></pre></td></tr></table></div></div></li><li><p>github访问加速</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 提速</span>
+nslookup github.global.ssl.fastly.Net
+nslookup github.com
+
+<span class=c1># 找到下面的IP Non-authoritative answer</span>
+<span class=c1># 修改host为下面下面的ip，格式如下</span>
+<span class=c1># 13.250.177.223 github.com </span>
+<span class=c1># 108.160.170.43 github.global.ssl.fastly.Net</span>
+<span class=c1># 2001::a27d:205 github.global.ssl.fastly.Net</span>
+
+<span class=c1># 按下 i 进入编辑</span>
+sudo vi /etc/hosts
+
+<span class=c1># 安装nscd来刷新DNS</span>
+sudo apt install nscd
+sudo /etc/init.d/nscd restart
+
+<span class=c1># set-proxy</span>
+env<span class=p>|</span>grep -i proxy
+git config -l <span class=p>|</span> grep -i proxy
+
+<span class=c1># reset-proxy</span>
+git config --global  --unset https.https://github.com.proxy 
+git config --global  --unset http.https://github.com.proxy 
+</code></pre></td></tr></table></div></div></li><li><p>在VSCode中git-clone</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 设置用户</span>
+git config --global user.email <span class=s2>&#34;dwcn22@outlook.com&#34;</span>
+git config --global user.name <span class=s2>&#34;lunarwhite&#34;</span>
+
+<span class=c1># 设置缓冲区</span>
+git config --global pack.threads <span class=m>1</span>
+git config --global pack.windowMemory 256m
+git config --global http.postbuffer <span class=m>52428800</span>
+</code></pre></td></tr></table></div></div></li></ul><h3 id=24-部署python>2.4 部署Python</h3><ul><li><p>更新pip3</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>pip3 install --upgrade pip
+</code></pre></td></tr></table></div></div></li><li><p>创建虚拟环境</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>sudo apt install python3-venv
+python3 -m venv env
+</code></pre></td></tr></table></div></div></li><li><p>select interpreters</p></li><li><p>激活env：<code>Python: Create Terminal</code></p></li></ul><h3 id=25-安装部署pymssql>2.5 安装部署pymssql</h3><ul><li><p>官方文档：<a href="https://docs.microsoft.com/zh-cn/sql/connect/python/pymssql/python-sql-driver-pymssql?view=sql-server-ver15" target=_blank>Python SQL Driver - pymssql</a></p></li><li><p>安装</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>pip3 install pymssql
+</code></pre></td></tr></table></div></div></li><li><p>获取端口号</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-sql data-lang=sql><span class=k>exec</span><span class=w> </span><span class=n>sys</span><span class=p>.</span><span class=n>sp_readerrorlog</span><span class=w> </span><span class=mi>0</span><span class=p>,</span><span class=w> </span><span class=mi>1</span><span class=p>,</span><span class=w> </span><span class=s1>&#39;listening&#39;</span><span class=w>
+</span></code></pre></td></tr></table></div></div></li><li><p>连接</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=n>conn</span> <span class=o>=</span> <span class=n>pymssql</span><span class=o>.</span><span class=n>connect</span><span class=p>(</span>
+    <span class=n>host</span><span class=o>=</span><span class=s1>&#39;127.0.0.1:1433&#39;</span><span class=p>,</span>
+    <span class=n>user</span><span class=o>=</span><span class=s1>&#39;sa&#39;</span><span class=p>,</span> 
+    <span class=n>password</span><span class=o>=</span> <span class=o>&lt;</span><span class=n>password</span><span class=o>&gt;</span><span class=p>,</span> 
+    <span class=n>database</span><span class=o>=</span><span class=s1>&#39;izhihu&#39;</span>
+<span class=p>)</span>
+</code></pre></td></tr></table></div></div></li></ul><h3 id=26-安装部署flask>2.6 安装部署Flask</h3><ul><li><p>官方文档：<a href=https://code.visualstudio.com/docs/python/tutorial-flask target=_blank>Flask Tutorial in Visual Studio Code</a></p></li><li><p>安装</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>pip3 install flask
+pip3 install wheel
+</code></pre></td></tr></table></div></div></li><li><p>Hello-World</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=kn>from</span> <span class=nn>flask</span> <span class=kn>import</span> <span class=n>Flask</span>
+<span class=n>app</span> <span class=o>=</span> <span class=n>Flask</span><span class=p>(</span><span class=vm>__name__</span><span class=p>)</span>
+
+<span class=nd>@app</span><span class=o>.</span><span class=n>route</span><span class=p>(</span><span class=s2>&#34;/&#34;</span><span class=p>)</span>
+<span class=k>def</span> <span class=nf>home</span><span class=p>():</span> 
+    <span class=k>return</span> <span class=s1>&#39;Hello, Flask!&#39;</span>
+
+<span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s1>&#39;__main__&#39;</span><span class=p>:</span>
+    <span class=n>app</span><span class=o>.</span><span class=n>run</span><span class=p>()</span>
+</code></pre></td></tr></table></div></div></li><li><p>从host上传文件</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>sudo scp -r templates ubuntu@49.233.27.54:/home/ubuntu/tiny-zhihu-web
+
+sudo scp -r static ubuntu@49.233.27.54:/home/ubuntu/tiny-zhihu-web
+</code></pre></td></tr></table></div></div></li></ul><h3 id=27-安装部署uwsgi>2.7 安装部署uwsgi</h3><ul><li><p>系统</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>sudo apt install libssl-dev libffi-dev
+</code></pre></td></tr></table></div></div></li><li><p>安装</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>pip3 install uwsgi
+</code></pre></td></tr></table></div></div></li><li><p>创建WSGI入口点文件<code>wsgi.py</code>，运行测试</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=kn>from</span> <span class=nn>izhihu</span> <span class=kn>import</span> <span class=n>app</span>
+
+<span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s2>&#34;__main__&#34;</span><span class=p>:</span>
+    <span class=n>app</span><span class=o>.</span><span class=n>run</span><span class=p>()</span>
+</code></pre></td></tr></table></div></div></li><li><p>长期配置，在项目中新建<code>izhihu.ini</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-ini data-lang=ini><span class=k>[uwsgi]</span>
+<span class=na>module</span> <span class=o>=</span> <span class=s>wsgi:app</span>
+
+<span class=na>master</span> <span class=o>=</span> <span class=s>true</span>
+<span class=na>processes</span> <span class=o>=</span> <span class=s>5</span>
+
+<span class=na>socket</span> <span class=o>=</span> <span class=s>/home/ubuntu/tiny-zhihu-web/izhihu.sock</span>
+<span class=na>chmod-socket</span> <span class=o>=</span> <span class=s>660</span>
+<span class=na>vacuum</span> <span class=o>=</span> <span class=s>true</span>
+
+<span class=na>die-on-term</span> <span class=o>=</span> <span class=s>true</span>
+</code></pre></td></tr></table></div></div></li><li><p>在<code>(env)/home/ubuntu/tiny-zhihu-web</code>中启动<code>uwsgi</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>uwsgi izhihu.ini
+</code></pre></td></tr></table></div></div></li></ul><h3 id=28-安装部署nginx>2.8 安装部署Nginx</h3><ul><li><p>安装</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>sudo apt install nginx
+
+<span class=c1># 启动</span>
+service nginx start
+
+<span class=c1># 配置文件</span>
+sudo vi /etc/nginx/nginx.conf
+</code></pre></td></tr></table></div></div></li><li><p>将Nginx配置为代理请求</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>sudo vi /etc/nginx/sites-available/izhihu
+</code></pre></td></tr></table></div></div><pre><code class=language-conf data-lang=conf>server {
+  listen 80;
+  server_name demo.lunarwhite.cn;
+
+  access_log /home/ubuntu/tiny-zhihu-web/log/access.log;
+  error_log /home/ubuntu/tiny-zhihu-web/log/error.log;
+
+  location / {
+    include uwsgi_params;
+    uwsgi_pass unix:/home/ubuntu/tiny-zhihu-web/izhihu.sock;
+  }
+}
+</code></pre></li><li><p>将文件链接到<code>sites-enabled</code>目录</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>sudo ln -s /etc/nginx/sites-available/izhihu /etc/nginx/sites-enabled
+
+<span class=c1># 测试语法错误</span>
+sudo nginx -t
+</code></pre></td></tr></table></div></div></li><li><p>重新启动Nginx进程以读取新配置</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>sudo systemctl restart nginx
+</code></pre></td></tr></table></div></div></li><li><p>调整防火墙</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>sudo ufw delete allow <span class=m>5000</span>
+sudo ufw allow <span class=s1>&#39;Nginx Full&#39;</span>
+</code></pre></td></tr></table></div></div></li><li><p>检查error</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=nb>cd</span> /var/log/nginx <span class=c1>#错误日志 error.log</span>
+<span class=nb>cd</span> /var/log/nginx <span class=c1>#访问日志 access.log</span>
+sudo journalctl -u nginx <span class=c1># 检查Nginx进程日志</span>
+sudo journalctl -u myproject <span class=c1># 检查Flask应用程序的uWSGI日志</span>
+</code></pre></td></tr></table></div></div></li><li><p>命令</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>nginx -h <span class=c1>#查看帮助信息</span>
+nginx -v <span class=c1>#查看Nginx版本</span>
+
+sudo nginx -s stop <span class=c1># 停用Nginx</span>
+sudo nginx -s quit <span class=c1>#优雅的停用Nginx（处理完正在进行中请求后</span>
+
+sudo nginx -s reload <span class=c1># 重新加载配置，并优雅的重启进程</span>
+sudo nginx -s reopen <span class=c1># 重启日志文件</span>
+</code></pre></td></tr></table></div></div></li></ul><h2 id=3-项目结构>3 项目结构</h2><h3 id=30-总体结构>3.0 总体结构</h3><ul><li><p>目录</p><pre><code>.
+├── config.py # 配置数据库
+├── dbOper.py # 操作数据库
+├── env # 环境
+│   ├── bin
+│   ├── include
+│   ├── lib
+│   ├── lib64 -&gt; lib
+│   ├── pyvenv.cfg
+│   └── share
+├── izhihu.ini # 项目初始化
+├── izhihu.py # 项目主入口
+├── izhihu.sock # 配置Nginx
+├── LICENSE # 开源条款
+├── log # 日志文件
+│   ├── access.log # 访问日志
+│   └── error.log # 错误日志
+├── README.md # 说明文件
+├── requirements.txt # python依赖库
+├── static # 前端css文件、img文件
+│   ├── css
+│   └── images
+├── templates # HTML文件
+│   ├── about.html # 关于
+│   ├── answer.html # 回答界面
+│   ├── base.html # 父界面，由其他界面继承
+│   ├── changeInfo.html # 修改信息界面
+│   ├── comment.html # 评论界面
+│   ├── error.html # 提示错误界面
+│   ├── index.html # 主界面
+│   ├── login.html # 登陆界面
+│   ├── question.html # 问题界面
+│   ├── regist.html # 注册界面
+│   └── user.html # 用户个人界面
+└── wsgi.py # 运行
+
+12 directories, 27 files
+</code></pre></li></ul><h3 id=31-前端>3.1 前端</h3><ul><li>文件<ul><li><code>about.html</code>关于页面</li><li><code>Base.html</code>编写一个导航栏，将一些通用的组件结合起来</li><li><code>Index.html</code>主页面，主要进行问题的展示</li><li><code>Login.html</code>登陆页面，主要进行表单提交</li><li><code>Question.html</code>问题页面，主要进行问题发布</li><li><code>Answer.html</code>回答页面，主要进行回答发布</li><li><code>Comment.html</code>评论页面，主要进行评论</li><li><code>Reigst.html</code>注册页面，主要进行表单提交</li><li><code>User.html</code>用户页面，查看自己的信息</li><li><code>Admin.html</code>管理员页面，主要将信息展示给管理员进行筛选</li><li><code>Error.html</code>报错页面，运行上有错误时使用</li></ul></li><li>思路<ul><li>编写前端页面时，主要用<code>html+css+js</code>以及利用<code>python+Flask</code>中的很多语法，在编写<code>base.html</code>时也用了<code>bootstrap</code>中的一些语法。加入一个<code>toobar</code>到主页面中。</li><li>描述各个页面的跳转，简单描述了网页的功能。因为网页之间的跳转比较复杂，这里只将一个闭环写出来，其中红色标记代表我们页面开始跳转，一个页面的全部跳转只出现一次，在后面出现时将不再把所有的跳转画出。</li></ul></li></ul><h3 id=32-后端>3.2 后端</h3><ul><li>思路<ul><li>利用<code>python</code>在编写时，主要是在完成两部分内容。一是程序化编程和跟数据库进行交互；二是将网页上的各种信息返回给后端，后端处理后再返回给数据库或者前端页面进行保存和显示。</li><li>后端代码基于<code>python3+flask</code>，将设计好的<code>html</code>代码和<code>static</code>静态文件配置到<code>flask</code>的特殊框架下，并且进行路由配置，保证其能够正常访问。根据<code>flask</code>的设置我们将<code>html</code>放置到<code>templates</code>文件下，<code>css</code>等静态文件放置到<code>static</code>文件夹下。</li></ul></li><li>与前端交互<ul><li>通过<code>app.route(‘/’)</code>添加路由，将<code>index.html</code>中需要展示的内容，连接到数据库进行提取。再对提取的进行处理。通过<code>context</code>，传参给前端页面。</li><li>例如，在<code>index.html</code>中的<code>question</code>信息，我们是动态传递的，我们通过一个<code>list</code>将所有的信息都传递给前端，然后在前端利用<code>for</code>循环进行展示。</li></ul></li></ul><h3 id=33-数据库端>3.3 数据库端</h3><ul><li><p>数据库连接</p><ul><li><p>通过查看文档，了解到数据在本地的端口为1433，利用python的第三方库pymssql 进行连接SQL-Server数据库，配置文件如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=kn>import</span>  <span class=nn>os</span>
+
+<span class=n>HOSTNAME</span> <span class=o>=</span> <span class=s1>&#39;127.0.0.1&#39;</span> <span class=c1># 主机内网ip</span>
+<span class=n>PORT</span>     <span class=o>=</span> <span class=s1>&#39;1433&#39;</span> <span class=c1># 端口</span>
+<span class=n>DATABASE</span> <span class=o>=</span> <span class=s1>&#39;izhihu&#39;</span> <span class=c1># 数据库名称</span>
+<span class=n>USERNAME</span> <span class=o>=</span> <span class=s1>&#39;sa&#39;</span> <span class=c1># 用户名</span>
+<span class=n>PASSWORD</span> <span class=o>=</span> <span class=o>&lt;</span><span class=n>password</span><span class=o>&gt;</span> <span class=c1># 密码</span>
+
+<span class=n>DB_URI</span> <span class=o>=</span> <span class=s1>&#39;mssql+pymssql://</span><span class=si>{}</span><span class=s1>:</span><span class=si>{}</span><span class=s1>@</span><span class=si>{}</span><span class=s1>:</span><span class=si>{}</span><span class=s1>/</span><span class=si>{}</span><span class=s1>?charset=utf8&#39;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>USERNAME</span><span class=p>,</span> <span class=n>PASSWORD</span><span class=p>,</span> <span class=n>HOSTNAME</span><span class=p>,</span> <span class=n>PORT</span><span class=p>,</span> <span class=n>DATABASE</span><span class=p>)</span>
+
+<span class=n>SQLALCHEMY_DATABASE_URI</span> <span class=o>=</span> <span class=n>DB_URI</span>
+<span class=n>SQLALCHEMY_TRACK_MODIFICATIONS</span> <span class=o>=</span> <span class=kc>True</span>
+<span class=n>DEBUG</span> <span class=o>=</span> <span class=kc>True</span>
+
+<span class=n>SECRET_KEY</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>urandom</span><span class=p>(</span><span class=mi>24</span><span class=p>)</span> <span class=c1># 生成24位随机字符</span>
+</code></pre></td></tr></table></div></div></li><li><p>创建一个<code>cur = conn.cursor()</code>，利用<code>execute()</code>进行执行。如果有<code>insert</code>，<code>delete</code>，<code>update</code>等操作，要进行<code>commit()</code>，不然服务器端不会进行上传到数据库。</p></li></ul></li><li><p>数据库编程</p><ul><li><p>嵌入式数据库查询操作，利用python中的format语法进行传参，总共写了35个函数来转化SQL查询、插入、修改和删除等常用操作。下面选取有代表性的展示：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=c1># insertUser插入用户信息</span>
+<span class=k>def</span> <span class=nf>insertUser</span><span class=p>(</span><span class=n>cur</span><span class=p>,</span> <span class=n>user_name</span><span class=p>,</span> <span class=n>mobile</span><span class=p>,</span> <span class=n>Email</span><span class=p>,</span> <span class=n>Passwd</span><span class=p>,</span> <span class=n>SEX</span><span class=p>,</span> <span class=n>SignDetail</span><span class=p>):</span>
+    <span class=n>insertAccount</span><span class=p>(</span><span class=n>cur</span><span class=p>,</span> <span class=n>Passwd</span><span class=p>,</span> <span class=n>mobile</span><span class=p>)</span>
+    <span class=n>sql_insert</span> <span class=o>=</span> <span class=s1>&#39;&#39;&#39;
+</span><span class=s1>    INSERT INTO user_info(username,mobile,Email,SEX,Regtime,signDetail)
+</span><span class=s1>    VALUES (</span><span class=si>%s</span><span class=s1>,</span><span class=si>%d</span><span class=s1>,</span><span class=si>%s</span><span class=s1>,</span><span class=si>%s</span><span class=s1>,</span><span class=si>%s</span><span class=s1>,</span><span class=si>%s</span><span class=s1>);
+</span><span class=s1>    &#39;&#39;&#39;</span>
+    <span class=n>dt</span> <span class=o>=</span> <span class=n>datetime</span><span class=o>.</span><span class=n>datetime</span><span class=o>.</span><span class=n>now</span><span class=p>()</span><span class=o>.</span><span class=n>strftime</span><span class=p>(</span><span class=s2>&#34;%Y-%m-</span><span class=si>%d</span><span class=s2> %H:%M:%S&#34;</span><span class=p>)</span>
+    <span class=n>cur</span><span class=o>.</span><span class=n>execute</span><span class=p>(</span><span class=n>sql_insert</span><span class=p>,</span> <span class=p>(</span><span class=n>user_name</span><span class=p>,</span> <span class=n>mobile</span><span class=p>,</span> <span class=n>Email</span><span class=p>,</span> <span class=n>SEX</span><span class=p>,</span> <span class=n>dt</span><span class=p>,</span> <span class=n>SignDetail</span><span class=p>))</span>
+
+
+<span class=c1># deleteCollection删除收藏表</span>
+<span class=k>def</span> <span class=nf>deleteCollection</span><span class=p>(</span><span class=n>cur</span><span class=p>,</span> <span class=n>Q_ID</span><span class=p>,</span> <span class=n>user_ID</span><span class=p>):</span>
+    <span class=n>sql_insert</span> <span class=o>=</span> <span class=s1>&#39;&#39;&#39;
+</span><span class=s1>    delete from Collection_info
+</span><span class=s1>    where Q_ID = &#39;</span><span class=si>{}</span><span class=s1>&#39; and U_ID = &#39;</span><span class=si>{}</span><span class=s1>&#39;;
+</span><span class=s1>    &#39;&#39;&#39;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>Q_ID</span><span class=p>,</span><span class=n>user_ID</span><span class=p>)</span>
+    <span class=n>cur</span><span class=o>.</span><span class=n>execute</span><span class=p>(</span><span class=n>sql_insert</span><span class=p>)</span>
+
+<span class=c1># selectUIDOnUsername按用户名查询UID</span>
+<span class=k>def</span> <span class=nf>selectUIDOnUsername</span><span class=p>(</span><span class=n>cur</span><span class=p>,</span> <span class=n>username</span><span class=p>):</span>
+    <span class=n>sql</span> <span class=o>=</span> <span class=s1>&#39;&#39;&#39;
+</span><span class=s1>    SELECT U_ID FROM user_info
+</span><span class=s1>    WHERE username = &#39;</span><span class=si>{}</span><span class=s1>&#39;
+</span><span class=s1>    &#39;&#39;&#39;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>username</span><span class=p>)</span>
+    <span class=n>cur</span><span class=o>.</span><span class=n>execute</span><span class=p>(</span><span class=n>sql</span><span class=p>)</span>
+    <span class=n>data</span> <span class=o>=</span> <span class=n>cur</span><span class=o>.</span><span class=n>fetchall</span><span class=p>()</span>
+    <span class=k>return</span> <span class=n>tupleToList</span><span class=p>(</span><span class=n>data</span><span class=p>)[</span><span class=mi>0</span><span class=p>]</span>
+
+<span class=c1># updateAnswerOfCNumber更新回答的数目</span>
+<span class=k>def</span> <span class=nf>updateAnswerOfCNumber</span><span class=p>(</span><span class=n>cur</span><span class=p>,</span> <span class=n>A_ID</span><span class=p>):</span>
+    <span class=n>sql</span> <span class=o>=</span> <span class=s1>&#39;&#39;&#39;
+</span><span class=s1>    update Answer_info set C_Number = C_Number + 1
+</span><span class=s1>    where A_ID = (</span><span class=si>%d</span><span class=s1>)
+</span><span class=s1>    &#39;&#39;&#39;</span>
+    <span class=n>cur</span><span class=o>.</span><span class=n>execute</span><span class=p>(</span><span class=n>sql</span><span class=p>,</span> <span class=p>(</span><span class=n>A_ID</span><span class=p>))</span>
+</code></pre></td></tr></table></div></div></li></ul></li></ul><h2 id=4-项目思路>4 项目思路</h2><h3 id=41-功能设计>4.1 功能设计</h3><ul><li><p>登陆认证</p><ul><li><p>当用户在访问的时候,可以选择进行登陆。只有登陆成功才能进行一系列列收藏，关注，发布，评论等操作。我们再编写后端代码时可以要求登陆，判断这时的<code>session</code>是否有登陆信息，如果有进行操作，操作用户可以用<code>session</code>上取，如果没有登陆，再很多不被允许的操作上，我们网页就会自动跳到登陆界面。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=k>def</span> <span class=nf>login_required</span><span class=p>(</span><span class=n>func</span><span class=p>):</span>
+    <span class=nd>@wraps</span><span class=p>(</span><span class=n>func</span><span class=p>)</span>
+    <span class=k>def</span> <span class=nf>wrapper</span><span class=p>(</span><span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
+        <span class=k>if</span> <span class=nb>hasattr</span><span class=p>(</span><span class=n>flask</span><span class=o>.</span><span class=n>g</span><span class=p>,</span> <span class=s1>&#39;user&#39;</span><span class=p>):</span>
+            <span class=k>return</span> <span class=n>func</span><span class=p>(</span><span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>)</span>
+        <span class=k>else</span><span class=p>:</span>
+            <span class=k>return</span> <span class=n>flask</span><span class=o>.</span><span class=n>redirect</span><span class=p>(</span><span class=n>flask</span><span class=o>.</span><span class=n>url_for</span><span class=p>(</span><span class=s1>&#39;login&#39;</span><span class=p>))</span>
+    <span class=k>return</span> <span class=n>wrapper</span>
+</code></pre></td></tr></table></div></div></li><li><p>上面的代码展示了对登陆需求的判断，例如发布回答是一个需要登陆的操作，我们可以利用<code>@login_required</code>来使用。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=nd>@app</span><span class=o>.</span><span class=n>route</span><span class=p>(</span><span class=s1>&#39;/answer/&#39;</span><span class=p>,</span> <span class=n>methods</span><span class=o>=</span><span class=p>[</span><span class=s1>&#39;POST&#39;</span><span class=p>])</span>
+<span class=nd>@login_required</span>
+<span class=k>def</span> <span class=nf>postAnswer</span><span class=p>():</span>
+    <span class=n>question_id</span> <span class=o>=</span> <span class=n>flask</span><span class=o>.</span><span class=n>request</span><span class=o>.</span><span class=n>form</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;question_id&#39;</span><span class=p>)</span>
+    <span class=n>A_content</span> <span class=o>=</span> <span class=n>flask</span><span class=o>.</span><span class=n>request</span><span class=o>.</span><span class=n>form</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;content&#39;</span><span class=p>)</span>
+    <span class=n>user_id</span> <span class=o>=</span> <span class=n>flask</span><span class=o>.</span><span class=n>session</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;user_id&#39;</span><span class=p>)</span>
+    <span class=n>insertAnswer</span><span class=p>(</span><span class=n>cur</span><span class=p>,</span> <span class=n>question_id</span><span class=p>,</span> <span class=n>user_id</span><span class=p>,</span> <span class=n>A_content</span><span class=p>)</span>
+    <span class=n>conn</span><span class=o>.</span><span class=n>commit</span><span class=p>()</span>
+    <span class=k>return</span> <span class=n>flask</span><span class=o>.</span><span class=n>redirect</span><span class=p>(</span><span class=n>flask</span><span class=o>.</span><span class=n>url_for</span><span class=p>(</span><span class=s1>&#39;answer&#39;</span><span class=p>,</span> <span class=nb>id</span><span class=o>=</span><span class=n>question_id</span><span class=p>))</span>
+</code></pre></td></tr></table></div></div></li></ul></li><li><p>发布问题</p><ul><li><p>用户通过点击导航栏上面的发布问题按钮，后端接收到跳转请求，利用<code>post</code>，<code>get</code>语法将前端设计好的表单进行传输给后端处理。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=nd>@app</span><span class=o>.</span><span class=n>route</span><span class=p>(</span><span class=s1>&#39;/question/&#39;</span><span class=p>,</span> <span class=n>methods</span><span class=o>=</span><span class=p>[</span><span class=s1>&#39;GET&#39;</span><span class=p>,</span> <span class=s1>&#39;POST&#39;</span><span class=p>])</span>
+<span class=nd>@login_required</span>
+<span class=k>def</span> <span class=nf>question</span><span class=p>():</span>
+    <span class=k>if</span> <span class=n>flask</span><span class=o>.</span><span class=n>request</span><span class=o>.</span><span class=n>method</span> <span class=o>==</span> <span class=s1>&#39;GET&#39;</span><span class=p>:</span>
+        <span class=k>return</span> <span class=n>flask</span><span class=o>.</span><span class=n>render_template</span><span class=p>(</span><span class=s1>&#39;question.html&#39;</span><span class=p>)</span>
+    <span class=k>else</span><span class=p>:</span>
+        <span class=n>title</span> <span class=o>=</span> <span class=n>flask</span><span class=o>.</span><span class=n>request</span><span class=o>.</span><span class=n>form</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;title&#39;</span><span class=p>)</span>
+        <span class=n>content</span> <span class=o>=</span> <span class=n>flask</span><span class=o>.</span><span class=n>request</span><span class=o>.</span><span class=n>form</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;content&#39;</span><span class=p>)</span>
+        <span class=n>user_id</span> <span class=o>=</span> <span class=n>flask</span><span class=o>.</span><span class=n>session</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;user_id&#39;</span><span class=p>)</span>
+        <span class=n>insertQuestion</span><span class=p>(</span><span class=n>cur</span><span class=p>,</span> <span class=n>user_id</span><span class=p>,</span> <span class=n>title</span><span class=p>,</span> <span class=n>content</span><span class=p>)</span>
+        <span class=n>conn</span><span class=o>.</span><span class=n>commit</span><span class=p>()</span>
+        <span class=k>return</span> <span class=n>flask</span><span class=o>.</span><span class=n>redirect</span><span class=p>(</span><span class=n>flask</span><span class=o>.</span><span class=n>url_for</span><span class=p>(</span><span class=s1>&#39;index&#39;</span><span class=p>))</span>
+</code></pre></td></tr></table></div></div></li><li><p>通过上述代码我们可以看到，发布问题是一个需要登陆的操作，临时用户将无法发布问题，正好利用<code>@login_required</code>。再将发布的问题上传到数据库时，我们不仅需要问题的信息，更需要是那个用户发表的，即<code>U_ID</code>.这里我们利用<code>session</code>技术将登陆信息进行保存。<code>Login</code>时上<code>flask</code>后端维持一个<code>session</code>来保存登陆状态。如果需要注销，直接将<code>session</code>清空。</p></li><li><p>当我们发布问题结束后，会进入到主页，通过刷新主页，即能查看到最新发布的问题。</p></li></ul></li><li><p>index页</p><ul><li><p>后端代码如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=nd>@app</span><span class=o>.</span><span class=n>route</span><span class=p>(</span><span class=s1>&#39;/&#39;</span><span class=p>)</span>
+<span class=k>def</span> <span class=nf>index</span><span class=p>():</span>
+    <span class=n>questions</span> <span class=o>=</span> <span class=n>selectAllQuestion</span><span class=p>(</span><span class=n>cur</span><span class=p>)</span>
+    <span class=n>user_id</span> <span class=o>=</span> <span class=n>flask</span><span class=o>.</span><span class=n>session</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;user_id&#39;</span><span class=p>)</span>
+    <span class=n>username</span> <span class=o>=</span> <span class=n>flask</span><span class=o>.</span><span class=n>session</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;name&#39;</span><span class=p>)</span>
+    <span class=k>if</span> <span class=n>user_id</span><span class=p>:</span>
+        <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>questions</span><span class=p>)):</span>
+            <span class=n>Q_id</span> <span class=o>=</span> <span class=n>questions</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=mi>0</span><span class=p>]</span>
+            <span class=n>temp</span> <span class=o>=</span> <span class=n>selectCollectionOfUser</span><span class=p>(</span><span class=n>cur</span><span class=p>,</span><span class=n>user_id</span><span class=p>,</span><span class=n>Q_id</span><span class=p>)</span>
+            <span class=k>if</span> <span class=nb>len</span><span class=p>(</span><span class=n>temp</span><span class=p>)</span><span class=o>!=</span><span class=mi>0</span><span class=p>:</span>
+                <span class=n>questions</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=mi>1</span><span class=p>)</span>
+    <span class=n>context</span> <span class=o>=</span> <span class=p>{</span>
+        <span class=s1>&#39;questions&#39;</span><span class=p>:</span> <span class=n>questions</span><span class=p>,</span>
+        <span class=s1>&#39;username&#39;</span><span class=p>:</span><span class=n>username</span>
+    <span class=p>}</span>
+    <span class=k>return</span> <span class=n>flask</span><span class=o>.</span><span class=n>render_template</span><span class=p>(</span><span class=s1>&#39;index.html&#39;</span><span class=p>,</span> <span class=o>**</span><span class=n>context</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div></li></ul></li><li><p>点赞回答</p><ul><li><p>在回答页面中，我们可以看到不同用户的回答详情，用户可以通过自己的喜好进行点赞，收藏等操作。这里的点赞是针对回答进行的，不再需要登陆，点赞是所有用户可以进行的操作。由于我们在建表是没有维护点赞表，只是在回答表中加了一个属性，所有我们没能将点赞用户区分开来。也就说明我们的点赞是不记名的可以重复进行的操作，一个用户可以给同一问题点赞多次。</p></li><li><p>我们在处理点赞请求时，将点赞设置为一个<code>button</code>，然后在点击之后，<code>update</code>回答表的点赞选项。使<code>zNumber + 1</code>。 然后将更新之后的信息刷新。</p></li><li><p>我们点击赞同按钮之后，将会链接到givelike（）函数中。进行识别。可以看到，givelike函数是不需要登陆的。通过update函数给数据库进行更新。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=nd>@app</span><span class=o>.</span><span class=n>route</span><span class=p>(</span><span class=s1>&#39;/like/&#39;</span><span class=p>,</span> <span class=n>methods</span><span class=o>=</span><span class=p>[</span><span class=s1>&#39;POST&#39;</span><span class=p>])</span>
+<span class=k>def</span> <span class=nf>giveLike</span><span class=p>():</span>
+    <span class=n>question_id</span> <span class=o>=</span> <span class=n>flask</span><span class=o>.</span><span class=n>request</span><span class=o>.</span><span class=n>form</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;question_id&#39;</span><span class=p>)</span>
+    <span class=n>answer_id</span> <span class=o>=</span> <span class=n>flask</span><span class=o>.</span><span class=n>request</span><span class=o>.</span><span class=n>form</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;answer_id&#39;</span><span class=p>)</span>
+    <span class=n>updateAnswerOfZNumber</span><span class=p>(</span><span class=n>cur</span><span class=p>,</span> <span class=n>answer_id</span><span class=p>)</span>
+    <span class=n>conn</span><span class=o>.</span><span class=n>commit</span><span class=p>()</span>
+    <span class=k>return</span> <span class=n>flask</span><span class=o>.</span><span class=n>redirect</span><span class=p>(</span><span class=n>flask</span><span class=o>.</span><span class=n>url_for</span><span class=p>(</span><span class=s1>&#39;answer&#39;</span><span class=p>,</span> <span class=nb>id</span><span class=o>=</span><span class=n>question_id</span><span class=p>))</span>
+</code></pre></td></tr></table></div></div></li></ul></li><li><p>评论实现</p><ul><li><p>我们再点击评论详情后会跳转到评论页面。显示的评论条数也是我们通过统计评论表对应的数量统计出来的。评论的实现主要也是跟post，get方法链接。然后通过跟发布问题一样的按钮机制进行实现</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=nd>@app</span><span class=o>.</span><span class=n>route</span><span class=p>(</span><span class=s1>&#39;/comment/&#39;</span><span class=p>,</span> <span class=n>methods</span><span class=o>=</span><span class=p>[</span><span class=s1>&#39;POST&#39;</span><span class=p>])</span>
+<span class=nd>@login_required</span>
+<span class=k>def</span> <span class=nf>postComment</span><span class=p>():</span>
+    <span class=n>answer_id</span> <span class=o>=</span> <span class=n>flask</span><span class=o>.</span><span class=n>request</span><span class=o>.</span><span class=n>form</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;answer_id&#39;</span><span class=p>)</span>
+    <span class=n>content</span> <span class=o>=</span> <span class=n>flask</span><span class=o>.</span><span class=n>request</span><span class=o>.</span><span class=n>form</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;content&#39;</span><span class=p>)</span>
+    <span class=n>user_id</span> <span class=o>=</span> <span class=n>flask</span><span class=o>.</span><span class=n>session</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;user_id&#39;</span><span class=p>)</span>
+    <span class=n>insertComment</span><span class=p>(</span><span class=n>cur</span><span class=p>,</span> <span class=n>answer_id</span><span class=p>,</span> <span class=n>user_id</span><span class=p>,</span> <span class=n>content</span><span class=p>)</span>
+    <span class=n>updateAnswerOfCNumber</span><span class=p>(</span><span class=n>cur</span><span class=p>,</span> <span class=n>answer_id</span><span class=p>)</span>
+    <span class=n>conn</span><span class=o>.</span><span class=n>commit</span><span class=p>()</span>
+    <span class=k>return</span> <span class=n>flask</span><span class=o>.</span><span class=n>redirect</span><span class=p>(</span><span class=n>flask</span><span class=o>.</span><span class=n>url_for</span><span class=p>(</span><span class=s1>&#39;comment&#39;</span><span class=p>,</span> <span class=nb>id</span><span class=o>=</span><span class=n>answer_id</span><span class=p>))</span>
+</code></pre></td></tr></table></div></div></li></ul></li><li><p>收藏问题</p><ul><li><p>在满足这一需求时，我们将对每一个要收藏的信息，添加一个收藏按钮，然后通过点击来触发它，进行收藏，同样收藏也需要<code>@login_required</code>。这里需要注意的是，当点击过一次时，就将按钮置为不可触发，因为一个用户只能对一个信息收藏一次。</p></li><li><p>如下所示，这里利用在查收藏表的方法，针对每一个用户显示的收藏信息是不同的。对于尚未收藏的用户，将显示可以收藏，对已经收藏的用户，点击将取消收藏。</p></li><li><p>利用一个<code>{{if}}</code>来进行判断。显示哪一个主题的按钮。点击不同的按钮对应的操作也将不同。利用flag 来判断是否为添加<code>collection</code>，还是删除<code>collection</code></p></li><li><p>这是将是否收藏的信息从收藏表中拿出来进行配备，后端代码如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=nd>@app</span><span class=o>.</span><span class=n>route</span><span class=p>(</span><span class=s1>&#39;/Collection/&#39;</span><span class=p>,</span> <span class=n>methods</span><span class=o>=</span><span class=p>[</span><span class=s1>&#39;POST&#39;</span><span class=p>])</span>
+<span class=nd>@login_required</span>
+<span class=k>def</span> <span class=nf>giveCollection</span><span class=p>():</span>
+    <span class=n>question_id</span> <span class=o>=</span> <span class=n>flask</span><span class=o>.</span><span class=n>request</span><span class=o>.</span><span class=n>form</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;question_id&#39;</span><span class=p>)</span>
+    <span class=n>flag</span> <span class=o>=</span> <span class=n>flask</span><span class=o>.</span><span class=n>request</span><span class=o>.</span><span class=n>form</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;flag&#39;</span><span class=p>)</span>
+    <span class=n>user_id</span> <span class=o>=</span> <span class=n>flask</span><span class=o>.</span><span class=n>session</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;user_id&#39;</span><span class=p>)</span>
+    <span class=k>if</span> <span class=n>flag</span> <span class=o>==</span> <span class=s1>&#39;1&#39;</span><span class=p>:</span>
+        <span class=n>deleteCollection</span><span class=p>(</span><span class=n>cur</span><span class=p>,</span><span class=n>question_id</span><span class=p>,</span><span class=n>user_id</span><span class=p>)</span>
+        <span class=n>conn</span><span class=o>.</span><span class=n>commit</span><span class=p>()</span>
+        <span class=k>return</span> <span class=n>flask</span><span class=o>.</span><span class=n>redirect</span><span class=p>(</span><span class=n>flask</span><span class=o>.</span><span class=n>url_for</span><span class=p>(</span><span class=s1>&#39;index&#39;</span><span class=p>))</span>
+    <span class=n>insertCollection</span><span class=p>(</span><span class=n>cur</span><span class=p>,</span> <span class=n>question_id</span><span class=p>,</span> <span class=n>user_id</span><span class=p>)</span>
+    <span class=n>conn</span><span class=o>.</span><span class=n>commit</span><span class=p>()</span>
+    <span class=k>return</span> <span class=n>flask</span><span class=o>.</span><span class=n>redirect</span><span class=p>(</span><span class=n>flask</span><span class=o>.</span><span class=n>url_for</span><span class=p>(</span><span class=s1>&#39;index&#39;</span><span class=p>))</span>
+</code></pre></td></tr></table></div></div></li></ul></li><li><p>管理员删除</p><ul><li><p>管理员在登陆后进行对不合法的信息进行删除。我们在登陆之后设置一个管理员特权，特判一下是不是管理员，如果是就可以将删除按钮显示出来共其进行删除，后端代码如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=nd>@app</span><span class=o>.</span><span class=n>route</span><span class=p>(</span><span class=s1>&#39;/adminDelete/&#39;</span><span class=p>,</span> <span class=n>methods</span><span class=o>=</span><span class=p>[</span><span class=s1>&#39;POST&#39;</span><span class=p>])</span>
+<span class=nd>@login_required</span>
+<span class=k>def</span> <span class=nf>adminDelete</span><span class=p>():</span>
+    <span class=n>question_id</span> <span class=o>=</span> <span class=n>flask</span><span class=o>.</span><span class=n>request</span><span class=o>.</span><span class=n>form</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;question_id&#39;</span><span class=p>)</span>
+    <span class=n>deleteQuestionOnQ_ID</span><span class=p>(</span><span class=n>cur</span><span class=p>,</span><span class=n>question_id</span><span class=p>)</span>
+    <span class=n>conn</span><span class=o>.</span><span class=n>commit</span><span class=p>()</span>
+    <span class=k>return</span> <span class=n>flask</span><span class=o>.</span><span class=n>redirect</span><span class=p>(</span><span class=n>flask</span><span class=o>.</span><span class=n>url_for</span><span class=p>(</span><span class=s1>&#39;index&#39;</span><span class=p>))</span>
+</code></pre></td></tr></table></div></div></li></ul></li><li><p>搜索匹配</p><ul><li><p>通过输入关键字进行匹配。如果有相关选项，则进行相关选项的显示，如果没有则跳转到<code>error.html</code>，后端代码如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=nd>@app</span><span class=o>.</span><span class=n>route</span><span class=p>(</span><span class=s1>&#39;/search/&#39;</span><span class=p>)</span>
+<span class=k>def</span> <span class=nf>search</span><span class=p>():</span>
+    <span class=n>q</span> <span class=o>=</span> <span class=n>flask</span><span class=o>.</span><span class=n>request</span><span class=o>.</span><span class=n>args</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;q&#39;</span><span class=p>)</span>
+    <span class=n>questions</span> <span class=o>=</span> <span class=n>selectAllQuestion</span><span class=p>(</span><span class=n>cur</span><span class=p>)</span>
+    <span class=n>user_id</span> <span class=o>=</span> <span class=n>flask</span><span class=o>.</span><span class=n>session</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;user_id&#39;</span><span class=p>)</span>
+    <span class=k>if</span> <span class=n>user_id</span><span class=p>:</span>
+        <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>questions</span><span class=p>)):</span>
+            <span class=n>Q_id</span> <span class=o>=</span> <span class=n>questions</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=mi>0</span><span class=p>]</span>
+            <span class=n>temp</span> <span class=o>=</span> <span class=n>selectCollectionOfUser</span><span class=p>(</span><span class=n>cur</span><span class=p>,</span><span class=n>user_id</span><span class=p>,</span><span class=n>Q_id</span><span class=p>)</span>
+            <span class=k>if</span> <span class=nb>len</span><span class=p>(</span><span class=n>temp</span><span class=p>)</span><span class=o>!=</span><span class=mi>0</span><span class=p>:</span>
+                <span class=n>questions</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=mi>1</span><span class=p>)</span>
+    <span class=n>question_of_q</span> <span class=o>=</span> <span class=p>[]</span>
+    <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=n>questions</span><span class=p>:</span>
+        <span class=k>if</span> <span class=n>i</span><span class=p>[</span><span class=mi>2</span><span class=p>]</span><span class=o>.</span><span class=n>find</span><span class=p>(</span><span class=n>q</span><span class=p>)</span> <span class=o>!=</span> <span class=o>-</span><span class=mi>1</span> <span class=ow>or</span> <span class=n>i</span><span class=p>[</span><span class=mi>3</span><span class=p>]</span><span class=o>.</span><span class=n>find</span><span class=p>(</span><span class=n>q</span><span class=p>)</span> <span class=o>!=</span> <span class=o>-</span><span class=mi>1</span><span class=p>:</span>
+            <span class=n>question_of_q</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>i</span><span class=p>)</span>
+    <span class=k>if</span> <span class=nb>len</span><span class=p>(</span><span class=n>question_of_q</span><span class=p>)</span><span class=o>==</span><span class=mi>0</span><span class=p>:</span>
+        <span class=n>context</span> <span class=o>=</span> <span class=p>{</span>
+            <span class=s1>&#39;error&#39;</span><span class=p>:</span><span class=s1>&#39;没有相关搜索&#39;</span>
+        <span class=p>}</span>
+        <span class=k>return</span> <span class=n>flask</span><span class=o>.</span><span class=n>render_template</span><span class=p>(</span><span class=s1>&#39;error.html&#39;</span><span class=p>,</span> <span class=o>**</span><span class=n>context</span><span class=p>)</span>
+    <span class=n>context</span> <span class=o>=</span> <span class=p>{</span>
+        <span class=s1>&#39;questions&#39;</span><span class=p>:</span> <span class=n>question_of_q</span>
+    <span class=p>}</span>
+    <span class=k>return</span> <span class=n>flask</span><span class=o>.</span><span class=n>render_template</span><span class=p>(</span><span class=s1>&#39;index.html&#39;</span><span class=p>,</span> <span class=o>**</span><span class=n>context</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div></li></ul></li><li><p>新用户注册</p><ul><li><p>输入信息进行提交，提交成功后后端会对注册的信息进行处理，如果两次密码不一致，或者其他信息不合法，将返回错误到错误<code>error.html</code>页面，后端代码如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=nd>@app</span><span class=o>.</span><span class=n>route</span><span class=p>(</span><span class=s1>&#39;/regist/&#39;</span><span class=p>,</span> <span class=n>methods</span><span class=o>=</span><span class=p>[</span><span class=s1>&#39;GET&#39;</span><span class=p>,</span> <span class=s1>&#39;POST&#39;</span><span class=p>])</span>
+<span class=k>def</span> <span class=nf>regist</span><span class=p>():</span>
+    <span class=k>if</span> <span class=n>flask</span><span class=o>.</span><span class=n>request</span><span class=o>.</span><span class=n>method</span> <span class=o>==</span> <span class=s1>&#39;GET&#39;</span><span class=p>:</span>
+        <span class=k>return</span> <span class=n>flask</span><span class=o>.</span><span class=n>render_template</span><span class=p>(</span><span class=s1>&#39;regist.html&#39;</span><span class=p>)</span>
+    <span class=k>else</span><span class=p>:</span>
+        <span class=n>telephone</span> <span class=o>=</span> <span class=nb>int</span><span class=p>(</span><span class=n>flask</span><span class=o>.</span><span class=n>request</span><span class=o>.</span><span class=n>form</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;telephone&#39;</span><span class=p>))</span>
+        <span class=n>username</span> <span class=o>=</span> <span class=n>flask</span><span class=o>.</span><span class=n>request</span><span class=o>.</span><span class=n>form</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;username&#39;</span><span class=p>)</span>
+        <span class=n>password1</span> <span class=o>=</span> <span class=n>flask</span><span class=o>.</span><span class=n>request</span><span class=o>.</span><span class=n>form</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;password1&#39;</span><span class=p>)</span>
+        <span class=n>password2</span> <span class=o>=</span> <span class=n>flask</span><span class=o>.</span><span class=n>request</span><span class=o>.</span><span class=n>form</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;password2&#39;</span><span class=p>)</span>
+        <span class=n>email</span> <span class=o>=</span> <span class=n>flask</span><span class=o>.</span><span class=n>request</span><span class=o>.</span><span class=n>form</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;email&#39;</span><span class=p>)</span>
+        <span class=n>sex</span> <span class=o>=</span> <span class=n>flask</span><span class=o>.</span><span class=n>request</span><span class=o>.</span><span class=n>form</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;sex&#39;</span><span class=p>)</span>
+        <span class=n>signDetail</span> <span class=o>=</span> <span class=n>flask</span><span class=o>.</span><span class=n>request</span><span class=o>.</span><span class=n>form</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;signDetail&#39;</span><span class=p>)</span>
+        <span class=nb>print</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>password1</span><span class=p>))</span>
+        <span class=n>d</span> <span class=o>=</span> <span class=n>selectUserToReg</span><span class=p>(</span><span class=n>cur</span><span class=p>,</span> <span class=n>telephone</span><span class=p>)</span>
+        <span class=k>if</span> <span class=nb>len</span><span class=p>(</span><span class=n>d</span><span class=p>)</span> <span class=o>!=</span> <span class=mi>0</span><span class=p>:</span>
+            <span class=k>return</span> <span class=sa>u</span><span class=s1>&#39;手机号已经注册过&#39;</span>
+        <span class=k>else</span><span class=p>:</span>
+            <span class=k>if</span> <span class=n>password2</span> <span class=o>!=</span> <span class=n>password1</span> <span class=ow>or</span> <span class=nb>len</span><span class=p>(</span><span class=n>password1</span><span class=p>)</span> <span class=o>==</span> <span class=mi>0</span>  <span class=p>:</span>
+                <span class=k>return</span> <span class=sa>u</span><span class=s1>&#39;两次密码不一致&#39;</span>
+            <span class=k>else</span><span class=p>:</span>
+                <span class=n>insertUser</span><span class=p>(</span><span class=n>cur</span><span class=p>,</span> <span class=n>username</span><span class=p>,</span> <span class=n>telephone</span><span class=p>,</span> <span class=n>email</span><span class=p>,</span> <span class=n>password1</span><span class=p>,</span> <span class=n>sex</span><span class=p>,</span> <span class=n>signDetail</span><span class=p>)</span>
+                <span class=n>conn</span><span class=o>.</span><span class=n>commit</span><span class=p>()</span>
+                <span class=k>return</span> <span class=n>flask</span><span class=o>.</span><span class=n>redirect</span><span class=p>(</span><span class=n>flask</span><span class=o>.</span><span class=n>url_for</span><span class=p>(</span><span class=s1>&#39;login&#39;</span><span class=p>))</span>
+</code></pre></td></tr></table></div></div></li></ul></li><li><p>用户个人问题删除</p><ul><li><p>建立好个人主页后，用户可以进行对自己发布的问题进行删除的操作。通过点击个人删除的按钮，进行级联删除，将删除这条信息后面所有的外键索引。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=nd>@app</span><span class=o>.</span><span class=n>route</span><span class=p>(</span><span class=s1>&#39;/delete/&#39;</span><span class=p>,</span> <span class=n>methods</span><span class=o>=</span><span class=p>[</span><span class=s1>&#39;POST&#39;</span><span class=p>])</span>
+<span class=nd>@login_required</span>
+<span class=k>def</span> <span class=nf>deleteQuestion</span><span class=p>():</span>
+    <span class=n>question_id</span> <span class=o>=</span> <span class=n>flask</span><span class=o>.</span><span class=n>request</span><span class=o>.</span><span class=n>form</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;question_id&#39;</span><span class=p>)</span>
+    <span class=n>uid</span> <span class=o>=</span> <span class=n>flask</span><span class=o>.</span><span class=n>request</span><span class=o>.</span><span class=n>form</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;uid&#39;</span><span class=p>)</span>
+    <span class=n>deleteQuestionOnQ_ID</span><span class=p>(</span><span class=n>cur</span><span class=p>,</span><span class=n>question_id</span><span class=p>)</span>
+    <span class=n>conn</span><span class=o>.</span><span class=n>commit</span><span class=p>()</span>
+    <span class=k>return</span> <span class=n>flask</span><span class=o>.</span><span class=n>redirect</span><span class=p>(</span><span class=n>flask</span><span class=o>.</span><span class=n>url_for</span><span class=p>(</span><span class=s1>&#39;user&#39;</span><span class=p>,</span><span class=nb>id</span><span class=o>=</span><span class=n>uid</span><span class=p>))</span>
+</code></pre></td></tr></table></div></div></li></ul></li><li><p>用户主页</p><ul><li><p>用户主页主要用来展示用户信息和修改用户信息。主要含义三个模块，一是个人信息展示，二是收藏集展示，三是自己发布的问题展示。用户个人信息可以同所有人查看，如果是本人登陆，将可以修改个人信息和删除发布，如果是别人访问主页将可以进行关注和进行查看ta的一些信息。</p></li><li><p>我们可以看到用户页面，可以进行取消对已经收藏问题的收藏，删除自己发布的问题，以及修改个人资料，包括个性签名，用户名等信息。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=nd>@app</span><span class=o>.</span><span class=n>route</span><span class=p>(</span><span class=s1>&#39;/user/&lt;id&gt;/&#39;</span><span class=p>)</span>
+<span class=k>def</span> <span class=nf>user</span><span class=p>(</span><span class=nb>id</span><span class=p>):</span>
+    <span class=n>B_username</span> <span class=o>=</span> <span class=nb>id</span>
+    <span class=n>A_username</span> <span class=o>=</span> <span class=n>flask</span><span class=o>.</span><span class=n>session</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;name&#39;</span><span class=p>)</span>
+    <span class=k>if</span> <span class=n>B_username</span> <span class=o>==</span> <span class=n>A_username</span> <span class=ow>or</span> <span class=n>B_username</span> <span class=o>==</span><span class=s1>&#39;0&#39;</span><span class=p>:</span>
+        <span class=n>user_id</span> <span class=o>=</span> <span class=n>flask</span><span class=o>.</span><span class=n>session</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;user_id&#39;</span><span class=p>)</span>
+        <span class=n>username</span> <span class=o>=</span> <span class=n>flask</span><span class=o>.</span><span class=n>session</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;name&#39;</span><span class=p>)</span>
+        <span class=n>flag</span> <span class=o>=</span> <span class=mi>1</span>
+    <span class=k>else</span><span class=p>:</span>
+        <span class=n>username</span> <span class=o>=</span> <span class=n>B_username</span>
+        <span class=n>user_id</span> <span class=o>=</span> <span class=n>selectUIDOnUsername</span><span class=p>(</span><span class=n>cur</span><span class=p>,</span> <span class=n>username</span><span class=p>)[</span><span class=mi>0</span><span class=p>]</span>
+        <span class=n>flag</span> <span class=o>=</span> <span class=mi>0</span>
+    <span class=n>sign</span> <span class=o>=</span> <span class=n>selectuserOfdetail</span><span class=p>(</span><span class=n>cur</span><span class=p>,</span> <span class=n>user_id</span><span class=p>)[</span><span class=mi>0</span><span class=p>][</span><span class=mi>0</span><span class=p>]</span>
+    <span class=n>questions</span> <span class=o>=</span> <span class=p>[]</span>
+    <span class=n>collection</span> <span class=o>=</span> <span class=n>selectCollection</span><span class=p>(</span><span class=n>cur</span><span class=p>,</span> <span class=n>user_id</span><span class=p>)</span>
+    <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=n>collection</span><span class=p>:</span>
+        <span class=n>question</span> <span class=o>=</span> <span class=n>selectQuestionOfQ_ID</span><span class=p>(</span><span class=n>cur</span><span class=p>,</span> <span class=n>i</span><span class=p>[</span><span class=mi>0</span><span class=p>])[</span><span class=mi>0</span><span class=p>]</span>
+        <span class=n>question</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=mi>1</span><span class=p>)</span>
+        <span class=n>questions</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>question</span><span class=p>)</span>
+    <span class=n>myquestions</span> <span class=o>=</span> <span class=n>selectquestionOnU_ID</span><span class=p>(</span><span class=n>cur</span><span class=p>,</span><span class=n>user_id</span><span class=p>)</span>
+    <span class=n>context</span> <span class=o>=</span> <span class=p>{</span>
+        <span class=s1>&#39;questions&#39;</span><span class=p>:</span> <span class=n>questions</span><span class=p>,</span>
+        <span class=s1>&#39;name&#39;</span><span class=p>:</span> <span class=n>username</span><span class=p>,</span>
+        <span class=s1>&#39;myquestions&#39;</span><span class=p>:</span><span class=n>myquestions</span><span class=p>,</span>
+        <span class=s1>&#39;sign&#39;</span><span class=p>:</span><span class=n>sign</span><span class=p>,</span>
+        <span class=s1>&#39;flag&#39;</span><span class=p>:</span><span class=n>flag</span>
+    <span class=p>}</span>
+    <span class=k>return</span> <span class=n>flask</span><span class=o>.</span><span class=n>render_template</span><span class=p>(</span><span class=s1>&#39;user.html&#39;</span><span class=p>,</span><span class=o>**</span><span class=n>context</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div></li></ul></li><li><p>Hash加盐加密存储</p><ul><li><p>用户在注册后，通过前端将密码<code>hash</code>后再提交，这样子数据库中保存的密码是经过<code>hash</code>的，但未加盐。加盐这一步放在登录时使用。前端代码如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=o>&lt;</span><span class=n>script</span> <span class=nb>type</span><span class=o>=</span><span class=s2>&#34;text/javascript&#34;</span> <span class=n>src</span><span class=o>=</span><span class=s2>&#34;../static/sha256.js&#34;</span><span class=o>&gt;&lt;/</span><span class=n>script</span><span class=o>&gt;</span>
+<span class=o>&lt;</span><span class=n>script</span><span class=o>&gt;</span>
+    <span class=n>function</span> <span class=n>register</span><span class=p>()</span> <span class=p>{</span>
+    <span class=n>var</span> <span class=n>regform</span> <span class=o>=</span> <span class=n>document</span><span class=o>.</span><span class=n>getElementById</span><span class=p>(</span><span class=s2>&#34;regform&#34;</span><span class=p>);</span>
+    <span class=k>if</span> <span class=p>(</span><span class=n>regform</span><span class=o>.</span><span class=n>password</span><span class=o>.</span><span class=n>value</span> <span class=o>!=</span>  <span class=n>regform</span><span class=o>.</span><span class=n>password2</span><span class=o>.</span><span class=n>value</span><span class=p>)</span> <span class=p>{</span>
+        <span class=n>alert</span><span class=p>(</span><span class=s2>&#34;确认密码与密码不符合，请重新输入&#34;</span><span class=p>);</span>
+    <span class=p>}</span>
+    <span class=k>else</span><span class=p>{</span>
+        <span class=n>regform</span><span class=o>.</span><span class=n>password</span><span class=o>.</span><span class=n>value</span> <span class=o>=</span> <span class=n>sha256_digest</span><span class=p>(</span><span class=n>regform</span><span class=o>.</span><span class=n>password</span><span class=o>.</span><span class=n>value</span><span class=p>);</span>	
+
+        <span class=o>//</span> <span class=n>提交之前把password的值hash</span><span class=err>，</span>
+        <span class=o>//</span> <span class=n>这样子后端数据库中的password就是经过hash的密码</span>
+        <span class=n>regform</span><span class=o>.</span><span class=n>submit</span><span class=p>();</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+<span class=o>&lt;/</span><span class=n>script</span><span class=o>&gt;</span>
+</code></pre></td></tr></table></div></div></li><li><p>再登录时，利用<code>python hashlib.sha256()</code>进行加盐，这样数据库中存储的密码也时<code>hash</code>过的，极大程度保证了用户数据的安全性。后端代码如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=nd>@app</span><span class=o>.</span><span class=n>route</span><span class=p>(</span><span class=s1>&#39;/login/&#39;</span><span class=p>,</span> <span class=n>methods</span><span class=o>=</span><span class=p>[</span><span class=s1>&#39;GET&#39;</span><span class=p>,</span> <span class=s1>&#39;POST&#39;</span><span class=p>])</span>
+<span class=k>def</span> <span class=nf>login</span><span class=p>():</span>
+    <span class=k>if</span> <span class=n>flask</span><span class=o>.</span><span class=n>request</span><span class=o>.</span><span class=n>method</span> <span class=o>==</span> <span class=s1>&#39;GET&#39;</span><span class=p>:</span>
+        <span class=k>return</span> <span class=n>flask</span><span class=o>.</span><span class=n>render_template</span><span class=p>(</span><span class=s1>&#39;login.html&#39;</span><span class=p>)</span>
+    <span class=k>else</span><span class=p>:</span>
+        <span class=n>telephone</span> <span class=o>=</span> <span class=n>flask</span><span class=o>.</span><span class=n>request</span><span class=o>.</span><span class=n>form</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;telephone&#39;</span><span class=p>)</span>
+        <span class=n>password</span> <span class=o>=</span> <span class=n>flask</span><span class=o>.</span><span class=n>request</span><span class=o>.</span><span class=n>form</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;password&#39;</span><span class=p>)</span>
+        <span class=n>mobile</span> <span class=o>=</span> <span class=n>selectAccountTologin</span><span class=p>(</span><span class=n>cur</span><span class=p>,</span> <span class=n>telephone</span><span class=p>,</span> <span class=n>password</span><span class=p>)[</span><span class=mi>0</span><span class=p>][</span><span class=mi>0</span><span class=p>]</span>
+        <span class=n>u</span> <span class=o>=</span> <span class=n>selectUserOnMobile</span><span class=p>(</span><span class=n>cur</span><span class=p>,</span> <span class=n>mobile</span><span class=p>)</span>
+        <span class=k>if</span> <span class=nb>len</span><span class=p>(</span><span class=n>u</span><span class=p>)</span> <span class=o>!=</span> <span class=mi>0</span><span class=p>:</span>
+            <span class=n>flask</span><span class=o>.</span><span class=n>session</span><span class=p>[</span><span class=s1>&#39;name&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>u</span><span class=p>[</span><span class=mi>0</span><span class=p>][</span><span class=mi>1</span><span class=p>]</span>
+            <span class=n>flask</span><span class=o>.</span><span class=n>session</span><span class=p>[</span><span class=s1>&#39;user_id&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>u</span><span class=p>[</span><span class=mi>0</span><span class=p>][</span><span class=mi>0</span><span class=p>]</span>
+            <span class=k>return</span> <span class=n>flask</span><span class=o>.</span><span class=n>redirect</span><span class=p>(</span><span class=n>flask</span><span class=o>.</span><span class=n>url_for</span><span class=p>(</span><span class=s1>&#39;index&#39;</span><span class=p>))</span>
+        <span class=k>else</span><span class=p>:</span>
+            <span class=k>return</span> <span class=sa>u</span><span class=s1>&#39;用户名或密码错误！&#39;</span>
+</code></pre></td></tr></table></div></div></li></ul></li></ul><h3 id=42-运行测试>4.2 运行测试</h3><ul><li><p>启动</p><ul><li><p>刷新Nginx</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>sudo systemctl restart nginx
+</code></pre></td></tr></table></div></div></li><li><p>启动uwsgi</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>uwsgi izhihu.ini
+</code></pre></td></tr></table></div></div></li></ul></li><li><p>改进</p><ul><li><mark>todo</mark>：打包程序，方便部署</li><li><mark>todo</mark>：软件测试，结合软工</li><li><mark>todo</mark>：前端UI美化，迁移框架</li><li><mark>todo</mark>：提高系统健壮性、网页运行安全性</li></ul></li></ul></article></div><div class=grow></div><nav class=pagination-single><div class=grow></div><a href=http://lunarwhite.github.io/personal-blog/zh/dev/2assign/fvrltijkh/ title=[仿知乎web端]后端及数据库设计文档 class=pagination-single__right><div class=pagination-single__left-title>[仿知乎web端]后端及数据库设计文档</div><div class=pagination-single__icon><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="currentcolor" d="M5 13h11.17l-4.88 4.88c-.39.39-.39 1.03.0 1.42.39.39 1.02.39 1.41.0l6.59-6.59c.39-.39.39-1.02.0-1.41l-6.58-6.6c-.39-.39-1.02-.39-1.41.0s-.39 1.02.0 1.41L16.17 11H5c-.55.0-1 .45-1 1s.45 1 1 1z"/></svg></div></a></nav></article><section id=list-side class=r data-dir=ltr><div class=toc><h6 class=toc__label>What's on this Page</h6><div class=toc__body><nav id=TableOfContents><ul><li><a href=#1-云服务器>1 云服务器</a><ul><li><a href=#11-连接>1.1 连接</a></li><li><a href=#12-域名>1.2 域名</a></li></ul></li><li><a href=#2-环境准备>2 环境准备</a><ul><li><a href=#20-技术栈>2.0 技术栈</a></li><li><a href=#21-部署ubuntu-server>2.1 部署Ubuntu-Server</a></li><li><a href=#22-安装部署sql-server>2.2 安装部署SQL-Server</a></li><li><a href=#23-部署vscodegit>2.3 部署VSCode+Git</a></li><li><a href=#24-部署python>2.4 部署Python</a></li><li><a href=#25-安装部署pymssql>2.5 安装部署pymssql</a></li><li><a href=#26-安装部署flask>2.6 安装部署Flask</a></li><li><a href=#27-安装部署uwsgi>2.7 安装部署uwsgi</a></li><li><a href=#28-安装部署nginx>2.8 安装部署Nginx</a></li></ul></li><li><a href=#3-项目结构>3 项目结构</a><ul><li><a href=#30-总体结构>3.0 总体结构</a></li><li><a href=#31-前端>3.1 前端</a></li><li><a href=#32-后端>3.2 后端</a></li><li><a href=#33-数据库端>3.3 数据库端</a></li></ul></li><li><a href=#4-项目思路>4 项目思路</a><ul><li><a href=#41-功能设计>4.1 功能设计</a></li><li><a href=#42-运行测试>4.2 运行测试</a></li></ul></li></ul></nav></div></div></section></div></div><script>'use strict';var dollarCodeElem,gtCodeElem;function wrap(a,b){a.parentNode.insertBefore(b,a),b.appendChild(a)}(function(){var a=document.querySelector('.single__contents');a?a.querySelectorAll('pre > code').forEach(function(a){var b=a.getAttribute('data-lang'),d=document.createElement('div'),e=null,c=null;b&&b.includes(':')&&(e=b.split(':')[0],c=b.split(':')[1],d.className='language-'+e,d.setAttribute('data-lang',c),a.className='language-'+e,a.setAttribute('data-lang',c),a.setAttribute('id',c)),(!b||c)&&wrap(a.parentNode,d)}):null})(),dollarCodeElem=document.querySelectorAll('div.language-\\$'),gtCodeElem=document.querySelectorAll('div.language-\\>'),dollarCodeElem?dollarCodeElem.forEach(function(a){var b=a.parentNode.parentNode?a.parentNode.parentNode.querySelectorAll('.lnt'):null;b?b.forEach(function(a){a.innerHTML='$<br/>'}):null}):null,gtCodeElem?gtCodeElem.forEach(function(a){var b=a.parentNode.parentNode?a.parentNode.parentNode.querySelectorAll('.lnt'):null;b?b.forEach(function(a){a.innerHTML='><br/>'}):null}):null</script><script defer src=/personal-blog/js/helper/getParents.min.js></script><script defer src=/personal-blog/js/helper/closest.min.js></script><script defer src=/personal-blog/js/helper/prev.min.js></script><script defer src=/personal-blog/js/helper/prop.min.js></script><script defer src=/personal-blog/js/helper/fadeinout.min.js></script><script>document.addEventListener('DOMContentLoaded',function(){'use strict';var l=document.querySelectorAll('.single__contents > table'),d,i,a,n,k,p,h,c,m,b,g,f,e,o,j;for(let a=0;a<l.length;a++)d=l[a],i=document.createElement('div'),i.className='table-wrapper',d.parentElement.replaceChild(i,d),i.appendChild(d);a=JSON.parse("null"),a&&a.includes('mermaid')&&(n=localStorage.getItem('theme')||'light',n==="dark"?mermaid.initialize({theme:'dark'}):mermaid.initialize({theme:'default'}),k=[],[].push.apply(k,document.getElementsByClassName('language-mermaid')),k.forEach(function(b){var a=b.parentNode,c;a!==document.body&&(a.parentNode.insertBefore(b,a),a.parentNode.removeChild(a)),c=document.createElement('div'),c.classList.add('mermaid'),c.innerHTML=b.innerHTML,b.replaceWith(c)})),a&&a.includes('katex')&&(p=document.getElementsByClassName('math'),h={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]},renderMathInElement(document.querySelector('.single__contents'),h)),a&&a.includes('flowchartjs')&&(h=JSON.parse('{"arrow-end":"block","element-color":"black","fill":"white","flowstate":{"approved":{"fill":"#58C4A3","font-size":12,"no-text":"n/a","yes-text":"APPROVED"},"current":{"fill":"yellow","font-color":"red","font-weight":"bold"},"future":{"fill":"#FFFF99"},"invalid":{"fill":"#444444"},"past":{"fill":"#CCCCCC","font-size":12},"rejected":{"fill":"#C45879","font-size":12,"no-text":"REJECTED","yes-text":"n/a"},"request":{"fill":"blue"}},"font-color":"black","font-size":14,"line-color":"black","line-length":50,"line-width":3,"no-text":"no","scale":1,"symbols":{"end":{"class":"end-element"},"start":{"element-color":"green","fill":"yellow","font-color":"red"}},"text-margin":10,"x":0,"y":0,"yes-text":"yes"}'),c=null,m="language-flowchart",b=0,Array.prototype.forEach.call(document.querySelectorAll("[class^="+m+"]"),function(a){var d,e;a.style.display='none',a.parentNode.style.backgroundColor="transparent",c=a.innerText,d=document.createElement('div'),d.id='flowchart'+b,a.parentNode.insertBefore(d,a),e=flowchart.parse(c),e.drawSVG("flowchart"+b,h),b+=1})),a&&a.includes('chart')&&(g="#666",f="#ddd",e=2,Chart.defaults.global.elements.rectangle.borderWidth=e,Chart.defaults.global.elements.rectangle.borderColor=g,Chart.defaults.global.elements.rectangle.backgroundColor=f,Chart.defaults.global.elements.line.borderWidth=e,Chart.defaults.global.elements.line.borderColor=g,Chart.defaults.global.elements.line.backgroundColor=f,Chart.defaults.global.elements.point.borderWidth=e,Chart.defaults.global.elements.point.borderColor=g,Chart.defaults.global.elements.point.backgroundColor=f,o="language-chart",b=0,c=null,Array.prototype.forEach.call(document.querySelectorAll("[class^="+o+"]"),function(a){var d,e,f,g;a.style.display='none',a.parentNode.style.backgroundColor="transparent",c=a.innerText,d=document.createElement('canvas'),e=null,d.height=200,d.style.height=200,d.id='myChart'+b,e=JSON.parse(c),a.parentNode.insertBefore(d,a),f=document.getElementById('myChart'+b).getContext('2d'),g=new Chart(f,e),b+=1})),a&&a.includes('viz')&&(j="language-viz-",Array.prototype.forEach.call(document.querySelectorAll("[class^="+j+"]"),function(a){var b,c;a.style.display='none',a.parentNode.style.backgroundColor="transparent",a.getAttribute("class").split(" ").forEach(function(a){a.startsWith(j)&&(b=a.substr(j.length))}),c=new Viz,c.renderSVGElement(a.innerText,{engine:b}).then(function(b){b.style.width="100%",a.parentNode.insertBefore(b,a)})}))})</script><script>var listSide=document.getElementById('list-side'),listMain=document.getElementById('list-main'),singleMenu=document.getElementById('single-menu'),switchElem=document.querySelector('.switch'),wideViewAsDefault=JSON.parse("false");enquire.register("screen and (max-width:1280px)",{match:function(){wideViewAsDefault?(singleMenu.className='l',listMain.className='mr',listSide.className='hide'):(singleMenu.className='l',listMain.className='m',listSide.className='r')},unmatch:function(){wideViewAsDefault?(singleMenu.className='l',listMain.className='mr',listSide.className='hide'):(listSide.className='r',listMain.className='m',singleMenu.className='l')}}).register("screen and (max-width:960px)",{match:function(){singleMenu.className='l',listMain.className='mr',listSide.className='hide',switchElem.className='hide'},unmatch:function(){wideViewAsDefault?(singleMenu.className='l',listMain.className='mr',listSide.className='hide'):(singleMenu.className='l',listMain.className='m',listSide.className='r'),switchElem.className='switch'}}).register("screen and (max-width:600px)",{match:function(){listSide.className='hide',listMain.className='lmr',singleMenu.className='hide',switchElem.className='hide'},unmatch:function(){listSide.className='hide',listMain.className='mr',singleMenu.className='l',switchElem.className='hide'}})</script><div class=bot><footer class=footer><div class=divider><div class=lmr><p class=caption>©2021, All Rights Reserved</p><p class=caption>Powered by <a href=https://gohugo.io/ rel=noreferrer>Hugo</a> and the <a href=https://github.com/zzossig/hugo-theme-zdoc rel=noreferrer>zDoc theme</a></p></div></div></footer></div></div></body></html>
