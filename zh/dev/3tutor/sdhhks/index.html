@@ -1,0 +1,687 @@
+<!doctype html><html lang=zh dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>C++ – lunarwhite</title><script defer src=/js/fuse.min.c4bee9a8d44273d6154fe86006923d4131eb2e8069d8897687137c6f37f553e3.js></script><script src=/js/enquire.min.aa37bdcb743826eecdae5c5d177fc7d6552340f1b4378ffaa9c82b2c6111400b.js></script><script defer src=/js/lazysizes.min.5e11d056075a05065b9c0bfec44084a113fc2976c2952ec804dedb61c7662db9.js></script><script defer src=/js/helper/getParents.min.ccd45f158c1b17849307ba913a72beac239c410f2b6e648496a79842da84e55b.js></script><script defer src=/js/helper/fadeinout.min.9fb19682560d5fa5596fffec85da605067c4acc86aad05add4d8fff9d362a446.js></script><script>"use strict";window.onload=function(){var q=JSON.parse('"ltr"'),Y=JSON.parse('"http://lunarwhite.github.io/"'),af=JSON.parse('"http://lunarwhite.github.io/zh/dev/3tutor/sdhhks/"'),M=document.getElementById("toggle-sidebar"),P=document.getElementById("toggle-menu"),z=document.querySelector('.toc__body'),y=document.querySelector('.toc__label'),j=document.getElementById('list-main'),B=document.getElementById('list-side'),w=document.getElementById('single-menu'),l=document.querySelectorAll('.slider__icon'),S,G,ae,E,x,r,X,m,t,$,W,L,C,i,K,A,U,p,D,Z,h,H,I,J,o,k,n,N,O,ac,u,_,b,c,f,s,ad,v,g,T,e,ag,ah,a,aj,V;M?M.addEventListener('change',function(a){a.target.checked?(z&&fadeIn(z,200),y&&fadeIn(y,200),j&&B&&(j.className='m',B.className='r'),l&&l.forEach(function(a){a.classList.contains('hide')?a.classList.remove('hide'):a.classList.add('hide')})):(z&&fadeOut(z,200),y&&fadeOut(y,200),j&&B&&(j.className='mr',B.className='hide'),l&&l.forEach(function(a){a.classList.contains('hide')?a.classList.remove('hide'):a.classList.add('hide')}))}):null,P?P.addEventListener('change',function(a){a.target.checked?(j&&w&&(j.className='m',w.className='l'),l&&l.forEach(function(a){a.classList.contains('hide')?a.classList.remove('hide'):a.classList.add('hide')})):(j&&w&&(j.className='lm',w.className='hide'),l&&l.forEach(function(a){a.classList.contains('hide')?a.classList.remove('hide'):a.classList.add('hide')}))}):null,S=document.getElementById('navCollapseBtn'),S?S.addEventListener('click',function(c){var a=document.querySelector('.navbar__collapse'),b;a&&(b=a.getAttribute('data-open'),b==='true'?(a.setAttribute('data-open','false'),a.style.maxHeight=0):(a.setAttribute('data-open','true'),a.style.maxHeight=a.scrollHeight+"px"))}):null,G=document.querySelectorAll('.expand__button');for(let a=0;a<G.length;a++)G[a].addEventListener("click",function(){var a=this.nextElementSibling;a.style.maxHeight?(a.style.maxHeight=null,this.querySelector('svg').classList.add('expand-icon__right'),this.querySelector('svg').classList.remove('expand-icon__down')):(a.style.maxHeight=a.scrollHeight+"px",this.querySelector('svg').classList.remove('expand-icon__right'),this.querySelector('svg').classList.add('expand-icon__down'))});document.querySelectorAll('.tab')?document.querySelectorAll('.tab').forEach(function(a,d){var e=a.getAttribute('id'),f=a,b=a.querySelectorAll('.tab__link'),c=a.querySelectorAll('.tab__content'),g=[];b&&b.length>0?b.forEach(function(b,d,a){b.onclick=function(e){for(var b=0;b<a.length;b++)d===parseInt(b,10)?a[b].classList.contains('active')||(a[b].classList.add('active'),c[b].style.display='block'):(a[b].classList.remove('active'),c[b].style.display='none')}}):null}):null,document.querySelectorAll('.codetab')?document.querySelectorAll('.codetab').forEach(function(a,d){var e=a.getAttribute('id'),f=a,b=a.querySelectorAll('.codetab__link'),c=a.querySelectorAll('.codetab__content'),g=[];b&&b.length>0?b.forEach(function(b,d,a){b.onclick=function(e){for(var b=0;b<a.length;b++)d===parseInt(b,10)?a[b].classList.contains('active')||(a[b].classList.add('active'),c[b].style.display='block'):(a[b].classList.remove('active'),c[b].style.display='none')}}):null}):null,ae=JSON.parse("true"),E=document.getElementById('root'),x=document.getElementById('toggleToLight'),r=document.getElementById('toggleToDark'),ae||(E.className='theme__light',localStorage.setItem('theme','light')),r&&(r.onclick=function(a){E.className='theme__dark',localStorage.setItem('theme','dark'),x.className='navbar__icons--icon',r.className='hide'}),x&&(x.onclick=function(a){E.className='theme__light',localStorage.setItem('theme','light'),x.className='hide',r.className='navbar__icons--icon'}),document.querySelectorAll('.menu__list').forEach(function(a){a.classList.contains('active')&&(a.style.maxHeight=a.scrollHeight+"px")}),document.querySelectorAll('.menu__title--collapse').forEach(function(a){a.addEventListener('click',function(e){var b=this.nextElementSibling,c=this.querySelector('.menu__title--icon'),d;if(!b)return null;for(d=a.parentNode;d.classList.contains('menu__list')&&d.classList.contains('active');)d.style.maxHeight=100*d.children.length+"px",d=d.parentNode;b.style.maxHeight?(b.style.maxHeight=null,b.classList.remove('active'),c.classList.add('right'),q==='rtl'?c.classList.remove('downrtl'):c.classList.remove('down')):(b.style.maxHeight=b.scrollHeight+"px",b.classList.add('active'),c.classList.remove('right'),q==='rtl'?c.classList.add('downrtl'):c.classList.add('down'))})}),X=document.getElementById('mobileLogo'),m=document.getElementById("myModal"),t=document.getElementById('myDrawer'),$=document.querySelector('.drawer__close'),W=function(){m.style.opacity=1,q==='rtl'?(m.style.right=0,t.style.right=0):(m.style.left=0,t.style.left=0)},L=function(){m.style.opacity=0,q==='rtl'?t.style.right='-100%':t.style.left='-100%',setTimeout(function(){q==='rtl'?m.style.right='-100%':m.style.left='-100%'},250)},X.onclick=function(){W(),localStorage.setItem('isDrawerOpen','true')},m.onclick=function(){L(),localStorage.setItem('isDrawerOpen','false')},$.onclick=function(){L(),localStorage.setItem('isDrawerOpen','false')},C=window.pageYOffset||document.documentElement.scrollTop,i=document.querySelector('.toc'),K=i?i.querySelector('#TableOfContents'):null,A=document.querySelector('.single__contents'),U=document.querySelectorAll('div[data-bgimg]'),p=JSON.parse('["h2","h3","h4"]'),p?p=p.toString():p="h1, h2, h3, h4, h5, h6",D=JSON.parse("null"),Z=JSON.parse("false");function F(a){Z&&D&&Object.keys(D).length&&(D.height<=a?U.forEach(function(a){a.setAttribute('data-bgimg','false')}):U.forEach(function(a){a.setAttribute('data-bgimg','true')}))}F(C),window.onscroll=function(){var a=window.pageYOffset||document.documentElement.scrollTop;a>C?(A?A.querySelectorAll(p.toString()).forEach(function(a){if(document.documentElement.scrollTop>=a.offsetTop)if(K){var b=a.getAttribute('id');i.querySelectorAll('a').forEach(function(a){a.classList.remove('active')}),i.querySelector('a[href="#'+b+'"]')?i.querySelector('a[href="#'+b+'"]').classList.add('active'):null}}):null,F(a)):(A?A.querySelectorAll(p.toString()).forEach(function(a){if(document.documentElement.scrollTop>=a.offsetTop)if(K){var b=a.getAttribute('id');i.querySelectorAll('a').forEach(function(a){a.classList.remove('active')}),i.querySelector('a[href="#'+b+'"]')?i.querySelector('a[href="#'+b+'"]').classList.add('active'):null}}):null,F(a)),C=a<=0?0:a},h=document.querySelector('#search-mobile'),H=document.querySelector('.mobile-search'),I=document.querySelector('#mobileSearchBtn'),J=document.querySelector('#search-mobile-close'),o=document.querySelector('#search-mobile-container'),k=document.querySelector('#search-mobile-results'),n=document.querySelector('html'),H&&(H.style.display='none'),I?I.addEventListener('click',function(){o&&(o.style.display='block'),h&&h.focus(),n&&(n.style.overflowY='hidden')}):null,J?J.addEventListener('click',function(){if(o&&(o.style.display='none'),h&&(h.value=''),k)while(k.firstChild)k.removeChild(k.firstChild);n&&(n.style.overflowY='visible')}):null,h?h.addEventListener('keydown',function(a){if(a.key==='Escape'){if(o&&(o.style.display='none'),h&&(h.value=''),k)while(k.firstChild)k.removeChild(k.firstChild);n&&(n.style.overflowY='visible')}}):null,N=localStorage.getItem('theme'),O=document.getElementById('root'),ac=document.querySelectorAll('.select-theme'),u=document.querySelectorAll('.select-theme__item'),N&&(u?u.forEach(function(a){a.text.trim()===N?a.classList.add('is-active'):a.classList.remove('is-active')}):null),u?u.forEach(function(a,b){a.addEventListener('click',function(c){var a=c.target.text.trim(),b;localStorage.setItem('theme',a),O.removeAttribute('class'),O.classList.add(`theme__${a}`),ac.forEach(function(b){b.querySelectorAll('a').forEach(function(b){b.classList&&(b.text.trim()===a?b.classList.contains('is-active')||b.classList.add('is-active'):b.classList.contains('is-active')&&b.classList.remove('is-active'))})}),window.mermaid&&(a==="dark"||a==="hacker"?(mermaid.initialize({theme:'dark'}),location.reload()):(mermaid.initialize({theme:'default'}),location.reload())),b=document.querySelector('iframe'),b&&b.contentWindow.postMessage({type:'set-theme',theme:a==="dark"||a==="hacker"?'photon-dark':a==='kimbie'?'github-dark-orange':'github-light'},'https://utteranc.es')})}):null,_=JSON.parse('"/zh"'),b=null,c=null,f=null,s=JSON.parse("true"),ad=JSON.parse("true"),v=null,ad&&function(){var a=new XMLHttpRequest;a.open('GET',Y+_+"/index.json"),a.setRequestHeader('Content-Type','application/json; charset=utf-8'),a.onload=function(){a.status===200?v=new Fuse(JSON.parse(a.response.toString('utf-8')),{keys:['title','description','content'],includeMatches:s,shouldSort:!0,threshold:.4,location:0,distance:100,maxPatternLength:32,minMatchCharLength:1}):console.error(`[${a.status}]Error:`,a.statusText)},a.send()}();function ai(e,a){var b=document.createElement('li'),c,d;b.className='search-result__item',c=document.createElement('a'),c.innerHTML=a.title,c.setAttribute('class','search-result__item--title'),c.setAttribute('href',a.permalink),d=document.createElement('div'),d.setAttribute('class','search-result__item--desc'),a.description?d.innerHTML=a.description:a.content&&(d.innerHTML=a.content.substring(0,80)),b.appendChild(c),b.appendChild(d),e.appendChild(b)}function ak(g,a){var f=document.createElement('li'),b,e,c;if(f.className='search-result__item',b=null,e=document.createElement('a'),e.innerHTML=a.item.title,e.setAttribute('class','search-result__item--title'),e.setAttribute('href',a.item.uri),a.matches&&a.matches.length){for(c=0;c<a.matches.length;c++)'title'===a.matches[c].key&&(e=document.createElement('a'),e.innerHTML=d(a.matches[c].value,a.matches[c].indices),e.setAttribute('class','search-result__item--title'),e.setAttribute('href',a.item.uri)),'description'===a.matches[c].key?(b=document.createElement('div'),b.setAttribute('class','search-result__item--desc'),b.innerHTML=d(a.item.description,a.matches[c].indices)):'content'===a.matches[c].key?b||(b=document.createElement('div'),b.setAttribute('class','search-result__item--desc'),b.innerHTML=d(a.item.content.substring(0,80),a.matches[c].indices)):a.item.description?(b=document.createElement('div'),b.setAttribute('class','search-result__item--desc'),b.innerHTML=a.item.description):(b=document.createElement('div'),b.setAttribute('class','search-result__item--desc'),b.innerHTML=a.item.content.substring(0,80));f.appendChild(e),b&&f.appendChild(b),f&&g.appendChild(f)}}function R(f,e){var a,d;for(b=document.getElementById('search-results'),c=document.getElementById('search-menu'),b.setAttribute('class','dd is-active'),a=document.createElement('ul'),a.setAttribute('class','dd-content search-content'),e.length?e.forEach(function(b){var e=document.createElement('li'),c=document.createElement('a'),f,d;c.setAttribute('href',b.uri),c.setAttribute('class','dd-item'),c.appendChild(e),f=document.createElement('div'),f.innerHTML=b.title,f.setAttribute('class','search-result__item--title'),d=document.createElement('div'),d.setAttribute('class','search-result__item--desc'),b.description?d.innerHTML=b.description:b.content&&(d.innerHTML=b.content.substring(0,80)),e.appendChild(f),e.appendChild(d),a.appendChild(c)}):(d=document.createElement('li'),d.setAttribute('class','dd-item'),d.innerText='No results found',a.appendChild(d));c.hasChildNodes();)c.removeChild(c.lastChild);c.appendChild(a)}function Q(g,f){var a,e;for(b=document.getElementById('search-results'),c=document.getElementById('search-menu'),b.setAttribute('class','dd is-active'),a=document.createElement('ul'),a.setAttribute('class','dd-content search-content'),f.length?f.forEach(function(b){var h=document.createElement('li'),f=document.createElement('a'),c=null,g,e;if(f.setAttribute('href',b.item.uri),f.setAttribute('class','dd-item'),f.appendChild(h),g=document.createElement('div'),g.innerHTML=b.item.title,g.setAttribute('class','search-result__item--title'),b.matches&&b.matches.length){for(e=0;e<b.matches.length;e++)'title'===b.matches[e].key&&(g.innerHTML=d(b.matches[e].value,b.matches[e].indices)),'description'===b.matches[e].key?(c=document.createElement('div'),c.setAttribute('class','search-result__item--desc'),c.innerHTML=d(b.item.description,b.matches[e].indices)):'content'===b.matches[e].key?c||(c=document.createElement('div'),c.setAttribute('class','search-result__item--desc'),c.innerHTML=d(b.item.content.substring(0,80),b.matches[e].indices)):b.item.description?(c=document.createElement('div'),c.setAttribute('class','search-result__item--desc'),c.innerHTML=b.item.description):(c=document.createElement('div'),c.setAttribute('class','search-result__item--desc'),c.innerHTML=b.item.content.substring(0,80));h.appendChild(g),c&&h.appendChild(c),a.appendChild(f)}}):(e=document.createElement('li'),e.setAttribute('class','dd-item'),e.innerText='No results found',a.appendChild(e));c.hasChildNodes();)c.removeChild(c.lastChild);c.appendChild(a)}function aa(f,d){var a,e;b=document.getElementById('search-mobile-results'),a=document.createElement('div'),a.setAttribute('class','mobile-search__content'),d.length>0?d.forEach(function(b){var c=document.createElement('a');c.setAttribute('href',b.uri),c.innerHTML='<div class="mobile-search__item"><div class="mobile-search__item--title">📄 '+b.title+'</div><div class="mobile-search__item--desc">'+(b.description?b.description:b.content)+'</div></div>',a.appendChild(c)}):(e=document.createElement('span'),a.appendChild(e));let c=document.getElementById('search-mobile-results');while(c.firstChild)c.removeChild(c.firstChild);b.appendChild(a)}function ab(g,e){var a,f;b=document.getElementById('search-mobile-results'),a=document.createElement('div'),a.setAttribute('class','mobile-search__content'),e.length?e.forEach(function(b){var f=document.createElement('li'),h=document.createElement('a'),c=null,g,e;if(h.setAttribute('href',b.item.uri),h.appendChild(f),f.setAttribute('class','mobile-search__item'),g=document.createElement('div'),g.innerHTML=b.item.title,g.setAttribute('class','mobile-search__item--title'),b.matches&&b.matches.length){for(e=0;e<b.matches.length;e++)'title'===b.matches[e].key&&(g.innerHTML=d(b.matches[e].value,b.matches[e].indices)),'description'===b.matches[e].key?(c=document.createElement('div'),c.setAttribute('class','mobile-search__item--desc'),c.innerHTML=d(b.item.description,b.matches[e].indices)):'content'===b.matches[e].key?c||(c=document.createElement('div'),c.setAttribute('class','mobile-search__item--desc'),c.innerHTML=d(b.item.content.substring(0,150),b.matches[e].indices)):b.item.description?(c=document.createElement('div'),c.setAttribute('class','mobile-search__item--desc'),c.innerHTML=b.item.description):(c=document.createElement('div'),c.setAttribute('class','mobile-search__item--desc'),c.innerHTML=b.item.content.substring(0,150));f.appendChild(g),c&&f.appendChild(c),a.appendChild(h)}}):(f=document.createElement('span'),a.appendChild(f));let c=document.getElementById('search-mobile-results');while(c.firstChild)c.removeChild(c.firstChild);b.appendChild(a)}function d(a,d){if(!d)return a;var b='',c=0;return d.forEach(function(d){if(d[0]===d[1])return null;b+=''+a.substring(c,d[0])+'<span class="search__highlight">'+a.substring(d[0],d[1]+1)+'</span>'+'',c=d[1]+1}),b+=a.substring(c),b}g=document.getElementById('search'),T=document.getElementById('search-mobile'),e=document.getElementById('search-results'),g?g.addEventListener('input',function(a){var b,c;if(!a.target.value|window.innerWidth<770)return e?e.setAttribute('class','dd'):null,null;f=a.target.value,b=v.search(a.target.value),s?Q(f,b):R(f,b),c=e.querySelectorAll('.dd-item'),c?c.forEach(function(a){a.addEventListener('mousedown',function(a){a.target.click()})}):null}):null,g?g.addEventListener('blur',function(){if(window.innerWidth<770)return null;e?e.setAttribute('class','dd'):null}):null,g?g.addEventListener('click',function(a){var b,c;if(window.innerWidth<770)return null;if(!a.target.value)return e?e.setAttribute('class','dd'):null,null;f=a.target.value,b=v.search(a.target.value),s?Q(f,b):R(f,b),c=e.querySelectorAll('.dd-item'),c?c.forEach(function(a){a.addEventListener('mousedown',function(a){a.target.click()})}):null}):null,ag=document.getElementById("search-menu"),ah=document.querySelector('#search-menu .dd-item.is-active'),a=null,aj=null,V=350,g?g.addEventListener('keydown',function(d){var c,e;if(window.innerWidth<770)return null;if(c=document.querySelectorAll('#search-menu .dd-item'),d.key==='ArrowDown'){a===null?(a=0,c[a].classList.remove('is-active')):(c[a].classList.remove('is-active'),a=a===c.length-1?0:a+1),c[a].classList.add('is-active');let b=c[a].offsetTop+c[a].clientHeight-V;b>0?document.querySelector(".search-content").scrollTop+=c[a].getBoundingClientRect().height:a===0&&(document.querySelector(".search-content").scrollTop=0)}else if(d.key==='ArrowUp'){a===null?(a=c.length-1,c[a].classList.remove('is-active')):(c[a].classList.remove('is-active'),a=a===0?c.length-1:a-1),c[a].classList.add('is-active');let b=c[a].offsetTop+c[a].clientHeight-V;b<0?document.querySelector(".search-content").scrollTop-=c[a].getBoundingClientRect().height:document.querySelector(".search-content").scrollTop=b+c[a].getBoundingClientRect().height}else d.key==='Enter'?(e=c[a].getAttribute('href'),e&&(location.href=e)):d.key==='Escape'&&(d.target.value=null,b&&b.classList.remove('is-active'))}):null,T?T.addEventListener('input',function(a){var b,c;if(!a.target.value){let a=document.getElementById('search-mobile-results');while(a.firstChild)a.removeChild(a.firstChild);return null}f=a.target.value,b=v.search(a.target.value),s?ab(f,b):aa(f,b),c=e.querySelectorAll('.dd-item'),c?c.forEach(function(a){a.addEventListener('mousedown',function(a){a.target.click()})}):null}):null}</script><link rel=stylesheet href=/css/main.min.css><meta name=description content><meta name=keywords content><meta name=created content="2020-06-06T20:21:48+0000"><meta name=modified content="2020-06-06T20:21:48+0000"><meta property="og:site_name" content="lunarwhite"><meta property="og:title" content="C++"><meta property="og:url" content="http://lunarwhite.github.io/zh/dev/3tutor/sdhhks/"><meta property="og:type" content="article"><meta name=generator content="Hugo 0.84.2"><meta name=msapplication-TileColor content="#ffffff"><meta name=theme-color content="#ffffff"><link rel=canonical href=http://lunarwhite.github.io/zh/dev/3tutor/sdhhks/><link rel=manifest href=/manifest.json><link rel=apple-touch-icon sizes=57x57 href=/favicon/apple-icon-57x57.png><link rel=apple-touch-icon sizes=60x60 href=/favicon/apple-icon-60x60.png><link rel=apple-touch-icon sizes=72x72 href=/favicon/apple-icon-72x72.png><link rel=apple-touch-icon sizes=76x76 href=/favicon/apple-icon-76x76.png><link rel=apple-touch-icon sizes=114x114 href=/favicon/apple-icon-114x114.png><link rel=apple-touch-icon sizes=120x120 href=/favicon/apple-icon-120x120.png><link rel=apple-touch-icon sizes=144x144 href=/favicon/apple-icon-144x144.png><link rel=apple-touch-icon sizes=152x152 href=/favicon/apple-icon-152x152.png><link rel=apple-touch-icon sizes=180x180 href=/favicon/apple-icon-180x180.png><link rel=icon type=image/png sizes=192x192 href=/favicon/android-icon-192x192.png><link rel=icon type=image/png sizes=192x192 href=/favicon/android-icon-512x512.png><link rel=icon type=image/png sizes=32x32 href=/favicon/favicon-32x32.png><link rel=icon type=image/png sizes=96x96 href=/favicon/favicon-96x96.png><link rel=icon type=image/png sizes=16x16 href=/favicon/favicon-16x16.png><meta name=msapplication-TileColor content="#ffffff"><meta name=msapplication-TileImage content="/ms-icon-144x144.png"><script type=application/ld+json>{"@context":"https://schema.org","@type":"WebPage","headline":"C++","datePublished":"2020-06-06T20:21:48Z","dateModified":"2020-06-06T20:21:48Z","url":"http://lunarwhite.github.io/zh/dev/3tutor/sdhhks/","description":"1 基础语法 1.1 输入输出 ⽤cin读⼊字符串的时候，是以空格为分隔符的，如果想要读⼊⼀整⾏的字符串，就需要⽤getline 1 2 3 string s; getline(cin,s); //读取⼀⾏","mainEntityOfPage":{"@type":"WebPage","@id":"http://lunarwhite.github.io/"},"publisher":{"@type":"Organization","name":"lunarwhite","url":"http://lunarwhite.github.io/"}}</script></head><body id=root class=theme__light><script>var rootElem=document.getElementById('root'),themeOptions=JSON.parse('["light","dark"]'),localTheme=localStorage.getItem('theme');localTheme&&themeOptions&&themeOptions.length>0&&(themeOptions.includes(localTheme)?rootElem.className=`theme__${localTheme}`:rootElem.className=`theme__${themeOptions[0]}`)</script><div id=container><div id=myDrawer class=drawer><div class=drawer__header><a href=/ class=drawer__header--text>lunarwhite</a><div class=grow></div><div class=drawer__close><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="currentcolor" d="M18.3 5.71c-.39-.39-1.02-.39-1.41.0L12 10.59 7.11 5.7c-.39-.39-1.02-.39-1.41.0s-.39 1.02.0 1.41L10.59 12 5.7 16.89c-.39.39-.39 1.02.0 1.41s1.02.39 1.41.0L12 13.41l4.89 4.89c.39.39 1.02.39 1.41.0s.39-1.02.0-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02.0-1.4z"/></svg></div></div><div class=drawer__body><div class=menu><h6 class=menu__label>C++</h6><ul><li class=menu__title--collapse data-depth=0 data-permalink=http://lunarwhite.github.io/zh/dev/1tool/><span class=menu__title--collapse-text>开发工具</span>
+<span class="menu__title--icon right"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="currentcolor" d="M9.29 15.88 13.17 12 9.29 8.12c-.39-.39-.39-1.02.0-1.41.39-.39 1.02-.39 1.41.0l4.59 4.59c.39.39.39 1.02.0 1.41L10.7 17.3c-.39.39-1.02.39-1.41.0-.38-.39-.39-1.03.0-1.42z"/></svg></span></li><ul class=menu__list data-data=/1tool/ data-link=http://lunarwhite.github.io/zh/dev/3tutor/sdhhks/><li><a href=http://lunarwhite.github.io/zh/dev/1tool/bbrvhrb/ class=menu__title data-depth=0>GPU-Server-SDU</a></li><li><a href=http://lunarwhite.github.io/zh/dev/1tool/g-lqcqv7_/ class=menu__title data-depth=0>Chrome&Edge</a></li><li><a href=http://lunarwhite.github.io/zh/dev/1tool/wlcpvkjjw/ class=menu__title data-depth=0>探索SwitchyOmega+shadowsocks</a></li><li><a href=http://lunarwhite.github.io/zh/dev/1tool/0t9ocgsja/ class=menu__title data-depth=0>探索GitHub加速解决DNS污染</a></li><li><a href=http://lunarwhite.github.io/zh/dev/1tool/ngsmyra/ class=menu__title data-depth=0>Windows-Terminal</a></li><li><a href=http://lunarwhite.github.io/zh/dev/1tool/erbfbafn/ class=menu__title data-depth=0>Eclipse-Java</a></li><li><a href=http://lunarwhite.github.io/zh/dev/1tool/rhnejmn/ class=menu__title data-depth=0>VSCode</a></li><li><a href=http://lunarwhite.github.io/zh/dev/1tool/enbrnfd/ class=menu__title data-depth=0>Windows-Basic开发向配置</a></li><li><a href=http://lunarwhite.github.io/zh/dev/1tool/sthafnr/ class=menu__title data-depth=0>Linux with Virtual-Machine</a></li><li><a href=http://lunarwhite.github.io/zh/dev/1tool/zerjtjmt/ class=menu__title data-depth=0>scoop包管理工具</a></li></ul><li class=menu__title--collapse data-depth=0 data-permalink=http://lunarwhite.github.io/zh/dev/2assign/><span class=menu__title--collapse-text>作业总结</span>
+<span class="menu__title--icon right"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="currentcolor" d="M9.29 15.88 13.17 12 9.29 8.12c-.39-.39-.39-1.02.0-1.41.39-.39 1.02-.39 1.41.0l4.59 4.59c.39.39.39 1.02.0 1.41L10.7 17.3c-.39.39-1.02.39-1.41.0-.38-.39-.39-1.03.0-1.42z"/></svg></span></li><ul class=menu__list data-data=/2assign/ data-link=http://lunarwhite.github.io/zh/dev/3tutor/sdhhks/><li><a href=http://lunarwhite.github.io/zh/dev/2assign/vdequib/ class=menu__title data-depth=0>[DS]疫情下社交媒体用户⼼态分析</a></li><li><a href=http://lunarwhite.github.io/zh/dev/2assign/evwbrrbg/ class=menu__title data-depth=0>[DL]食物图片分类</a></li><li><a href=http://lunarwhite.github.io/zh/dev/2assign/o7m0xddlu/ class=menu__title data-depth=0>[仿知乎web端]Python+MSSQL实现并部署到云服务器</a></li><li><a href=http://lunarwhite.github.io/zh/dev/2assign/fvrltijkh/ class=menu__title data-depth=0>[仿知乎web端]后端及数据库设计文档</a></li><li><a href=http://lunarwhite.github.io/zh/dev/2assign/asvbwrqte/ class=menu__title data-depth=0>[DL]逻辑回归预测+分析有效性</a></li><li><a href=http://lunarwhite.github.io/zh/dev/2assign/vwgeebr/ class=menu__title data-depth=0>[DL]梯度下降求最优参数-2</a></li><li><a href=http://lunarwhite.github.io/zh/dev/2assign/3vnvdbae/ class=menu__title data-depth=0>[DL]应用梯度下降求最优参数</a></li><li><a href=http://lunarwhite.github.io/zh/dev/2assign/tnrqthre/ class=menu__title data-depth=0>[DL]线性回归拟合蝉鸣次数和温度</a></li><li><a href=http://lunarwhite.github.io/zh/dev/2assign/svf9rsz2u/ class=menu__title data-depth=0>[DS]Python+PyQt实现哈夫曼的编码与译码</a></li><li><a href=http://lunarwhite.github.io/zh/dev/2assign/iwd25hbs5/ class=menu__title data-depth=0>[DS]Python实现文件单词检索与统计</a></li></ul><li class="menu__title--collapse active" data-depth=0 data-permalink=http://lunarwhite.github.io/zh/dev/3tutor/><span class=menu__title--collapse-text>自用手册</span>
+<span class="menu__title--icon down"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="currentcolor" d="M9.29 15.88 13.17 12 9.29 8.12c-.39-.39-.39-1.02.0-1.41.39-.39 1.02-.39 1.41.0l4.59 4.59c.39.39.39 1.02.0 1.41L10.7 17.3c-.39.39-1.02.39-1.41.0-.38-.39-.39-1.03.0-1.42z"/></svg></span></li><ul class="menu__list active" data-data=/3tutor/ data-link=http://lunarwhite.github.io/zh/dev/3tutor/sdhhks/><li><a href=http://lunarwhite.github.io/zh/dev/3tutor/vwrbetn/ class=menu__title data-depth=0>DL-Intro-partB</a></li><li><a href=http://lunarwhite.github.io/zh/dev/3tutor/fwvrb/ class=menu__title data-depth=0>DL-Intro-partA</a></li><li><a href=http://lunarwhite.github.io/zh/dev/3tutor/dvhbkvd/ class=menu__title data-depth=0>DL-Frameworks</a></li><li><a href=http://lunarwhite.github.io/zh/dev/3tutor/fbsbnfn/ class=menu__title data-depth=0>MySQL</a></li><li><a href=http://lunarwhite.github.io/zh/dev/3tutor/othj2yvr9/ class=menu__title data-depth=0>SQL</a></li><li><a href=http://lunarwhite.github.io/zh/dev/3tutor/skjvvgfj/ class=menu__title data-depth=0>Java</a></li><li><a href=http://lunarwhite.github.io/zh/dev/3tutor/sdhhks/ class="menu__title active" data-depth=0>C++</a></li><li><a href=http://lunarwhite.github.io/zh/dev/3tutor/hrtebbsd/ class=menu__title data-depth=0>Python</a></li><li><a href=http://lunarwhite.github.io/zh/dev/3tutor/ndgdnfj/ class=menu__title data-depth=0>Conda</a></li></ul></ul></div><script>var menuTitle=document.querySelectorAll('.menu__title'),modal=document.getElementById("myModal"),drawer=document.getElementById('myDrawer'),closeDrawer=function(){setTimeout(function(){modal.style.opacity=0,drawer.style.left='-100%',modal.style.left='-100%'},250)};menuTitle?menuTitle.forEach(function(a){a.onclick=function(){closeDrawer(),localStorage.setItem('isDrawerOpen','false')}}):null</script></div></div><div id=myModal class=modal></div><script>var isDrawerOpen=localStorage.getItem('isDrawerOpen'),modal=document.getElementById("myModal"),drawer=document.getElementById('myDrawer'),languagedir=JSON.parse('"ltr"'),openDrawer=function(){modal.style.opacity=1,languagedir==="rtl"?(modal.style.right=0,drawer.style.right=0):(modal.style.left=0,drawer.style.left=0)};isDrawerOpen&&isDrawerOpen==='true'&&openDrawer()</script><nav class=nav><div class=navbar__wrapper data-bgimg=false><div class=divider><div class="navbar lmr"><div id=siteLogo class=navbar__logo--wrapper><a href=/zh/ title rel=home class=navbar__logo--link><img src=/logo.png alt=Home class=navbar__logo></a>
+<a href=/zh/ title rel=home class=navbar__logo--text-link><h6 class=navbar__logo--text data-bgimg=false>lunarwhite</h6></a></div><div class=navbar__menu--wrapper><div id=tabletLogo class=hide><a href=/zh/ rel=home class=navbar__logo--link><img src=/logo.png alt=Home class=navbar__logo></a></div><div id=mobileLogo class=hide><a href=# class=navbar__logo--link><div class=navbar__icons--icon><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="currentcolor" d="M4 18h16c.55.0 1-.45 1-1s-.45-1-1-1H4c-.55.0-1 .45-1 1s.45 1 1 1zm0-5h16c.55.0 1-.45 1-1s-.45-1-1-1H4c-.55.0-1 .45-1 1s.45 1 1 1zM3 7c0 .55.45 1 1 1h16c.55.0 1-.45 1-1s-.45-1-1-1H4c-.55.0-1 .45-1 1z"/></svg></div></a></div><span id=navMenuMobile class=hide><button id=navCollapseBtn class=navbar__dropdown--title aria-label="Section Menu" data-dir=ltr>
+dev<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentcolor" d="M8.12 9.29 12 13.17l3.88-3.88c.39-.39 1.02-.39 1.41.0s.39 1.02.0 1.41l-4.59 4.59c-.39.39-1.02.39-1.41.0L6.7 10.7c-.39-.39-.39-1.02.0-1.41.39-.38 1.03-.39 1.42.0z"/></svg></button><div class=navbar__collapse data-open=false><ul><li class="navbar__menu--mobile-item active"><a href=/zh/dev class=active>Dev</a></li><li class=navbar__menu--mobile-item><a href=/zh/fun>Fun</a></li><li class=navbar__menu--mobile-item><a href=/zh/archive>Archive</a></li></ul></div></span><ul id=navMenu class=navbar__menu><li class="navbar__menu--item active"><a href=/zh/dev data-bgimg=false>Dev</a></li><li class=navbar__menu--item><a href=/zh/fun data-bgimg=false>Fun</a></li><li class=navbar__menu--item><a href=/zh/archive data-bgimg=false>Archive</a></li></ul></div><div class=grow></div><div id=siteSearch><div class=search data-bgimg=false><span class=icon><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentcolor" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M15.5 14h-.79l-.28-.27c1.2-1.4 1.82-3.31 1.48-5.34-.47-2.78-2.79-5-5.59-5.34-4.23-.52-7.79 3.04-7.27 7.27.34 2.8 2.56 5.12 5.34 5.59 2.03.34 3.94-.28 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49.0s.41-1.08.0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></span><input id=search aria-label="Site Search" class=input type=text autocomplete=off placeholder=Search><div id=search-results class=dropdown><div id=search-menu class=dropdown-menu></div></div></div></div><div id=mobileSearch class=hide><div id=mobileSearchBtn class=mobile-search__btn><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentcolor" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M15.5 14h-.79l-.28-.27c1.2-1.4 1.82-3.31 1.48-5.34-.47-2.78-2.79-5-5.59-5.34-4.23-.52-7.79 3.04-7.27 7.27.34 2.8 2.56 5.12 5.34 5.59 2.03.34 3.94-.28 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49.0s.41-1.08.0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div><div id=search-mobile-container class="mobile-search hide"><div class=mobile-search__top><input id=search-mobile type=text aria-label="Mobile Search" placeholder=Search... class=mobile-search__top--input><div id=search-mobile-close class=mobile-search__top--icon><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path opacity=".87" fill="none" d="M0 0h24v24H0V0z"/><path fill="currentcolor" d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41.0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.59-13L12 10.59 8.41 7 7 8.41 10.59 12 7 15.59 8.41 17 12 13.41 15.59 17 17 15.59 13.41 12 17 8.41z"/></svg></div></div><div id=search-mobile-results class=mobile-search__body></div></div></div><div class=navbar__icons><div class=dropdown><button class="lang__dropdown navbar__icons--icon" aria-label="Select Site Language"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentcolor" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M12.65 15.67c.14-.36.05-.77-.23-1.05l-2.09-2.06.03-.03c1.74-1.94 2.98-4.17 3.71-6.53h1.94c.54.0.99-.45.99-.99v-.02c0-.54-.45-.99-.99-.99H10V3c0-.55-.45-1-1-1s-1 .45-1 1v1H1.99c-.54.0-.99.45-.99.99.0.55.45.99.99.99h10.18C11.5 7.92 10.44 9.75 9 11.35c-.81-.89-1.49-1.86-2.06-2.88-.16-.29-.45-.47-.78-.47-.69.0-1.13.75-.79 1.35.63 1.13 1.4 2.21 2.3 3.21L3.3 16.87c-.4.39-.4 1.03.0 1.42.39.39 1.02.39 1.42.0L9 14l2.02 2.02c.51.51 1.38.32 1.63-.35zM17.5 10c-.6.0-1.14.37-1.35.94l-3.67 9.8c-.24.61.22 1.26.87 1.26.39.0.74-.24.88-.61l.89-2.39h4.75l.9 2.39c.14.36.49.61.88.61.65.0 1.11-.65.88-1.26l-3.67-9.8c-.22-.57-.76-.94-1.36-.94zm-1.62 7 1.62-4.33L19.12 17h-3.24z"/></svg></button><div class="dropdown-content lang__dropdown--content"><a href=http://lunarwhite.github.io/zh/dev/3tutor/sdhhks/ data-lang=zh class="lang__dropdown--item active">Chinese</a></div></div><button id=toggleToDark class=navbar__icons--icon aria-label="Toggle to dark mode"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path fill="currentcolor" d="M20 15.31 23.31 12 20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69zM12 18c-3.31.0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/></svg></button>
+<button id=toggleToLight class=navbar__icons--icon aria-label="Toggle to light mode"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path fill="currentcolor" d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-3.31.0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm0-10c-2.21.0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"/></svg></button>
+<script>var theme=localStorage.getItem('theme'),toggleToLightBtn=document.getElementById('toggleToLight'),toggleToDarkBtn=document.getElementById('toggleToDark');theme&&theme==='dark'?(toggleToLightBtn.className='navbar__icons--icon',toggleToDarkBtn.className='hide'):(toggleToLightBtn.className='hide',toggleToDarkBtn.className='navbar__icons--icon')</script><div class=navbar__icons--icon><a href=https://github.com/lunarwhite title="Github repository" aria-label="Github repository" target=_blank rel=noreferrer><svg fill="currentcolor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22"><path d="M10.9 2.1c-4.6.5-8.3 4.2-8.8 8.7-.5 4.7 2.2 8.9 6.3 10.5C8.7 21.4 9 21.2 9 20.8v-1.6s-.4.1-.9.1c-1.4.0-2-1.2-2.1-1.9-.1-.4-.3-.7-.6-1C5.1 16.3 5 16.3 5 16.2 5 16 5.3 16 5.4 16c.6.0 1.1.7 1.3 1 .5.8 1.1 1 1.4 1 .4.0.7-.1.9-.2.1-.7.4-1.4 1-1.8-2.3-.5-4-1.8-4-4 0-1.1.5-2.2 1.2-3C7.1 8.8 7 8.3 7 7.6c0-.4.0-.9.2-1.3.0-.2.2-.3.3-.3h.1C8.1 6.1 9.1 6.4 10 7.3c.6-.2 1.3-.3 2-.3s1.4.1 2 .3c.9-.9 2-1.2 2.5-1.3h.1c.2.0.3.1.4.3.0.4.0.9.0 1.3.0.8-.1 1.2-.2 1.4.7.8 1.2 1.8 1.2 3 0 2.2-1.7 3.5-4 4 .6.5 1 1.4 1 2.3v2.6c0 .3.3.6.7.5 3.7-1.5 6.3-5.1 6.3-9.3.0-6-5.1-10.7-11.1-10z"/></svg></a></div></div></div></div></div></nav><script>var siteLogo=document.getElementById('siteLogo'),tabletLogo=document.getElementById('tabletLogo'),mobileLogo=document.getElementById('mobileLogo'),navMenu=document.getElementById('navMenu'),navMenuMobile=document.getElementById('navMenuMobile'),siteSearch=document.getElementById('siteSearch'),mobileSearch=document.getElementById('mobileSearch');enquire.register("screen and (max-width:1280px)",{match:function(){siteLogo.className='navbar__logo--wrapper',tabletLogo.className='hide',mobileLogo.className='hide',navMenu.className='navbar__menu',navMenuMobile.className='hide',siteSearch.className='',mobileSearch.className='hide'},unmatch:function(){siteLogo.className='navbar__logo--wrapper',tabletLogo.className='hide',mobileLogo.className='hide',navMenu.className='navbar__menu',navMenuMobile.className='hide',siteSearch.className='',mobileSearch.className='hide'}}).register("screen and (max-width:960px)",{match:function(){siteLogo.className='hide',tabletLogo.className='',mobileLogo.className='hide',navMenu.className='navbar__menu',navMenuMobile.className='hide',siteSearch.className='hide',mobileSearch.className='navbar__icons--icon'},unmatch:function(){siteLogo.className='navbar__logo--wrapper',tabletLogo.className='hide',mobileLogo.className='hide',navMenu.className='navbar__menu',navMenuMobile.className='hide',siteSearch.className='',mobileSearch.className='hide'}}).register("screen and (max-width:600px)",{match:function(){siteLogo.className='hide',tabletLogo.className='hide',mobileLogo.className='',navMenu.className='hide',navMenuMobile.className='',siteSearch.className='hide',mobileSearch.className='navbar__icons--icon'},unmatch:function(){siteLogo.className='hide',tabletLogo.className='',mobileLogo.className='hide',navMenu.className='navbar__menu',navMenuMobile.className='hide',siteSearch.className='hide',mobileSearch.className='navbar__icons--icon'}})</script><div class=top><div class="header__wrapper bgcolor__header"><div class=divider><div class=lmr><h2 class=title>C++</h2></div></div></div><div class="header__wrapper bgcolor__breadcrumb"><div class=divider><div class="lmr flexbox"><nav class=breadcrumb aria-label=breadcrumbs data-is-blog=false><ol><li><a href=http://lunarwhite.github.io/zh/ class=capitalize>lunarwhite</a></li><li><a href=http://lunarwhite.github.io/zh/dev/ class=capitalize>Dev</a></li><li><a href=http://lunarwhite.github.io/zh/dev/3tutor/ class=capitalize>自用手册</a></li><li class=is-active><span>C++</span></li></ol></nav><div class=grow></div><label class="switch switch__rel"><input id=toggle-sidebar aria-label="Toggle Sidebar Visibility" type=checkbox checked>
+<span class=slider><span class=slider__icon><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="currentcolor" d="M5 13h11.17l-4.88 4.88c-.39.39-.39 1.03.0 1.42.39.39 1.02.39 1.41.0l6.59-6.59c.39-.39.39-1.02.0-1.41l-6.58-6.6c-.39-.39-1.02-.39-1.41.0s-.39 1.02.0 1.41L16.17 11H5c-.55.0-1 .45-1 1s.45 1 1 1z"/></svg></span><span class="slider__icon hide"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="currentcolor" d="M19 11H7.83l4.88-4.88c.39-.39.39-1.03.0-1.42s-1.02-.39-1.41.0l-6.59 6.59c-.39.39-.39 1.02.0 1.41l6.59 6.59c.39.39 1.02.39 1.41.0s.39-1.02.0-1.41L7.83 13H19c.55.0 1-.45 1-1s-.45-1-1-1z"/></svg></span></span></label><a href=/zh/zh/dev/3tutor/sdhhks.md target=_blank rel=noreferrer><button class=editBtn aria-label="Edit This Page Button">
+EDIT THIS PAGE</button></a></div></div></div></div><div class=mid><div class=divider><nav id=single-menu class=l data-dir=ltr><div class=menu><h6 class=menu__label>C++</h6><ul><li class=menu__title--collapse data-depth=0 data-permalink=http://lunarwhite.github.io/zh/dev/1tool/><span class=menu__title--collapse-text>开发工具</span>
+<span class="menu__title--icon right"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="currentcolor" d="M9.29 15.88 13.17 12 9.29 8.12c-.39-.39-.39-1.02.0-1.41.39-.39 1.02-.39 1.41.0l4.59 4.59c.39.39.39 1.02.0 1.41L10.7 17.3c-.39.39-1.02.39-1.41.0-.38-.39-.39-1.03.0-1.42z"/></svg></span></li><ul class=menu__list data-data=/1tool/ data-link=http://lunarwhite.github.io/zh/dev/3tutor/sdhhks/><li><a href=http://lunarwhite.github.io/zh/dev/1tool/bbrvhrb/ class=menu__title data-depth=0>GPU-Server-SDU</a></li><li><a href=http://lunarwhite.github.io/zh/dev/1tool/g-lqcqv7_/ class=menu__title data-depth=0>Chrome&Edge</a></li><li><a href=http://lunarwhite.github.io/zh/dev/1tool/wlcpvkjjw/ class=menu__title data-depth=0>探索SwitchyOmega+shadowsocks</a></li><li><a href=http://lunarwhite.github.io/zh/dev/1tool/0t9ocgsja/ class=menu__title data-depth=0>探索GitHub加速解决DNS污染</a></li><li><a href=http://lunarwhite.github.io/zh/dev/1tool/ngsmyra/ class=menu__title data-depth=0>Windows-Terminal</a></li><li><a href=http://lunarwhite.github.io/zh/dev/1tool/erbfbafn/ class=menu__title data-depth=0>Eclipse-Java</a></li><li><a href=http://lunarwhite.github.io/zh/dev/1tool/rhnejmn/ class=menu__title data-depth=0>VSCode</a></li><li><a href=http://lunarwhite.github.io/zh/dev/1tool/enbrnfd/ class=menu__title data-depth=0>Windows-Basic开发向配置</a></li><li><a href=http://lunarwhite.github.io/zh/dev/1tool/sthafnr/ class=menu__title data-depth=0>Linux with Virtual-Machine</a></li><li><a href=http://lunarwhite.github.io/zh/dev/1tool/zerjtjmt/ class=menu__title data-depth=0>scoop包管理工具</a></li></ul><li class=menu__title--collapse data-depth=0 data-permalink=http://lunarwhite.github.io/zh/dev/2assign/><span class=menu__title--collapse-text>作业总结</span>
+<span class="menu__title--icon right"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="currentcolor" d="M9.29 15.88 13.17 12 9.29 8.12c-.39-.39-.39-1.02.0-1.41.39-.39 1.02-.39 1.41.0l4.59 4.59c.39.39.39 1.02.0 1.41L10.7 17.3c-.39.39-1.02.39-1.41.0-.38-.39-.39-1.03.0-1.42z"/></svg></span></li><ul class=menu__list data-data=/2assign/ data-link=http://lunarwhite.github.io/zh/dev/3tutor/sdhhks/><li><a href=http://lunarwhite.github.io/zh/dev/2assign/vdequib/ class=menu__title data-depth=0>[DS]疫情下社交媒体用户⼼态分析</a></li><li><a href=http://lunarwhite.github.io/zh/dev/2assign/evwbrrbg/ class=menu__title data-depth=0>[DL]食物图片分类</a></li><li><a href=http://lunarwhite.github.io/zh/dev/2assign/o7m0xddlu/ class=menu__title data-depth=0>[仿知乎web端]Python+MSSQL实现并部署到云服务器</a></li><li><a href=http://lunarwhite.github.io/zh/dev/2assign/fvrltijkh/ class=menu__title data-depth=0>[仿知乎web端]后端及数据库设计文档</a></li><li><a href=http://lunarwhite.github.io/zh/dev/2assign/asvbwrqte/ class=menu__title data-depth=0>[DL]逻辑回归预测+分析有效性</a></li><li><a href=http://lunarwhite.github.io/zh/dev/2assign/vwgeebr/ class=menu__title data-depth=0>[DL]梯度下降求最优参数-2</a></li><li><a href=http://lunarwhite.github.io/zh/dev/2assign/3vnvdbae/ class=menu__title data-depth=0>[DL]应用梯度下降求最优参数</a></li><li><a href=http://lunarwhite.github.io/zh/dev/2assign/tnrqthre/ class=menu__title data-depth=0>[DL]线性回归拟合蝉鸣次数和温度</a></li><li><a href=http://lunarwhite.github.io/zh/dev/2assign/svf9rsz2u/ class=menu__title data-depth=0>[DS]Python+PyQt实现哈夫曼的编码与译码</a></li><li><a href=http://lunarwhite.github.io/zh/dev/2assign/iwd25hbs5/ class=menu__title data-depth=0>[DS]Python实现文件单词检索与统计</a></li></ul><li class="menu__title--collapse active" data-depth=0 data-permalink=http://lunarwhite.github.io/zh/dev/3tutor/><span class=menu__title--collapse-text>自用手册</span>
+<span class="menu__title--icon down"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="currentcolor" d="M9.29 15.88 13.17 12 9.29 8.12c-.39-.39-.39-1.02.0-1.41.39-.39 1.02-.39 1.41.0l4.59 4.59c.39.39.39 1.02.0 1.41L10.7 17.3c-.39.39-1.02.39-1.41.0-.38-.39-.39-1.03.0-1.42z"/></svg></span></li><ul class="menu__list active" data-data=/3tutor/ data-link=http://lunarwhite.github.io/zh/dev/3tutor/sdhhks/><li><a href=http://lunarwhite.github.io/zh/dev/3tutor/vwrbetn/ class=menu__title data-depth=0>DL-Intro-partB</a></li><li><a href=http://lunarwhite.github.io/zh/dev/3tutor/fwvrb/ class=menu__title data-depth=0>DL-Intro-partA</a></li><li><a href=http://lunarwhite.github.io/zh/dev/3tutor/dvhbkvd/ class=menu__title data-depth=0>DL-Frameworks</a></li><li><a href=http://lunarwhite.github.io/zh/dev/3tutor/fbsbnfn/ class=menu__title data-depth=0>MySQL</a></li><li><a href=http://lunarwhite.github.io/zh/dev/3tutor/othj2yvr9/ class=menu__title data-depth=0>SQL</a></li><li><a href=http://lunarwhite.github.io/zh/dev/3tutor/skjvvgfj/ class=menu__title data-depth=0>Java</a></li><li><a href=http://lunarwhite.github.io/zh/dev/3tutor/sdhhks/ class="menu__title active" data-depth=0>C++</a></li><li><a href=http://lunarwhite.github.io/zh/dev/3tutor/hrtebbsd/ class=menu__title data-depth=0>Python</a></li><li><a href=http://lunarwhite.github.io/zh/dev/3tutor/ndgdnfj/ class=menu__title data-depth=0>Conda</a></li></ul></ul></div></nav><article id=list-main class=m data-dir=ltr><div class=single data-display=block><article class=single__contents data-dir=ltr><h2 id=1-基础语法>1 基础语法</h2><h3 id=11-输入输出>1.1 输入输出</h3><ul><li>⽤<code>cin</code>读⼊字符串的时候，是以空格为分隔符的，如果想要读⼊⼀整⾏的字符串，就需要⽤<code>getline</code></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=n>string</span> <span class=n>s</span><span class=p>;</span>  
+<span class=n>getline</span><span class=p>(</span><span class=n>cin</span><span class=p>,</span><span class=n>s</span><span class=p>);</span> <span class=c1>//读取⼀⾏的字符串，包括空格
+</span><span class=c1></span><span class=n>cout</span><span class=o>&lt;&lt;</span><span class=n>s</span><span class=p>.</span><span class=n>length</span><span class=p>();</span> <span class=c1>//输出字符串s的⻓度
+</span></code></pre></td></tr></table></div></div><ul><li><p>换行<code>\n</code>和<code>endl</code>有区别，后者输出一个换行符，并立即刷新缓冲区，使得栈中的东西刷新一次。过多的 endl 是影响程序执行效率低下的因素之一。</p></li><li><p><code>" "</code> <code>&lt; ></code>头文件也有区别，前者优先在本地目录下找，找不到再去系统目录。</p></li><li><p><code>cout</code>多行时，正确姿势：</p></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=n>cout</span><span class=o>&lt;&lt;</span><span class=s>&#34;Forst line there.</span><span class=se>\n</span><span class=s>&#34;</span>
+    <span class=o>&lt;&lt;</span><span class=s>&#34;Second line here.</span><span class=se>\n</span><span class=s>&#34;</span>
+</code></pre></td></tr></table></div></div><ul><li><p>真正的开发中，尽量避免使用<code>using namespace std;</code>等直接引入整个命名空间,否则会因为命名空间污染导致很多不必要的问题。比如自己写的某个函数，名称正好和<code>std</code>中的一样，编译器会不知道使用哪一个，引起编译报错。</p></li><li><p><code>extern int a;</code>，只是声明有个变量<code>a</code>存在，具体在哪定义，需要编译器找。</p></li><li><p><code>static</code>全局变量：改变作用范围，不改变存储位置；<code>static</code>局部变量：改变存储位置，不改变作用范围。</p></li><li><p>访问结构成员，用点运算符；通过指针访问结构成员，用箭头运算符。</p></li></ul><h3 id=12-字符串>1.2 字符串</h3><ul><li><code>substr</code>，截取某个字符串中的⼦串，⽤法有两种形式：</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=n>string</span> <span class=n>s2</span><span class=o>=</span><span class=n>s</span><span class=p>.</span><span class=n>substr</span><span class=p>(</span><span class=mi>4</span><span class=p>);</span> <span class=c1>//从下标4开始⼀直到结束
+</span><span class=c1></span><span class=n>string</span> <span class=n>s3</span><span class=o>=</span><span class=n>s</span><span class=p>.</span><span class=n>substr</span><span class=p>(</span><span class=mi>5</span><span class=p>,</span><span class=mi>3</span><span class=p>);</span> <span class=c1>//从下标5开始，3个字符
+</span></code></pre></td></tr></table></div></div><ul><li>String 类实例：</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=n>string</span> <span class=n>s</span><span class=o>=</span><span class=s>&#34;vscode&#34;</span><span class=p>;</span>
+
+<span class=c1>//append
+</span><span class=c1></span><span class=n>s</span><span class=p>.</span><span class=n>append</span><span class=p>(</span><span class=s>&#34;hello&#34;</span><span class=p>);</span>
+
+<span class=c1>//delete
+</span><span class=c1></span><span class=kt>int</span> <span class=n>pos</span><span class=o>=</span><span class=n>s</span><span class=p>.</span><span class=n>find</span><span class=p>(</span><span class=s>&#34;ll&#34;</span><span class=p>);</span>
+<span class=n>s</span><span class=p>.</span><span class=n>replace</span><span class=p>(</span><span class=n>pos</span><span class=p>,</span><span class=mi>4</span><span class=p>,</span><span class=s>&#34;&#34;</span><span class=p>);</span> <span class=c1>// 从pos开始后的4个字符替换为空，即删除
+</span><span class=c1></span>
+<span class=c1>//find
+</span><span class=c1></span><span class=kt>int</span> <span class=n>first</span><span class=o>=</span><span class=n>s</span><span class=p>.</span><span class=n>find_first_of</span><span class=p>(</span><span class=s>&#34;.&#34;</span><span class=p>);</span> <span class=c1>//从头开始寻找字符&#39;.&#39;的位置
+</span><span class=c1></span><span class=kt>int</span> <span class=n>last</span><span class=o>=</span><span class=n>s</span><span class=p>.</span><span class=n>find_last_of</span><span class=p>(</span><span class=s>&#34;.&#34;</span><span class=p>);</span> <span class=c1>//从尾开始寻找字符&#39;.&#39;的位置
+</span></code></pre></td></tr></table></div></div><h3 id=13-结构体>1.3 结构体</h3><ul><li>定义好结构体<code>stu</code>之后，使⽤这个结构体类型的时候，C语⾔需要写关键字<code>struct</code>，⽽C++⾥⾯可以省略不写：</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=k>struct</span> <span class=nc>stu</span><span class=p>{</span>
+<span class=kt>int</span> <span class=n>grade</span><span class=p>;</span>
+<span class=kt>float</span> <span class=n>score</span><span class=p>;</span>
+<span class=p>};</span>
+<span class=k>struct</span> <span class=nc>stu</span> <span class=n>arr1</span><span class=p>[</span><span class=mi>10</span><span class=p>];</span> <span class=c1>//C语⾔
+</span><span class=c1></span><span class=n>stu</span> <span class=n>arr2</span><span class=p>[</span><span class=mi>10</span><span class=p>];</span> <span class=c1>// C++
+</span></code></pre></td></tr></table></div></div><h3 id=14-lambda表达式>1.4 Lambda表达式</h3><ul><li><p>把函数看作对象，可以像对象一样使用，比如可以将它们赋给变量和作为参数传递，还可以像函数一样对其求值。</p></li><li><p>具体形式：<code>[capture](parameters)->return-type{body}</code></p></li><li><p><code>[capture]</code>：捕捉列表。捕捉列表总是出现在表达式的开始处。事实上，<code>[]</code> 是引出符。编译器根据该引出符判断接下来的代码是否是 lambda 函数。捕捉列表能够捕捉上下文中的变量供其使用。</p></li><li><p><code>(parameters)</code>：参数列表。与普通函数的参数列表一致。如果不需要参数传递，则可以连同 <code>()</code> 一起省略。</p></li><li><p><code>->return_type</code>：返回类型。用追踪返回类型形式声明函数的返回类型。出于方便，不需要返回值的时候也可以连同符号<code>-></code>一起省略。此外，在返回类型明确的情况下，也可以省略该部分，让编译器对返回类型进行推导。</p></li><li><p><code>{statement}</code>：函数体。内容与普通函数一样，不过除了可以使用参数之外，还可以使用所有捕获的变量。</p><table><thead><tr><th>[capture]</th><th>列表</th></tr></thead><tbody><tr><td>[]</td><td>默认不捕获任何变量</td></tr><tr><td>[=]</td><td>默认以值捕获所有变量</td></tr><tr><td>[&]</td><td>默认以引用捕获所有变量</td></tr><tr><td>[x]</td><td>仅以值捕获x，其它变量不捕获</td></tr><tr><td>[&x]</td><td>仅以引用捕获x，其它变量不捕获</td></tr><tr><td>[=, &x]</td><td>默认以值捕获所有变量，但是x是例外，通过引用捕获</td></tr><tr><td>[&, x]</td><td>默认以引用捕获所有变量，但是x是例外，通过值捕获</td></tr><tr><td>[this]</td><td>通过引用捕获当前对象（其实是复制指针）</td></tr><tr><td>[*this]</td><td>通过传值方式捕获当前对象</td></tr></tbody></table></li></ul><h3 id=15-引和传值>1.5 引⽤&和传值</h3><ul><li><p>C++引⽤符号<code>&</code>要和C语⾔⾥⾯的取地址运算符<code>&</code>区分开来，他们没有什么关系，C++⾥⾯的引⽤是指在变量名之前加⼀个<code>&</code>符号。</p></li><li><p>一旦引用被初始化为一个对象，就不能被指向到另一个对象。引用必须在创建时被初始化，不存在空引用。不会新开辟空间，只是把链接引到原变量。</p></li><li><p>创建引用：</p></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>17</span><span class=p>;</span>
+<span class=kt>int</span><span class=o>&amp;</span> <span class=n>r</span><span class=o>=</span><span class=n>i</span><span class=p>;</span> <span class=c1>//r为i的别名
+</span></code></pre></td></tr></table></div></div><ul><li>⽐如在函数传⼊的参数中<code>int &a</code>，那么对这个引⽤变量<code>a</code>做的所有操作都是直接对传⼊的原变量进⾏操作，并没有像原来<code>int a</code>⼀样只是拷⻉⼀个副本。</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=kt>void</span> <span class=nf>func</span><span class=p>(</span><span class=kt>int</span> <span class=o>&amp;</span><span class=n>a</span><span class=p>){</span> <span class=c1>//传⼊的是n的引⽤，直接对n进⾏操作
+</span><span class=c1></span><span class=n>a</span><span class=o>=</span><span class=mi>99</span><span class=p>;</span>
+<span class=p>}</span>
+<span class=kt>int</span> <span class=nf>main</span><span class=p>(){</span>
+<span class=kt>int</span> <span class=n>n</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span>
+<span class=n>func</span><span class=p>(</span><span class=n>n</span><span class=p>);</span> <span class=c1>//n由0变成了99
+</span><span class=c1></span><span class=p>}</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=kt>void</span> <span class=nf>func</span><span class=p>(</span><span class=kt>int</span> <span class=n>a</span><span class=p>){</span> <span class=c1>//传⼊的是0这个值，不会改变n的值
+</span><span class=c1></span><span class=n>a</span><span class=o>=</span><span class=mi>99</span><span class=p>;</span>
+<span class=p>}</span>
+<span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+<span class=kt>int</span> <span class=n>n</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span>
+<span class=n>func</span><span class=p>(</span><span class=n>n</span><span class=p>);</span> <span class=c1>//并不会改变n的值，n还是0
+</span><span class=c1></span><span class=p>}</span>
+</code></pre></td></tr></table></div></div><h2 id=2-面向对象>2 面向对象</h2><h3 id=21-继承派生>2.1 继承&派生</h3><ul><li><p>三种继承方式</p><ul><li>1.public 继承：分别变成：public, protected, private</li><li>2.protected 继承：分别变成：protected, protected, private</li><li>3.private 继承：分别变成：private, private, private</li></ul></li><li><p>一个派生类继承了所有的基类方法，但下列情况除外：</p><ul><li>基类的构造函数、析构函数和拷贝构造函数</li><li>基类的重载运算符</li><li>基类的友元函数</li></ul></li><li><p>多继承举例：</p></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=k>class</span> <span class=nc>Vehicle</span><span class=p>{</span>
+<span class=k>public</span><span class=o>:</span>
+    <span class=n>Vehicle</span><span class=p>(){</span><span class=n>cout</span><span class=o>&lt;&lt;</span><span class=s>&#34;This is Vehicle.&#34;</span><span class=o>&lt;&lt;</span><span class=n>endl</span><span class=p>;}</span>
+<span class=p>};</span>
+<span class=k>class</span> <span class=nc>FourWheeler</span><span class=p>{</span>
+<span class=k>public</span><span class=o>:</span>
+    <span class=n>FourWheeler</span><span class=p>(){</span><span class=n>cout</span><span class=o>&lt;&lt;</span><span class=s>&#34;This is a 4 wheeler Vehicle.&#34;</span><span class=o>&lt;&lt;</span><span class=n>endl</span><span class=p>;}</span>
+<span class=p>};</span>
+<span class=k>class</span> <span class=nc>Car</span><span class=o>:</span> <span class=k>public</span> <span class=n>Vehicle</span><span class=p>,</span> <span class=k>public</span> <span class=n>FourWheeler</span><span class=p>{</span>
+
+<span class=p>};</span>
+
+<span class=kt>int</span> <span class=nf>main</span><span class=p>(){</span>
+    <span class=n>Car</span> <span class=n>myCar</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><ul><li>多层继承举例：</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=k>class</span> <span class=nc>Vehicle</span><span class=p>{</span>
+<span class=k>public</span><span class=o>:</span>
+    <span class=n>Vehicle</span><span class=p>(){</span><span class=n>cout</span><span class=o>&lt;&lt;</span><span class=s>&#34;This is Vehicle.&#34;</span><span class=o>&lt;&lt;</span><span class=n>endl</span><span class=p>;}</span>
+<span class=p>};</span>
+<span class=k>class</span> <span class=nc>FourWheeler</span><span class=o>:</span> <span class=k>public</span> <span class=n>Vehicle</span><span class=p>{</span>
+<span class=k>public</span><span class=o>:</span>
+    <span class=n>FourWheeler</span><span class=p>(){</span><span class=n>cout</span><span class=o>&lt;&lt;</span><span class=s>&#34;Objects with 4 wheels are vehicles.&#34;</span><span class=o>&lt;&lt;</span><span class=n>endl</span><span class=p>;}</span>
+<span class=p>};</span>
+<span class=k>class</span> <span class=nc>Car</span><span class=o>:</span> <span class=k>public</span> <span class=n>FourWheeler</span><span class=p>{</span>
+<span class=k>public</span><span class=o>:</span>
+    <span class=n>Car</span><span class=p>(){</span><span class=n>cout</span><span class=o>&lt;&lt;</span><span class=s>&#34;Car has 4 Wheels&#34;</span><span class=o>&lt;&lt;</span><span class=n>endl</span><span class=p>;}</span>
+<span class=p>};</span>
+
+<span class=kt>int</span> <span class=nf>main</span><span class=p>(){</span>
+    <span class=n>Car</span> <span class=n>myCar</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><h3 id=22-inline内联函数>2.2 inline内联函数</h3><ul><li><p>引入内联函数的目的是为了解决程序中函数调用的效率问题，程序在编译器编译的时候，编译器将程序中出现的内联函数的调用表达式用内联函数的函数体进行替换，而对于其他的函数，都是在运行时候才被替代。这其实就是个空间代价换时间的节省。所以内联函数一般都是1-5行的小函数。</p></li><li><p>在内联函数内不允许使用循环语句和开关语句；内联函数的定义必须出现在内联函数第一次调用之前；类结构中所在的类说明内部定义的函数是内联函数。</p></li><li><p>使用内联函数来返回两个数中的最大值：</p></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=kr>inline</span> <span class=kt>int</span> <span class=nf>Max</span><span class=p>(</span><span class=kt>int</span> <span class=n>x</span><span class=p>,</span><span class=kt>int</span> <span class=n>y</span><span class=p>){</span>
+    <span class=k>return</span> <span class=p>(</span><span class=n>x</span><span class=o>&gt;</span><span class=n>y</span><span class=p>)</span><span class=o>?</span><span class=nl>x</span><span class=p>:</span><span class=n>y</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><h3 id=23-static静态成员>2.3 static静态成员</h3><ul><li><p>当我们声明类的成员为静态时，这意味着无论创建多少个类的对象，静态成员都只有一个副本。静态成员在类的所有对象中是共享的。如果不存在其他的初始化语句，在创建第一个对象时，所有的静态数据都会被初始化为零。</p></li><li><p>如果把函数成员声明为静态的，就可以把函数与类的任何特定对象独立开来。静态成员函数即使在类对象不存在的情况下也能被调用。</p></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=k>class</span> <span class=nc>Box</span><span class=p>{</span>
+<span class=k>private</span><span class=o>:</span>
+    <span class=kt>double</span> <span class=n>length</span><span class=p>;</span>
+    <span class=kt>double</span> <span class=n>width</span><span class=p>;</span>
+    <span class=kt>double</span> <span class=n>height</span><span class=p>;</span>
+<span class=k>public</span><span class=o>:</span>
+    <span class=k>static</span> <span class=kt>int</span> <span class=n>boxCount</span><span class=p>;</span> <span class=c1>//只声明，不定义
+</span><span class=c1></span>    <span class=n>Box</span><span class=p>(</span><span class=kt>double</span> <span class=n>l</span><span class=p>,</span><span class=kt>double</span> <span class=n>w</span><span class=p>,</span><span class=kt>double</span> <span class=n>h</span><span class=p>){</span>
+        <span class=k>this</span><span class=o>-&gt;</span><span class=n>length</span><span class=o>=</span><span class=n>l</span><span class=p>;</span>
+        <span class=k>this</span><span class=o>-&gt;</span><span class=n>width</span><span class=o>=</span><span class=n>w</span><span class=p>;</span>
+        <span class=k>this</span><span class=o>-&gt;</span><span class=n>height</span><span class=o>=</span><span class=n>h</span><span class=p>;</span>
+
+        <span class=n>boxCount</span><span class=o>++</span><span class=p>;</span>   
+    <span class=p>}</span>
+
+    <span class=k>static</span> <span class=kt>int</span> <span class=nf>getBoxCount</span><span class=p>(){</span>
+        <span class=k>return</span> <span class=n>boxCount</span><span class=p>;</span>
+    <span class=p>}</span>
+<span class=p>};</span>
+
+<span class=kt>int</span> <span class=n>Box</span><span class=o>::</span><span class=n>boxCount</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span> <span class=c1>//在class外初始化
+</span><span class=c1></span>
+<span class=kt>int</span> <span class=nf>main</span><span class=p>(){</span>
+    <span class=n>Box</span> <span class=n>box1</span><span class=p>(</span><span class=mi>2</span><span class=p>,</span><span class=mi>4</span><span class=p>,</span><span class=mi>5</span><span class=p>);</span>
+    <span class=n>Box</span> <span class=n>box3</span><span class=p>(</span><span class=mi>3</span><span class=p>,</span><span class=mi>1</span><span class=p>,</span><span class=mi>2</span><span class=p>);</span>
+
+    <span class=n>cout</span><span class=o>&lt;&lt;</span><span class=n>Box</span><span class=o>::</span><span class=n>boxCount</span><span class=o>&lt;&lt;</span><span class=n>endl</span><span class=p>;</span> <span class=c1>//直接调用
+</span><span class=c1></span>    <span class=n>cout</span><span class=o>&lt;&lt;</span><span class=n>Box</span><span class=o>::</span><span class=n>getBoxCount</span><span class=p>()</span><span class=o>&lt;&lt;</span><span class=n>endl</span><span class=p>;</span> <span class=c1>//直接调用
+</span><span class=c1></span><span class=p>}</span>
+</code></pre></td></tr></table></div></div><h3 id=24-friend友元函数>2.4 friend友元函数</h3><ul><li><p>定义在类外部，但有权访问类的所有私有（private）成员和保护（protected）成员。友元函数并不是成员函数。</p></li><li><p>友元也可以是一个类，该类被称为友元类，在这种情况下，整个类及其所有成员都是友元。</p></li><li><p>使用举例：</p></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=k>class</span> <span class=nc>Box</span><span class=p>{</span>
+<span class=k>private</span><span class=o>:</span>
+    <span class=kt>double</span> <span class=n>width</span><span class=p>;</span>
+<span class=k>public</span><span class=o>:</span>
+    <span class=n>Box</span><span class=p>(</span><span class=kt>double</span> <span class=n>w</span><span class=p>){</span><span class=k>this</span><span class=o>-&gt;</span><span class=n>width</span><span class=o>=</span><span class=n>w</span><span class=p>;}</span>
+    <span class=k>friend</span> <span class=kt>void</span> <span class=nf>printWidth</span><span class=p>(</span><span class=n>Box</span> <span class=n>b</span><span class=p>);</span>
+<span class=p>};</span>
+
+<span class=kt>void</span> <span class=nf>printWidth</span><span class=p>(</span><span class=n>Box</span> <span class=n>b</span><span class=p>){</span> <span class=c1>//在class外定义
+</span><span class=c1></span>    <span class=n>cout</span><span class=o>&lt;&lt;</span><span class=s>&#34;Box&#39;s width: &#34;</span><span class=o>&lt;&lt;</span><span class=n>b</span><span class=p>.</span><span class=n>width</span><span class=o>&lt;&lt;</span><span class=n>endl</span><span class=p>;</span>
+<span class=p>}</span>
+
+<span class=kt>int</span> <span class=nf>main</span><span class=p>(){</span>
+    <span class=n>Box</span> <span class=n>b</span><span class=p>(</span><span class=mi>23</span><span class=p>);</span>
+    <span class=n>printWidth</span><span class=p>(</span><span class=n>b</span><span class=p>);</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=k>class</span> <span class=nc>A</span><span class=p>{</span>
+<span class=k>private</span><span class=o>:</span>
+    <span class=kt>int</span> <span class=n>a</span><span class=p>;</span>
+<span class=k>public</span><span class=o>:</span>
+    <span class=n>A</span><span class=p>(){</span><span class=n>a</span><span class=o>=</span><span class=mi>666</span><span class=p>;}</span>
+    <span class=k>friend</span> <span class=k>class</span> <span class=nc>B</span><span class=p>;</span>
+<span class=p>};</span>
+
+<span class=k>class</span> <span class=nc>B</span><span class=p>{</span>
+<span class=k>private</span><span class=o>:</span>
+    <span class=kt>int</span> <span class=n>b</span><span class=p>;</span>
+<span class=k>public</span><span class=o>:</span>
+    <span class=n>B</span><span class=p>(){</span><span class=n>b</span><span class=o>=</span><span class=mi>233</span><span class=p>;}</span>
+    <span class=kt>void</span> <span class=nf>showA</span><span class=p>(</span><span class=n>A</span><span class=o>&amp;</span> <span class=n>x</span><span class=p>){</span>
+        <span class=n>cout</span><span class=o>&lt;&lt;</span><span class=n>x</span><span class=p>.</span><span class=n>a</span><span class=p>;</span>
+    <span class=p>}</span>
+<span class=p>};</span>
+
+<span class=kt>int</span> <span class=nf>main</span><span class=p>(){</span>
+    <span class=n>A</span> <span class=n>a</span><span class=p>;</span>
+    <span class=n>B</span> <span class=n>b</span><span class=p>;</span>
+    <span class=n>b</span><span class=p>.</span><span class=n>showA</span><span class=p>(</span><span class=n>a</span><span class=p>);</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><h3 id=25-拷贝构造函数>2.5 拷贝构造函数</h3><ul><li><p>当定义一个新对象并用一个同类型的对象对它进行初始化时，将显示使用拷贝构造函数。当该类型的对象传递给函数或从函数返回该类型的对象时，将隐式调用拷贝构造函数。</p></li><li><p>通常用于：</p><ul><li>通过使用另一个同类型的对象来初始化新创建的对象；</li><li>复制对象把它作为参数传递给函数；</li><li>复制对象，并从函数返回这个对象。</li></ul></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=k>class</span> <span class=nc>Point</span><span class=p>{</span>
+<span class=k>private</span><span class=o>:</span>
+    <span class=kt>int</span> <span class=n>x</span><span class=p>,</span><span class=n>y</span><span class=p>;</span>
+<span class=k>public</span><span class=o>:</span>
+    <span class=n>Point</span><span class=p>(</span><span class=kt>int</span> <span class=n>x1</span><span class=p>,</span><span class=kt>int</span> <span class=n>y1</span><span class=p>){</span><span class=k>this</span><span class=o>-&gt;</span><span class=n>x</span><span class=o>=</span><span class=n>x1</span><span class=p>;</span><span class=k>this</span><span class=o>-&gt;</span><span class=n>y</span><span class=o>=</span><span class=n>y1</span><span class=p>;}</span>
+    <span class=n>Point</span><span class=p>(</span><span class=k>const</span> <span class=n>Point</span><span class=o>&amp;</span> <span class=n>p1</span><span class=p>){</span><span class=k>this</span><span class=o>-&gt;</span><span class=n>x</span><span class=o>=</span><span class=n>p1</span><span class=p>.</span><span class=n>x</span><span class=p>;</span><span class=k>this</span><span class=o>-&gt;</span><span class=n>y</span><span class=o>=</span><span class=n>p1</span><span class=p>.</span><span class=n>y</span><span class=p>;}</span>
+
+    <span class=kt>int</span> <span class=nf>getX</span><span class=p>(){</span><span class=k>return</span> <span class=k>this</span><span class=o>-&gt;</span><span class=n>x</span><span class=p>;}</span>
+    <span class=kt>int</span> <span class=nf>getY</span><span class=p>(){</span><span class=k>return</span> <span class=k>this</span><span class=o>-&gt;</span><span class=n>y</span><span class=p>;}</span>
+<span class=p>};</span>
+
+<span class=kt>int</span> <span class=nf>main</span><span class=p>(){</span>
+    <span class=n>Point</span> <span class=n>p1</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span><span class=mi>3</span><span class=p>);</span>
+    <span class=n>Point</span> <span class=n>p2</span><span class=o>=</span><span class=n>p1</span><span class=p>;</span>
+
+    <span class=n>cout</span><span class=o>&lt;&lt;</span><span class=n>p2</span><span class=p>.</span><span class=n>getX</span><span class=p>()</span><span class=o>&lt;&lt;</span><span class=n>endl</span><span class=p>;</span>
+    <span class=n>cout</span><span class=o>&lt;&lt;</span><span class=n>p2</span><span class=p>.</span><span class=n>getY</span><span class=p>()</span><span class=o>&lt;&lt;</span><span class=n>endl</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><h3 id=26-重载函数运算符>2.6 重载函数&运算符</h3><ul><li>重载运算符比如<code>Box operator+(const Box&);</code>，大多数的重载运算符可被定义为普通的非成员函数或者被定义为类成员函数。</li><li>如果我们定义上面的函数为类的非成员函数，那么我们需要为每次操作传递两个参数，比如<code>Box operator+(const Box&,const Box&);</code>。</li></ul><h3 id=27-虚函数>2.7 虚函数</h3><ul><li>虚函数是C++中用于实现多态的机制，通过基类访问派生类定义的函数。</li><li>纯虚函数比如<code>virtual int area()=0;</code>，纯虚函数一定没有定义，用来规范派生类的行为，即接口。包含纯虚函数的类是抽象类，抽象类不能定义实例，但可以声明指向实现该抽象类的具体类的指针或引用。</li><li>虚函数声比如<code>virtual ReturnType FunctionName(Parameter)</code>，虚函数必须实现，如果不实现，编译器将报错。</li></ul><h3 id=28-接口抽象类>2.8 接口&抽象类</h3><ul><li><p>如果类中至少有一个函数被声明为纯虚函数，则这个类就是抽象类。</p></li><li><p>需要在派生类中重写纯虚函数。</p></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=k>class</span> <span class=nc>person</span><span class=p>{</span>
+<span class=k>protected</span><span class=o>:</span>
+    <span class=n>string</span> <span class=n>num</span><span class=p>;</span>
+<span class=k>public</span><span class=o>:</span>
+    <span class=n>person</span><span class=p>(){</span><span class=k>this</span><span class=o>-&gt;</span><span class=n>num</span><span class=o>=</span><span class=s>&#34;110101&#34;</span><span class=p>;}</span>
+    <span class=k>virtual</span> <span class=n>string</span> <span class=nf>getNum</span><span class=p>()</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span>
+<span class=p>};</span>
+<span class=k>class</span> <span class=nc>student</span><span class=o>:</span> <span class=k>public</span> <span class=n>person</span><span class=p>{</span>
+<span class=k>public</span><span class=o>:</span>
+    <span class=n>string</span> <span class=n>getNum</span><span class=p>(){</span><span class=k>return</span> <span class=k>this</span><span class=o>-&gt;</span><span class=n>num</span><span class=p>;}</span>
+<span class=p>};</span>
+
+<span class=kt>int</span> <span class=nf>main</span><span class=p>(){</span>
+    <span class=n>student</span> <span class=n>s</span><span class=p>;</span>
+    <span class=n>cout</span><span class=o>&lt;&lt;</span><span class=n>s</span><span class=p>.</span><span class=n>getNum</span><span class=p>()</span><span class=o>&lt;&lt;</span><span class=n>endl</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><h2 id=3-进阶语法>3 进阶语法</h2><h3 id=31-template模板>3.1 template模板</h3><ul><li>函数模板</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=k>template</span><span class=o>&lt;</span><span class=k>class</span> <span class=nc>T</span><span class=o>&gt;</span>
+<span class=n>T</span> <span class=n>myMax</span><span class=p>(</span><span class=n>T</span> <span class=n>x</span><span class=p>,</span><span class=n>T</span> <span class=n>y</span><span class=p>){</span>
+    <span class=k>return</span> <span class=p>(</span><span class=n>x</span><span class=o>&gt;</span><span class=n>y</span><span class=p>)</span><span class=o>?</span><span class=nl>x</span><span class=p>:</span><span class=n>y</span><span class=p>;</span>
+<span class=p>}</span>
+
+<span class=kt>int</span> <span class=nf>main</span><span class=p>(){</span>
+    <span class=n>cout</span><span class=o>&lt;&lt;</span><span class=n>myMax</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span><span class=p>(</span><span class=mi>3</span><span class=p>,</span><span class=mi>7</span><span class=p>)</span><span class=o>&lt;&lt;</span><span class=n>endl</span><span class=p>;</span>
+    <span class=n>cout</span><span class=o>&lt;&lt;</span><span class=n>myMax</span><span class=o>&lt;</span><span class=kt>double</span><span class=o>&gt;</span><span class=p>(</span><span class=mf>45.5</span><span class=p>,</span><span class=mf>11.0</span><span class=p>)</span><span class=o>&lt;&lt;</span><span class=n>endl</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><ul><li>类模板</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=k>template</span><span class=o>&lt;</span><span class=k>class</span> <span class=nc>T</span><span class=p>,</span><span class=k>class</span> <span class=nc>U</span><span class=o>&gt;</span>
+<span class=k>class</span> <span class=nc>A</span><span class=p>{</span>
+<span class=k>private</span><span class=o>:</span>
+    <span class=n>T</span> <span class=n>x</span><span class=p>;</span>
+    <span class=n>U</span> <span class=n>y</span><span class=p>;</span>
+<span class=k>public</span><span class=o>:</span>
+    <span class=n>A</span><span class=p>(){</span><span class=n>cout</span><span class=o>&lt;&lt;</span><span class=s>&#34;constructor of A() is calling...&#34;</span><span class=o>&lt;&lt;</span><span class=n>endl</span><span class=p>;}</span>
+<span class=p>};</span>
+
+<span class=kt>int</span> <span class=nf>main</span><span class=p>(){</span>
+    <span class=n>A</span><span class=o>&lt;</span><span class=kt>char</span><span class=p>,</span><span class=kt>char</span><span class=o>&gt;</span> <span class=n>a</span><span class=p>;</span>
+    <span class=n>A</span><span class=o>&lt;</span><span class=kt>int</span><span class=p>,</span><span class=kt>double</span><span class=o>&gt;</span> <span class=n>b</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><h2 id=4-stl-1>4 STL-1</h2><h3 id=21-vector动态数组>2.1 vector动态数组</h3><ul><li><p>有的书⾥⾯把它翻译成⽮量，但是叫做动态数组更好理解。</p></li><li><p>能够在运⾏阶段设置数组的⻓度、在末尾增加新的数据、在中间插⼊新的值、⻓度任意被改变。在头⽂件<code>vector</code>⾥⾯。</p></li><li><p><code>vector</code>、<code>stack</code>、<code>queue</code>、<code>map</code>、<code>set</code>这些在C++中都叫做容器，这些容器的⼤⼩都可以⽤<code>.size()</code>获取到。</p></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span><span class=cpf>&lt;iostream&gt;</span><span class=cp>
+</span><span class=cp>#include</span><span class=cpf>&lt;vector&gt;</span><span class=cp>
+</span><span class=cp></span><span class=kt>int</span> <span class=nf>main</span><span class=p>(){</span>
+<span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>v1</span><span class=p>;</span> <span class=c1>//定义⼀个vector v1，没有分配⼤⼩
+</span><span class=c1></span><span class=n>cout</span><span class=o>&lt;&lt;</span><span class=n>v1</span><span class=p>.</span><span class=n>size</span><span class=p>();</span> <span class=c1>//输出vector v1的⼤⼩
+</span><span class=c1></span><span class=p>}</span>
+</code></pre></td></tr></table></div></div><ul><li><p><code>vector</code>可以⼀开始不定义⼤⼩，之后⽤<code>resize</code>⽅法分配⼤⼩，也可以⼀开始就定义⼤⼩，之后还可以对它插⼊删除动态改变它的⼤⼩～</p></li><li><p>⽽且不管在<code>main</code>函数⾥还是在全局中定义，它都能够直接将所有的值初始化为0（不⽤显式地写出来，默认就是所有的元素为0）。</p></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>v</span><span class=p>(</span><span class=mi>10</span><span class=p>);</span> <span class=c1>//直接定义⻓度为10的int数组，默认这10个元素值都为0
+</span><span class=c1></span>
+<span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>v1</span><span class=p>;</span>
+<span class=n>v1</span><span class=p>.</span><span class=n>resize</span><span class=p>(</span><span class=mi>100</span><span class=p>);</span> <span class=c1>//先定义⼀个vector变量v1，然后将⻓度resize为8，默认这8个元素都是0
+</span><span class=c1></span>
+<span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>vector_c</span><span class=p>(</span><span class=mi>20</span><span class=p>,</span> <span class=mi>2</span><span class=p>);</span> <span class=c1>//定义时指定vector的⼤⼩并把所有的元素赋⼀个指定的值
+</span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=n>v</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span><span class=o>=</span><span class=mi>2</span><span class=p>;</span> <span class=c1>//访问的时候像数组⼀样直接⽤[]下标访问即可
+</span><span class=c1></span><span class=n>cout</span><span class=o>&lt;&lt;</span><span class=n>v</span><span class=p>[</span><span class=mi>0</span><span class=p>];</span>
+</code></pre></td></tr></table></div></div><ul><li>常⽤用法：</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span><span class=n>i</span><span class=o>&lt;</span><span class=mi>10</span><span class=p>;</span><span class=n>i</span><span class=o>++</span><span class=p>){</span> <span class=c1>//在vector a的末尾添加⼀个元素i
+</span><span class=c1></span><span class=n>vector_a</span><span class=p>.</span><span class=n>push_back</span><span class=p>(</span><span class=n>i</span><span class=p>);</span> 
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><ul><li>容器遍历的时候都是使⽤迭代器访问的，<code>c.begin()</code>是⼀个指针，指向容器的<strong>第⼀个元素</strong>，<code>c.end()</code>指向容器的最后⼀个元素的<strong>后⼀个位置</strong>，所以迭代器指针<code>it</code>的<code>for</code>循环判断条件是<code>it!=c.end()</code>。</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=k>for</span><span class=p>(</span><span class=k>auto</span> <span class=n>it</span><span class=o>=</span><span class=n>c</span><span class=p>.</span><span class=n>begin</span><span class=p>();</span><span class=n>it</span><span class=o>!=</span><span class=n>c</span><span class=p>.</span><span class=n>end</span><span class=p>();</span><span class=n>it</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span> <span class=c1>//使⽤迭代器访问
+</span><span class=c1></span><span class=n>cout</span><span class=o>&lt;&lt;*</span><span class=n>it</span><span class=o>&lt;&lt;</span><span class=s>&#34; &#34;</span><span class=p>;</span> <span class=c1>//加星号
+</span><span class=c1></span><span class=p>}</span>
+</code></pre></td></tr></table></div></div><ul><li>更多查看官方 <a href=/www.cplusplus.com>doc</a></li></ul><h3 id=22-set集合>2.2 set集合</h3><ul><li><p>⼀个<code>set</code>⾥⾯的各元素各不相同，且<code>set</code>会按照元素进⾏从⼩到⼤排序～</p></li><li><p>常⽤⽤法：</p></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=n>set</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>set_s</span><span class=p>;</span> <span class=c1>// 定义
+</span><span class=c1></span>
+<span class=n>set_s</span><span class=p>.</span><span class=n>insert</span><span class=p>(</span><span class=mi>99</span><span class=p>);</span> <span class=c1>//插入元素
+</span><span class=c1></span><span class=n>cout</span><span class=o>&lt;&lt;*</span><span class=p>(</span><span class=n>set_s</span><span class=p>.</span><span class=n>begin</span><span class=p>())</span><span class=o>&lt;&lt;</span><span class=n>endl</span><span class=p>;</span> <span class=c1>//取址输出第一个
+</span><span class=c1></span>
+<span class=k>for</span><span class=p>(</span><span class=k>auto</span> <span class=n>it</span><span class=o>=</span><span class=n>set_s</span><span class=p>.</span><span class=n>begin</span><span class=p>();</span><span class=n>it</span><span class=o>!=</span><span class=n>set_s</span><span class=p>.</span><span class=n>end</span><span class=p>();</span><span class=n>it</span><span class=o>++</span><span class=p>){</span> <span class=c1>//迭代器
+</span><span class=c1></span>    <span class=n>cout</span><span class=o>&lt;&lt;*</span><span class=n>it</span><span class=o>&lt;&lt;</span><span class=s>&#34; &#34;</span><span class=p>;</span> <span class=c1>//遍历取址输出每一个元素
+</span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=n>cout</span><span class=o>&lt;&lt;</span><span class=p>(</span><span class=n>set_s</span><span class=p>.</span><span class=n>find</span><span class=p>(</span><span class=mi>99</span><span class=p>)</span><span class=o>!=</span><span class=n>set_s</span><span class=p>.</span><span class=n>end</span><span class=p>())</span><span class=o>&lt;&lt;</span><span class=n>endl</span><span class=p>;</span> <span class=c1>//查找集合中的值，如果结果等于set_s.end()表示未找到
+</span><span class=c1></span>
+<span class=n>set_s</span><span class=p>.</span><span class=n>erase</span><span class=p>(</span><span class=mi>1</span><span class=p>);</span> <span class=c1>//删除集合中的1这个元素
+</span></code></pre></td></tr></table></div></div><h3 id=23-map映射>2.3 map映射</h3><ul><li><p><code>map</code>是键值对，⽐如⼀个⼈名对应⼀个学号，就可以定义⼀个字符串<code>string</code>类型的⼈名为“键”，学 号<code>int</code>类型为“值”，如<code>map&lt;string,int>m</code>。</p></li><li><p>当然键、值也可以是其它变量类型～<code>map</code>会⾃动将所有的键值对按照键从⼩到⼤排序，使⽤时的头⽂件<code>&lt;map></code></p></li><li><p>常⽤用法：</p></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=n>map</span><span class=o>&lt;</span><span class=n>string</span><span class=p>,</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>map_m</span><span class=p>;</span> <span class=c1>//定义
+</span><span class=c1></span>
+<span class=n>map_m</span><span class=p>[</span><span class=s>&#34;hello&#34;</span><span class=p>]</span><span class=o>=</span><span class=mi>2</span><span class=p>;</span> <span class=c1>//将key为&#34;hello&#34;, value为2的键值对存⼊map
+</span><span class=c1></span><span class=n>cout</span><span class=o>&lt;&lt;</span><span class=n>map_m</span><span class=p>[</span><span class=s>&#34;hello&#34;</span><span class=p>]</span><span class=o>&lt;&lt;</span><span class=n>endl</span><span class=p>;</span> <span class=c1>//访问map中key为&#34;hello&#34;的value, 如果key不存在，则返回0
+</span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=k>for</span><span class=p>(</span><span class=k>auto</span> <span class=n>it</span><span class=o>=</span><span class=n>map_m</span><span class=p>.</span><span class=n>begin</span><span class=p>();</span><span class=n>it</span><span class=o>!=</span><span class=n>map_m</span><span class=p>.</span><span class=n>end</span><span class=p>();</span><span class=n>it</span><span class=o>++</span><span class=p>){</span> <span class=c1>//迭代器
+</span><span class=c1></span>    <span class=n>cout</span><span class=o>&lt;&lt;</span><span class=n>it</span><span class=o>-&gt;</span><span class=n>first</span><span class=o>&lt;&lt;</span><span class=s>&#34; &#34;</span><span class=p>;</span> <span class=c1>//键⽤it-&gt;first获取
+</span><span class=c1></span>    <span class=n>cout</span><span class=o>&lt;&lt;</span><span class=n>it</span><span class=o>-&gt;</span><span class=n>second</span><span class=o>&lt;&lt;</span><span class=n>endl</span><span class=p>;</span> <span class=c1>//值⽤it-&gt;second获取
+</span><span class=c1></span><span class=p>}</span>
+
+<span class=n>cout</span><span class=o>&lt;&lt;</span><span class=n>map_m</span><span class=p>.</span><span class=n>begin</span><span class=p>()</span><span class=o>-&gt;</span><span class=n>first</span><span class=o>&lt;&lt;</span><span class=s>&#34; &#34;</span><span class=p>;</span> <span class=c1>//访问第⼀个元素
+</span><span class=c1></span><span class=n>cout</span><span class=o>&lt;&lt;</span><span class=n>map_m</span><span class=p>.</span><span class=n>begin</span><span class=p>()</span><span class=o>-&gt;</span><span class=n>second</span><span class=o>&lt;&lt;</span><span class=n>endl</span><span class=p>;</span>
+
+<span class=n>cout</span><span class=o>&lt;&lt;</span><span class=n>map_m</span><span class=p>.</span><span class=n>rbegin</span><span class=p>()</span><span class=o>-&gt;</span><span class=n>first</span><span class=o>&lt;&lt;</span><span class=s>&#34; &#34;</span><span class=p>;</span> <span class=c1>//访问最后⼀个元素
+</span><span class=c1></span><span class=n>cout</span><span class=o>&lt;&lt;</span><span class=n>map_m</span><span class=p>.</span><span class=n>rbegin</span><span class=p>()</span><span class=o>-&gt;</span><span class=n>second</span><span class=o>&lt;&lt;</span><span class=n>endl</span><span class=p>;</span>
+</code></pre></td></tr></table></div></div><h3 id=23-stack栈>2.3 stack栈</h3><ul><li>使⽤时的头⽂件<code>&lt;stack></code> ，常⽤用法：</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=n>stack</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>stack_s</span><span class=p>;</span> <span class=c1>//定义
+</span><span class=c1></span>
+<span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span><span class=n>i</span><span class=o>&lt;</span><span class=mi>6</span><span class=p>;</span><span class=n>i</span><span class=o>++</span><span class=p>){</span>
+    <span class=n>stack_s</span><span class=p>.</span><span class=n>push</span><span class=p>(</span><span class=n>i</span><span class=p>);</span>
+<span class=p>}</span>
+
+<span class=n>cout</span><span class=o>&lt;&lt;</span><span class=n>stack_s</span><span class=p>.</span><span class=n>top</span><span class=p>()</span><span class=o>&lt;&lt;</span><span class=n>endl</span><span class=p>;</span> <span class=c1>//访问栈顶元素
+</span><span class=c1></span><span class=n>cout</span><span class=o>&lt;&lt;</span><span class=n>stack_s</span><span class=p>.</span><span class=n>size</span><span class=p>()</span><span class=o>&lt;&lt;</span><span class=n>endl</span><span class=p>;</span> <span class=c1>//输出元素个数
+</span><span class=c1></span>
+<span class=n>stack_s</span><span class=p>.</span><span class=n>pop</span><span class=p>();</span> <span class=c1>//移除栈顶元素
+</span></code></pre></td></tr></table></div></div><h3 id=24-queue队列>2.4 queue队列</h3><ul><li>使⽤时的头⽂件<code>&lt;queue></code> ，常⽤用法：</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=n>queue</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>queue_q</span><span class=p>;</span> <span class=c1>//定义
+</span><span class=c1></span>
+<span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span><span class=n>i</span><span class=o>&lt;</span><span class=mi>6</span><span class=p>;</span><span class=n>i</span><span class=o>++</span><span class=p>){</span>
+    <span class=n>queue_q</span><span class=p>.</span><span class=n>push</span><span class=p>(</span><span class=n>i</span><span class=p>);</span>
+<span class=p>}</span>
+
+<span class=n>cout</span><span class=o>&lt;&lt;</span><span class=n>queue_q</span><span class=p>.</span><span class=n>front</span><span class=p>()</span><span class=o>&lt;&lt;</span><span class=n>endl</span><span class=p>;</span> <span class=c1>//访问队⾸元素
+</span><span class=c1></span><span class=n>cout</span><span class=o>&lt;&lt;</span><span class=n>stack_s</span><span class=p>.</span><span class=n>size</span><span class=p>()</span><span class=o>&lt;&lt;</span><span class=n>endl</span><span class=p>;</span> <span class=c1>//输出元素个数
+</span><span class=c1></span>
+<span class=n>queue_q</span><span class=p>.</span><span class=n>pop</span><span class=p>();</span> <span class=c1>//移除队⾸元素
+</span></code></pre></td></tr></table></div></div><h3 id=25-unordered_map和unordered_set>2.5 unordered_map和unordered_set</h3><ul><li><code>map</code>会按照键值对的键<code>key</code>进⾏排序；<code>set</code>⾥⾯会按照集合中的元素⼤⼩进⾏排序，从⼩到⼤顺序。⽽<code>unordered_map</code>或<code>unordered_set</code>省去了这个排序的过程。</li><li>如果偶尔刷题时候⽤<code>map</code>或<code>set</code>超时了，可以考虑⽤<code>unordered_map</code>或 <code>unordered_set</code>缩短代码运⾏时间、提⾼代码效率。</li></ul><h2 id=5-stl-2>5 STL-2</h2><h3 id=31-位运算bitset>3.1 位运算bitset</h3><ul><li><p>⽤来处理⼆进制位⾮常⽅便。可能在PAT、蓝桥OJ中不常⽤，但是在LeetCode OJ中经常⽤到～⽽且知道<code>bitset</code>能够简化⼀些操作，可能⼀些复杂的问题能够直接⽤<code>bitset</code>就很轻易地解决。</p></li><li><p>使⽤时的头⽂件<code>&lt;bitset></code> ，常⽤用法：</p></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=n>bitset</span><span class=o>&lt;</span><span class=mi>5</span><span class=o>&gt;</span> <span class=n>b1</span><span class=p>(</span><span class=s>&#34;11&#34;</span><span class=p>);</span> <span class=c1>//5表示5个⼆进位
+</span><span class=c1></span><span class=n>bitset</span><span class=o>&lt;</span><span class=mi>5</span><span class=o>&gt;</span> <span class=n>b2</span><span class=p>;</span> <span class=c1>//都为0
+</span><span class=c1></span><span class=n>bitset</span><span class=o>&lt;</span><span class=mi>5</span><span class=o>&gt;</span> <span class=n>b3</span><span class=p>(</span><span class=n>u</span><span class=p>);</span> <span class=c1>//u为unsigned int，如果u=1，被初始化为10000
+</span><span class=c1></span><span class=n>bitset</span><span class=o>&lt;</span><span class=mi>5</span><span class=o>&gt;</span> <span class=n>b4</span><span class=p>(</span><span class=n>s</span><span class=p>);</span> <span class=c1>//s为字符串，如&#34;1101&#34; -&gt; &#34;10110&#34;
+</span><span class=c1></span><span class=n>bitset</span><span class=o>&lt;</span><span class=mi>5</span><span class=o>&gt;</span> <span class=n>b5</span><span class=p>(</span><span class=n>s</span><span class=p>,</span><span class=n>pos</span><span class=p>,</span><span class=n>n</span><span class=p>);</span> <span class=c1>//从字符串的s[pos]开始，n位⻓度
+</span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span><span class=n>i</span><span class=o>&lt;</span><span class=mi>5</span><span class=p>;</span><span class=n>i</span><span class=o>++</span><span class=p>){</span>
+    <span class=n>cout</span><span class=o>&lt;&lt;</span><span class=n>b</span><span class=p>[</span><span class=n>i</span><span class=p>];</span> 
+<span class=p>}</span>
+<span class=n>cout</span><span class=o>&lt;&lt;</span><span class=n>endl</span><span class=o>&lt;&lt;</span><span class=n>b</span><span class=p>.</span><span class=n>any</span><span class=p>();</span> <span class=c1>//b中是否存在1的⼆进制位
+</span><span class=c1></span><span class=n>cout</span><span class=o>&lt;&lt;</span><span class=n>endl</span><span class=o>&lt;&lt;</span><span class=n>b</span><span class=p>.</span><span class=n>none</span><span class=p>();</span> <span class=c1>//b中不存在1吗？
+</span><span class=c1></span><span class=n>cout</span><span class=o>&lt;&lt;</span><span class=n>endl</span><span class=o>&lt;&lt;</span><span class=n>b</span><span class=p>.</span><span class=n>count</span><span class=p>();</span> <span class=c1>//b中1的⼆进制位的个数
+</span><span class=c1></span><span class=n>cout</span><span class=o>&lt;&lt;</span><span class=n>endl</span><span class=o>&lt;&lt;</span><span class=n>b</span><span class=p>.</span><span class=n>size</span><span class=p>();</span> <span class=c1>//b中⼆进制位的个数
+</span><span class=c1></span><span class=n>cout</span><span class=o>&lt;&lt;</span><span class=n>endl</span><span class=o>&lt;&lt;</span><span class=n>b</span><span class=p>.</span><span class=n>test</span><span class=p>(</span><span class=mi>2</span><span class=p>);</span> <span class=c1>//测试下标为2处是否⼆进制位为1
+</span><span class=c1></span><span class=n>b</span><span class=p>.</span><span class=n>set</span><span class=p>(</span><span class=mi>4</span><span class=p>);</span> <span class=c1>//把b的下标为4处置1
+</span><span class=c1></span><span class=n>b</span><span class=p>.</span><span class=n>reset</span><span class=p>();</span> <span class=c1>//所有位归零
+</span><span class=c1></span><span class=n>b</span><span class=p>.</span><span class=n>reset</span><span class=p>(</span><span class=mi>3</span><span class=p>);</span> <span class=c1>//b的下标3处归零
+</span><span class=c1></span><span class=n>b</span><span class=p>.</span><span class=n>flip</span><span class=p>();</span> <span class=c1>//b的所有⼆进制位逐位取反
+</span><span class=c1></span><span class=kt>unsigned</span> <span class=kt>long</span> <span class=n>a</span><span class=o>=</span><span class=n>b</span><span class=p>.</span><span class=n>to_ulong</span><span class=p>();</span> <span class=c1>//b转换为unsigned long
+</span></code></pre></td></tr></table></div></div><h3 id=32-sort函数>3.2 sort函数</h3><ul><li><p>主要是对⼀个数组进⾏排序，<code>vector</code>是容器，要⽤<code>v.begin()</code>和<code>v.end()</code>表示头尾；⽽<code>int arr[]</code>⽤<code>arr</code>表示数组的⾸地址，<code>arr+n</code>表示尾部～</p></li><li><p><code>sort</code>函数的<code>cmp</code>必须按照规定来写，即必须只是<code>></code>或者<code>&lt;</code>，⽐如：<code>return a > b;</code>或<code>return a &lt; b;</code>⽽不能是<code>&lt;=</code>或<code>>=</code>。</p></li><li><p>使⽤时的头⽂件<code>&lt;algorithm></code> ，常⽤用法：</p></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=kt>bool</span> <span class=nf>cmp</span><span class=p>(</span><span class=kt>int</span> <span class=n>a</span><span class=p>,</span><span class=kt>int</span> <span class=n>b</span><span class=p>){</span> <span class=c1>//cmp函数返回的值是bool类型
+</span><span class=c1></span>    <span class=k>return</span> <span class=n>a</span><span class=o>&gt;</span><span class=n>b</span><span class=p>;</span> <span class=c1>//从⼤到⼩排列
+</span><span class=c1></span><span class=p>}</span>
+
+<span class=kt>int</span> <span class=nf>main</span><span class=p>(){</span>
+    <span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>v</span><span class=p>(</span><span class=mi>5</span><span class=p>);</span>
+    <span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span><span class=n>i</span><span class=o>&lt;</span><span class=mi>5</span><span class=p>;</span><span class=n>i</span><span class=o>++</span><span class=p>){</span>
+        <span class=n>cin</span><span class=o>&gt;&gt;</span><span class=n>v</span><span class=p>[</span><span class=n>i</span><span class=p>];</span>
+    <span class=p>}</span>
+    <span class=n>sort</span><span class=p>(</span><span class=n>v</span><span class=p>.</span><span class=n>begin</span><span class=p>(),</span><span class=n>v</span><span class=p>.</span><span class=n>end</span><span class=p>());</span> <span class=c1>//没有传⼊参数cmp，默认⼩到⼤
+</span><span class=c1></span>    <span class=k>for</span><span class=p>(</span><span class=k>auto</span> <span class=n>it</span><span class=o>=</span><span class=n>v</span><span class=p>.</span><span class=n>begin</span><span class=p>();</span><span class=n>it</span><span class=o>!=</span><span class=n>v</span><span class=p>.</span><span class=n>end</span><span class=p>();</span><span class=n>it</span><span class=o>++</span><span class=p>){</span>
+        <span class=n>cout</span><span class=o>&lt;&lt;*</span><span class=n>it</span><span class=o>&lt;&lt;</span><span class=s>&#34; &#34;</span><span class=p>;</span>
+    <span class=p>}</span>
+    
+    <span class=kt>int</span> <span class=n>arr</span><span class=p>[</span><span class=mi>4</span><span class=p>];</span>
+    <span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span><span class=n>i</span><span class=o>&lt;</span><span class=mi>4</span><span class=p>;</span><span class=n>i</span><span class=o>++</span><span class=p>){</span>
+        <span class=n>cin</span><span class=o>&gt;&gt;</span><span class=n>arr</span><span class=p>[</span><span class=n>i</span><span class=p>];</span>
+    <span class=p>}</span>
+    <span class=n>sort</span><span class=p>(</span><span class=n>arr</span><span class=p>,</span><span class=n>arr</span><span class=o>+</span><span class=mi>4</span><span class=p>,</span><span class=n>cmp</span><span class=p>);</span> <span class=c1>//⼤到⼩，因为cmp函数排序规则
+</span><span class=c1></span>    <span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span><span class=n>i</span><span class=o>&lt;</span><span class=mi>4</span><span class=p>;</span><span class=n>i</span><span class=o>++</span><span class=p>){</span>
+        <span class=n>cout</span><span class=o>&lt;&lt;</span><span class=n>arr</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=o>&lt;&lt;</span><span class=s>&#34; &#34;</span><span class=p>;</span>
+    <span class=p>}</span>
+
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><ul><li><code>cmp</code>最好⽤的还是在结构体中，尤其是很多排序的题⽬～⽐如⼀个学⽣结构体<code>stu</code>有学 号和成绩两个变量，要求如果成绩不同就按照成绩从⼤到⼩排列，如果成绩相同就按照学号从⼩到⼤排列，那么就可以写⼀个<code>cmp</code>数组实现这个看上去有点复杂的排序过程：</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=k>struct</span> <span class=nc>stu</span><span class=p>{</span>
+    <span class=kt>int</span> <span class=n>number</span><span class=p>;</span>
+    <span class=kt>int</span> <span class=n>score</span><span class=p>;</span>
+<span class=p>}</span>
+
+<span class=kt>bool</span> <span class=nf>cmp</span><span class=p>(</span><span class=n>stu</span> <span class=n>a</span><span class=p>,</span><span class=n>stu</span> <span class=n>b</span><span class=p>){</span>
+    <span class=k>if</span><span class=p>(</span><span class=n>a</span><span class=p>.</span><span class=n>score</span><span class=o>!=</span><span class=n>b</span><span class=p>.</span><span class=n>score</span><span class=p>){</span>
+        <span class=k>return</span> <span class=n>a</span><span class=p>.</span><span class=n>score</span><span class=o>&gt;</span><span class=n>b</span><span class=p>.</span><span class=n>score</span><span class=p>;</span>
+    <span class=p>}</span><span class=k>else</span><span class=p>{</span>
+        <span class=k>return</span> <span class=n>a</span><span class=p>.</span><span class=n>number</span><span class=o>&lt;</span><span class=n>b</span><span class=p>.</span><span class=n>number</span><span class=p>;</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><h3 id=33-cctype头件>3.3 cctype头⽂件</h3><ul><li><p>使⽤时的头⽂件<code>&lt;cctype></code> 。</p></li><li><p>判断⼀个字符是否是字⺟，中已经定义好了判断这些字符应该所属的范围，直接引⼊这个头⽂件并且使⽤⾥⾯的函 数判断即可，⽆需⾃⼰⼿写：</p></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=kt>char</span> <span class=n>c</span><span class=p>;</span>
+<span class=n>cin</span> <span class=n>c</span><span class=p>;</span>
+<span class=k>if</span><span class=p>(</span><span class=n>isalpha</span><span class=p>(</span><span class=n>c</span><span class=p>)){</span>
+    <span class=n>cout</span><span class=o>&lt;&lt;</span><span class=s>&#34;c is alpha!&#34;</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><ul><li><p>不仅仅能判断字⺟，还能判断数字、⼩写字⺟、⼤写字⺟等～</p><ul><li><code>isalpha</code>字⺟</li><li><code>islower</code>⼩写字⺟</li><li><code>isupper</code>⼤写字⺟</li><li><code>isalnum</code>字⺟+数字</li><li><code>isblank</code> space和 \t</li><li><code>isspace</code> space 、 \t 、 \r 、 \n</li></ul></li><li><p>还有两个经常⽤到的函数：<code>tolower</code>和<code>toupper</code>。</p></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=kt>char</span> <span class=n>c</span><span class=o>=</span><span class=s>&#34;a&#34;</span><span class=p>;</span>
+<span class=kt>char</span> <span class=n>t</span><span class=o>=</span><span class=n>toupper</span><span class=p>(</span><span class=n>c</span><span class=p>);</span>
+</code></pre></td></tr></table></div></div><h2 id=6-c11>6 C++11</h2><h3 id=41-auto声明>4.1 auto声明</h3><ul><li>以让编译器根据初始值类型直接推断变量的类型：</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=k>auto</span> <span class=n>x</span><span class=o>=</span><span class=mi>100</span><span class=p>;</span>
+<span class=k>auto</span> <span class=n>s</span><span class=o>=</span><span class=s>&#34;MAMA&#34;</span><span class=p>;</span>
+</code></pre></td></tr></table></div></div><ul><li>最主要的⽤处是在STL中使⽤迭代器的时代替⼀⼤⻓串的迭代器类型声明。</li></ul><h3 id=42-基于范围的for循环>4.2 基于范围的for循环</h3><ul><li>这在遍历数组中的每⼀个元素时使⽤会⽐较简便～⽐如想要输出数组<code>arr</code>中的每⼀个值，可以使⽤如下的⽅式输出：</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=kt>int</span> <span class=n>arr</span><span class=p>[</span><span class=mi>4</span><span class=p>]</span><span class=o>=</span><span class=p>{</span><span class=mi>3</span><span class=p>,</span><span class=mi>5</span><span class=p>,</span><span class=mi>11</span><span class=p>,</span><span class=mi>8</span><span class=p>};</span>
+<span class=k>for</span><span class=p>(</span><span class=k>auto</span> <span class=o>&amp;</span><span class=nl>i</span><span class=p>:</span> <span class=n>arr</span><span class=p>){</span> <span class=c1>//引用变量
+</span><span class=c1></span>    <span class=n>i</span><span class=o>*=</span><span class=mi>2</span><span class=p>;</span>
+<span class=p>}</span>
+<span class=k>for</span><span class=p>(</span><span class=k>auto</span> <span class=nl>i</span><span class=p>:</span> <span class=n>arr</span><span class=p>){</span> <span class=c1>//输出
+</span><span class=c1></span>    <span class=n>cout</span><span class=o>&lt;&lt;</span><span class=n>i</span><span class=o>&lt;&lt;</span><span class=s>&#34; &#34;</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><h3 id=43-to_string>4.3 to_string</h3><ul><li>使⽤时的头⽂件<code>&lt;string></code> ，常⽤用法是把⼀个<code>int</code>型变量或者⼀个数字转化为<code>string</code>类型的变量，当然也可以转<code>double</code>、<code>float</code>等类型的变量：</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=n>string</span> <span class=n>s1</span><span class=o>=</span><span class=n>to_string</span><span class=p>(</span><span class=mi>123</span><span class=p>);</span>
+<span class=n>string</span> <span class=n>s2</span><span class=o>=</span><span class=n>to_string</span><span class=p>(</span><span class=mf>33.6</span><span class=p>);</span>
+</code></pre></td></tr></table></div></div><h3 id=44-字符串转换>4.4 字符串转换</h3><ul><li><p>stoi / stod / stof / stold (long double) / stoll (long long) / stoul / stoull</p></li><li><p>可以将字符串<code>string</code>转化为对应的<code>int</code>型、<code>double</code>型变量，这在字符串处理的很多问题中很有帮助～</p></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=kt>int</span> <span class=n>a</span><span class=o>=</span><span class=n>stoi</span><span class=p>(</span><span class=s>&#34;123&#34;</span><span class=p>);</span>
+<span class=kt>int</span> <span class=n>b</span><span class=o>=</span><span class=n>stod</span><span class=p>(</span><span class=s>&#34;12.43&#34;</span><span class=p>);</span>
+</code></pre></td></tr></table></div></div></article></div><div class=grow></div><nav class=pagination-single><a href=http://lunarwhite.github.io/zh/dev/3tutor/skjvvgfj/ title=Java class=pagination-single__left><div class=pagination-single__icon><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="currentcolor" d="M19 11H7.83l4.88-4.88c.39-.39.39-1.03.0-1.42s-1.02-.39-1.41.0l-6.59 6.59c-.39.39-.39 1.02.0 1.41l6.59 6.59c.39.39 1.02.39 1.41.0s.39-1.02.0-1.41L7.83 13H19c.55.0 1-.45 1-1s-.45-1-1-1z"/></svg></div><div class=pagination-single__right-title>Java</div></a><div class=grow></div><a href=http://lunarwhite.github.io/zh/dev/3tutor/hrtebbsd/ title=Python class=pagination-single__right><div class=pagination-single__left-title>Python</div><div class=pagination-single__icon><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="currentcolor" d="M5 13h11.17l-4.88 4.88c-.39.39-.39 1.03.0 1.42.39.39 1.02.39 1.41.0l6.59-6.59c.39-.39.39-1.02.0-1.41l-6.58-6.6c-.39-.39-1.02-.39-1.41.0s-.39 1.02.0 1.41L16.17 11H5c-.55.0-1 .45-1 1s.45 1 1 1z"/></svg></div></a></nav></article><section id=list-side class=r data-dir=ltr><div class=toc><h6 class=toc__label>What's on this Page</h6><div class=toc__body><nav id=TableOfContents><ul><li><a href=#1-基础语法>1 基础语法</a><ul><li><a href=#11-输入输出>1.1 输入输出</a></li><li><a href=#12-字符串>1.2 字符串</a></li><li><a href=#13-结构体>1.3 结构体</a></li><li><a href=#14-lambda表达式>1.4 Lambda表达式</a></li><li><a href=#15-引和传值>1.5 引⽤&和传值</a></li></ul></li><li><a href=#2-面向对象>2 面向对象</a><ul><li><a href=#21-继承派生>2.1 继承&派生</a></li><li><a href=#22-inline内联函数>2.2 inline内联函数</a></li><li><a href=#23-static静态成员>2.3 static静态成员</a></li><li><a href=#24-friend友元函数>2.4 friend友元函数</a></li><li><a href=#25-拷贝构造函数>2.5 拷贝构造函数</a></li><li><a href=#26-重载函数运算符>2.6 重载函数&运算符</a></li><li><a href=#27-虚函数>2.7 虚函数</a></li><li><a href=#28-接口抽象类>2.8 接口&抽象类</a></li></ul></li><li><a href=#3-进阶语法>3 进阶语法</a><ul><li><a href=#31-template模板>3.1 template模板</a></li></ul></li><li><a href=#4-stl-1>4 STL-1</a><ul><li><a href=#21-vector动态数组>2.1 vector动态数组</a></li><li><a href=#22-set集合>2.2 set集合</a></li><li><a href=#23-map映射>2.3 map映射</a></li><li><a href=#23-stack栈>2.3 stack栈</a></li><li><a href=#24-queue队列>2.4 queue队列</a></li><li><a href=#25-unordered_map和unordered_set>2.5 unordered_map和unordered_set</a></li></ul></li><li><a href=#5-stl-2>5 STL-2</a><ul><li><a href=#31-位运算bitset>3.1 位运算bitset</a></li><li><a href=#32-sort函数>3.2 sort函数</a></li><li><a href=#33-cctype头件>3.3 cctype头⽂件</a></li></ul></li><li><a href=#6-c11>6 C++11</a><ul><li><a href=#41-auto声明>4.1 auto声明</a></li><li><a href=#42-基于范围的for循环>4.2 基于范围的for循环</a></li><li><a href=#43-to_string>4.3 to_string</a></li><li><a href=#44-字符串转换>4.4 字符串转换</a></li></ul></li></ul></nav></div></div></section></div></div><script>'use strict';var dollarCodeElem,gtCodeElem;function wrap(a,b){a.parentNode.insertBefore(b,a),b.appendChild(a)}(function(){var a=document.querySelector('.single__contents');a?a.querySelectorAll('pre > code').forEach(function(a){var b=a.getAttribute('data-lang'),d=document.createElement('div'),e=null,c=null;b&&b.includes(':')&&(e=b.split(':')[0],c=b.split(':')[1],d.className='language-'+e,d.setAttribute('data-lang',c),a.className='language-'+e,a.setAttribute('data-lang',c),a.setAttribute('id',c)),(!b||c)&&wrap(a.parentNode,d)}):null})(),dollarCodeElem=document.querySelectorAll('div.language-\\$'),gtCodeElem=document.querySelectorAll('div.language-\\>'),dollarCodeElem?dollarCodeElem.forEach(function(a){var b=a.parentNode.parentNode?a.parentNode.parentNode.querySelectorAll('.lnt'):null;b?b.forEach(function(a){a.innerHTML='$<br/>'}):null}):null,gtCodeElem?gtCodeElem.forEach(function(a){var b=a.parentNode.parentNode?a.parentNode.parentNode.querySelectorAll('.lnt'):null;b?b.forEach(function(a){a.innerHTML='><br/>'}):null}):null</script><script defer src=/js/helper/getParents.min.js></script><script defer src=/js/helper/closest.min.js></script><script defer src=/js/helper/prev.min.js></script><script defer src=/js/helper/prop.min.js></script><script defer src=/js/helper/fadeinout.min.js></script><script>document.addEventListener('DOMContentLoaded',function(){'use strict';var l=document.querySelectorAll('.single__contents > table'),d,i,a,n,k,p,h,c,m,b,g,f,e,o,j;for(let a=0;a<l.length;a++)d=l[a],i=document.createElement('div'),i.className='table-wrapper',d.parentElement.replaceChild(i,d),i.appendChild(d);a=JSON.parse("null"),a&&a.includes('mermaid')&&(n=localStorage.getItem('theme')||'light',n==="dark"?mermaid.initialize({theme:'dark'}):mermaid.initialize({theme:'default'}),k=[],[].push.apply(k,document.getElementsByClassName('language-mermaid')),k.forEach(function(b){var a=b.parentNode,c;a!==document.body&&(a.parentNode.insertBefore(b,a),a.parentNode.removeChild(a)),c=document.createElement('div'),c.classList.add('mermaid'),c.innerHTML=b.innerHTML,b.replaceWith(c)})),a&&a.includes('katex')&&(p=document.getElementsByClassName('math'),h={delimiters:[{left:"$$",right:"$$",display:!0},{left:"\\[",right:"\\]",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}]},renderMathInElement(document.querySelector('.single__contents'),h)),a&&a.includes('flowchartjs')&&(h=JSON.parse('{"arrow-end":"block","element-color":"black","fill":"white","flowstate":{"approved":{"fill":"#58C4A3","font-size":12,"no-text":"n/a","yes-text":"APPROVED"},"current":{"fill":"yellow","font-color":"red","font-weight":"bold"},"future":{"fill":"#FFFF99"},"invalid":{"fill":"#444444"},"past":{"fill":"#CCCCCC","font-size":12},"rejected":{"fill":"#C45879","font-size":12,"no-text":"REJECTED","yes-text":"n/a"},"request":{"fill":"blue"}},"font-color":"black","font-size":14,"line-color":"black","line-length":50,"line-width":3,"no-text":"no","scale":1,"symbols":{"end":{"class":"end-element"},"start":{"element-color":"green","fill":"yellow","font-color":"red"}},"text-margin":10,"x":0,"y":0,"yes-text":"yes"}'),c=null,m="language-flowchart",b=0,Array.prototype.forEach.call(document.querySelectorAll("[class^="+m+"]"),function(a){var d,e;a.style.display='none',a.parentNode.style.backgroundColor="transparent",c=a.innerText,d=document.createElement('div'),d.id='flowchart'+b,a.parentNode.insertBefore(d,a),e=flowchart.parse(c),e.drawSVG("flowchart"+b,h),b+=1})),a&&a.includes('chart')&&(g="#666",f="#ddd",e=2,Chart.defaults.global.elements.rectangle.borderWidth=e,Chart.defaults.global.elements.rectangle.borderColor=g,Chart.defaults.global.elements.rectangle.backgroundColor=f,Chart.defaults.global.elements.line.borderWidth=e,Chart.defaults.global.elements.line.borderColor=g,Chart.defaults.global.elements.line.backgroundColor=f,Chart.defaults.global.elements.point.borderWidth=e,Chart.defaults.global.elements.point.borderColor=g,Chart.defaults.global.elements.point.backgroundColor=f,o="language-chart",b=0,c=null,Array.prototype.forEach.call(document.querySelectorAll("[class^="+o+"]"),function(a){var d,e,f,g;a.style.display='none',a.parentNode.style.backgroundColor="transparent",c=a.innerText,d=document.createElement('canvas'),e=null,d.height=200,d.style.height=200,d.id='myChart'+b,e=JSON.parse(c),a.parentNode.insertBefore(d,a),f=document.getElementById('myChart'+b).getContext('2d'),g=new Chart(f,e),b+=1})),a&&a.includes('viz')&&(j="language-viz-",Array.prototype.forEach.call(document.querySelectorAll("[class^="+j+"]"),function(a){var b,c;a.style.display='none',a.parentNode.style.backgroundColor="transparent",a.getAttribute("class").split(" ").forEach(function(a){a.startsWith(j)&&(b=a.substr(j.length))}),c=new Viz,c.renderSVGElement(a.innerText,{engine:b}).then(function(b){b.style.width="100%",a.parentNode.insertBefore(b,a)})}))})</script><script>var listSide=document.getElementById('list-side'),listMain=document.getElementById('list-main'),singleMenu=document.getElementById('single-menu'),switchElem=document.querySelector('.switch'),wideViewAsDefault=JSON.parse("false");enquire.register("screen and (max-width:1280px)",{match:function(){wideViewAsDefault?(singleMenu.className='l',listMain.className='mr',listSide.className='hide'):(singleMenu.className='l',listMain.className='m',listSide.className='r')},unmatch:function(){wideViewAsDefault?(singleMenu.className='l',listMain.className='mr',listSide.className='hide'):(listSide.className='r',listMain.className='m',singleMenu.className='l')}}).register("screen and (max-width:960px)",{match:function(){singleMenu.className='l',listMain.className='mr',listSide.className='hide',switchElem.className='hide'},unmatch:function(){wideViewAsDefault?(singleMenu.className='l',listMain.className='mr',listSide.className='hide'):(singleMenu.className='l',listMain.className='m',listSide.className='r'),switchElem.className='switch'}}).register("screen and (max-width:600px)",{match:function(){listSide.className='hide',listMain.className='lmr',singleMenu.className='hide',switchElem.className='hide'},unmatch:function(){listSide.className='hide',listMain.className='mr',singleMenu.className='l',switchElem.className='hide'}})</script><div class=bot><footer class=footer><div class=divider><div class=lmr><p class=caption>©2021, All Rights Reserved</p><p class=caption>Powered by <a href=https://gohugo.io/ rel=noreferrer>Hugo</a> and the <a href=https://github.com/zzossig/hugo-theme-zdoc rel=noreferrer>zDoc theme</a></p></div></div></footer></div></div></body></html>
